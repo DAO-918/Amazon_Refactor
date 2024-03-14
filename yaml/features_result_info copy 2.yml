@@ -1,0 +1,2127 @@
+Section:
+  Div_feature: xxx
+bought_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base", [["span", 2, 1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - bought
+  - xpath
+  - ./div/span
+  - text
+bought_data_i.16_r.14_c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-base", [["span", 2, 0, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - bought
+  - xpath
+  - ./div/span
+  - text
+color_size variant:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-text-center", [["div", 1,
+    1, "a-section s-color-swatch-container s-quick-view-text-align-start", [["div",
+    2, 1, "a-section s-color-swatch-outer-circle s-color-swatch-pad s-color-swatch-outer-circle-selected",
+    [["div", 3, 1, "", [["a", 4, 1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill
+    s-color-swatch-image-swatch1 s-color-swatch-image-swatch-finder", [["span", 6,
+    1, "s-color-swatch-inner-circle-border", []]]]]]]]]], ["div", 2, 3, "a-section
+    s-color-swatch-outer-circle s-color-swatch-pad", [["div", 3, 1, "", [["a", 4,
+    1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill s-color-swatch-image-swatch2
+    s-color-swatch-image-swatch-finder", [["span", 6, 1, "s-color-swatch-inner-circle-border",
+    []]]]]]]]]], ["div", 2, 5, "a-section s-color-swatch-outer-circle s-color-swatch-pad",
+    [["div", 3, 1, "", [["a", 4, 1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill
+    s-color-swatch-image-swatch3 s-color-swatch-image-swatch-finder", [["span", 6,
+    1, "s-color-swatch-inner-circle-border", []]]]]]]]]], ["div", 2, 7, "a-section
+    s-color-swatch-outer-circle s-color-swatch-pad", [["div", 3, 1, "", [["a", 4,
+    1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill", [["span",
+    6, 1, "s-color-swatch-inner-circle-border", []]]]]]]]]], ["div", 2, 9, "a-section
+    s-color-swatch-outer-circle s-color-swatch-pad", [["div", 3, 1, "", [["a", 4,
+    1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill s-color-swatch-image-swatch5
+    s-color-swatch-image-swatch-finder", [["span", 6, 1, "s-color-swatch-inner-circle-border",
+    []]]]]]]]]], ["div", 2, 11, "a-section s-color-swatch-outer-circle s-color-swatch-pad",
+    [["div", 3, 1, "", [["a", 4, 1, "a-link-normal", [["span", 5, 1, "s-color-swatch-inner-circle-fill
+    s-color-swatch-image-swatch6 s-color-swatch-image-swatch-finder", [["span", 6,
+    1, "s-color-swatch-inner-circle-border", []]]]]]]]]], ["div", 2, 13, "", [["a",
+    3, 1, "a-link-normal s-color-swatch-link s-hidden-in-quick-view", []]]]]]]]'
+  remark: color_size variant that displays small dots of multiple colors B08H5GVGH
+color_size variant_data_i.05_r.4_c.1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-text-center", [["div", 1,
+    0, "a-section s-color-swatch-container s-quick-view-text-align-start", [["div",
+    2, 0, "", [["a", 3, 0, "a-link-normal s-color-swatch-link puis-spacing-small s-hidden-in-quick-view",
+    [["u", 4, 0, "", []]]]]]]]]]'
+  remark: color_size variant that displays small dots of multiple colors B08H5GVGH
+deal_price_rrp_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 3, 1, "a-badge", [["span", 4, 1, "a-badge-label", [["span",
+    5, 1, "a-badge-label-inner a-text-ellipsis", [["span", 6, 1, "a-badge-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]]]]'
+  data_1:
+  - is_deal
+  - xpath
+  - ./div/a/span/span/span/span
+  - text
+  data_2:
+  - sale_price
+  - xpath
+  - ./div/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div/a/div/span[2]/span[1]
+  - hiddentext
+deal_price_rrp_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["span", 2, 1, "rush-component", [["div", 3, 1, "s-csa-instrumentation-wrapper
+    s-csa-inject-redirect-emitter", [["a", 4, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 5, 1, "a-badge", [["span", 6, 1, "a-badge-label", [["span",
+    7, 1, "a-badge-label-inner a-text-ellipsis", [["span", 8, 1, "a-badge-text", []]]]]]]]]]]]]]]],
+    ["div", 1, 3, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]]]]'
+  data_1:
+  - is_deal
+  - attribute
+  - ./div[1]/span/div/a/span
+  - id
+  data_2:
+  - sale_price
+  - xpath
+  - ./div[2]/span/div/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div[2]/span/div/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div[2]/span/div/a/div/span[2]/span[1]
+  - hiddentext
+deal_price_rrp_coupon_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["span", 2, 1, "rush-component", [["div", 3, 1, "s-csa-instrumentation-wrapper
+    s-csa-inject-redirect-emitter", [["a", 4, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 5, 1, "a-badge", [["span", 6, 1, "a-badge-label", [["span",
+    7, 1, "a-badge-label-inner a-text-ellipsis", [["span", 8, 1, "a-badge-text", []]]]]]]]]]]]]]]],
+    ["div", 1, 3, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]], ["div", 1, 6, "a-row a-size-base a-color-secondary",
+    [["span", 2, 1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden",
+    [["span", 4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span",
+    4, 1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - is_deal
+  - attribute
+  - ./div[1]/span/div/a/span
+  - id
+  data_2:
+  - sale_price
+  - xpath
+  - ./div[2]/span/div/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div[2]/span/div/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div[2]/span/div/a/div/span[2]/span[1]
+  - hiddentext
+  data_5:
+  - coupon
+  - xpath
+  - ./div[3]/span/span[2]/span[1]
+  - text
+deal_price_rrp_coupon_data_i.09_r.8_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row", [["a", 2, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 3, 0, "a-badge", [["span", 4, 0, "a-badge-label", [["span",
+    5, 0, "a-badge-label-inner a-text-ellipsis", [["span", 6, 0, "a-badge-text", []]]]]]]]]]]],
+    ["div", 1, 1, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["div", 4, 0, "a-section aok-inline-block", [["span", 5, 0, "a-size-base a-color-secondary",
+    []], ["span", 5, 1, "a-price a-text-price", [["span", 6, 0, "a-offscreen", []],
+    ["span", 6, 1, "", []]]]]]]]]], ["div", 2, 2, "a-row", []]]], ["div", 1, 5, "a-row
+    a-size-base a-color-secondary puis-interactive-asin-expander-hide", [["div", 2,
+    0, "a-row", [["span", 3, 0, "rush-component", [["span", 4, 0, "s-coupon-clipped
+    aok-hidden", [["span", 5, 0, "a-color-base", []]]], ["span", 4, 2, "s-coupon-unclipped",
+    [["span", 5, 0, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 5, 1, "a-color-base", []]]]]]]]]]]]'
+  data_1:
+  - is_deal
+  - attribute
+  - ./div[1]/a/span
+  - id
+  data_2:
+  - sale_price
+  - xpath
+  - ./div[2]/div/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div[2]/div/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div[2]/div/a/div/span[2]/span[1]
+  - hiddentext
+  data_5:
+  - coupon
+  - xpath
+  - ./div[3]/div/span/span[2]/span[1]
+  - text
+deal_price_rrp_data_i.36_r.38_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row", [["a", 2, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 3, 0, "a-badge", [["span", 4, 0, "a-badge-label", [["span",
+    5, 0, "a-badge-label-inner a-text-ellipsis", [["span", 6, 0, "a-badge-text", []]]]]]]]]]]],
+    ["div", 1, 1, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["div", 4, 0, "a-section aok-inline-block", [["span", 5, 0, "a-size-base a-color-secondary",
+    []], ["span", 5, 1, "a-price a-text-price", [["span", 6, 0, "a-offscreen", []],
+    ["span", 6, 1, "", []]]]]]]]]], ["div", 2, 2, "a-row", []]]]]]'
+  data_1:
+  - is_deal
+  - attribute
+  - ./div[1]/a/span
+  - id
+  data_2:
+  - sale_price
+  - xpath
+  - ./div[2]/div[1]/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div[2]/div[1]/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div[2]/div[1]/a/div/span[2]/span[1]
+  - hiddentext
+fba_01:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []]]]]], ["div", 2, 3, "a-row", [["span", 3, 1,
+    "", [["span", 4, 1, "a-color-base", []], ["span", 4, 2, "a-color-base a-text-bold",
+    []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_02:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-section a-spacing-none s-align-children-center", [["div", 2, 1, "", [["div",
+    3, 1, "s-align-children-center", [["span", 4, 1, "a-declarative", [["a", 5, 1,
+    "a-popover-trigger a-declarative s-no-underline s-pc-badge s-align-children-center",
+    [["span", 6, 1, "faceout-image-view", []], ["img", 6, 1, "s-image", []], ["span",
+    6, 2, "a-size-base a-color-base", []], ["i", 6, 1, "a-icon a-icon-popover", []]]]]]]]]]]],
+    ["div", 1, 4, "a-popover-preload", [["div", 2, 1, "puis puis-vqcnlkgcd4sr22kxlmcindh6i0",
+    [["div", 3, 1, "s-align-children-center", [["div", 4, 1, "s-align-children-center",
+    [["span", 5, 1, "faceout-image-view", []], ["div", 5, 1, "a-image-wrapper a-lazy-loaded
+    a-manually-loaded s-image", [["noscript", 6, 1, "", []]]], ["span", 5, 2, "a-size-base
+    a-color-base a-text-bold", []]]]]], ["div", 3, 4, "a-spacing-small", [["span",
+    4, 1, "a-size-base a-color-secondary", []], ["a", 4, 1, "a-size-base a-link-normal
+    s-underline-text s-underline-link-text s-link-style", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_03:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []], ["span", 4, 3, "a-color-base", []]]]]], ["div",
+    2, 3, "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span",
+    4, 2, "a-color-base a-text-bold", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_04:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_05:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small a-color-secondary", [["span", 2, 1, "aok-inline-block
+    s-image-logo-view", [["span", 3, 1, "aok-relative s-icon-text-medium s-prime",
+    [["i", 4, 1, "a-icon a-icon-prime a-icon-medium", []]]], ["span", 3, 2, "", []]]],
+    ["span", 2, 4, "", [["span", 3, 1, "a-color-base", []], ["span", 3, 2, "a-color-base
+    a-text-bold", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_07:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []], ["span", 4, 3, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[2]
+  - text
+fba_08:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span",
+    4, 2, "a-color-base a-text-bold", []]]]]], ["div", 2, 2, "a-row", [["span", 3,
+    1, "", [["span", 4, 1, "a-color-base", []], ["span", 4, 2, "a-color-base a-text-bold",
+    []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+fba_09:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["span",
+    2, 1, "", [["span", 3, 1, "a-color-base", []], ["span", 3, 2, "a-color-base a-text-bold",
+    []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_11:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []]]]]], ["div", 2, 3, "a-row", [["span", 3, 1,
+    "", [["span", 4, 1, "a-color-base", []], ["span", 4, 2, "a-color-base a-text-bold",
+    []]]]]]]], ["div", 1, 5, "a-row a-size-base a-color-secondary", [["span", 2, 1,
+    "", [["span", 3, 1, "a-size-base a-color-price", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_12:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-section a-spacing-none s-align-children-center", [["div", 2, 1, "", [["div",
+    3, 1, "s-align-children-center", [["span", 4, 1, "a-declarative", [["a", 5, 1,
+    "a-popover-trigger a-declarative s-no-underline s-pc-badge s-align-children-center
+    s-pc-certification", [["div", 6, 1, "a-section s-margin-bottom-none aok-inline-block
+    s-pc-certification", [["span", 7, 1, "faceout-image-view", []], ["img", 7, 1,
+    "s-image", []], ["div", 7, 1, "a-section aok-inline-block aok-align-center s-pc-attribute-pill-text",
+    [["span", 8, 1, "a-size-base a-color-base", []]]]]], ["i", 6, 1, "a-icon a-icon-popover",
+    []]]]]]]]]]]], ["div", 1, 6, "a-popover-preload", [["div", 2, 1, "puis puis-v3vtwxgppca0z12v18v51zrqona",
+    [["div", 3, 1, "s-align-children-center", [["div", 4, 1, "s-align-children-center
+    s-pc-certification", [["span", 5, 1, "faceout-image-view", []], ["div", 5, 1,
+    "a-image-wrapper a-lazy-loaded a-manually-loaded s-image", [["noscript", 6, 1,
+    "", []]]], ["span", 5, 2, "a-size-base a-color-base a-text-bold", []]]]]], ["div",
+    3, 4, "a-spacing-small", [["span", 4, 1, "a-size-base a-color-secondary", []],
+    ["a", 4, 1, "a-size-base a-link-normal s-underline-text s-underline-link-text
+    s-link-style", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_13:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["span",
+    2, 1, "", [["span", 3, 1, "a-color-base", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_data_i.03_r.2_c.4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 0, "a-row s-align-children-center", [["span", 3, 0, "aok-inline-block s-image-logo-view",
+    [["span", 4, 0, "aok-relative s-icon-text-medium s-prime", [["i", 5, 0, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 1, "", []]]]]], ["div", 2, 1,
+    "a-row", [["span", 3, 0, "", [["span", 4, 0, "a-color-base", []], ["span", 4,
+    1, "a-color-base a-text-bold", []], ["span", 4, 2, "a-color-base", []]]]]], ["div",
+    2, 2, "a-row", [["span", 3, 0, "", [["span", 4, 0, "a-color-base", []], ["span",
+    4, 1, "a-color-base a-text-bold", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_data_i.3 c.4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 0, "a-row s-align-children-center", [["span", 3, 0, "aok-inline-block s-image-logo-view",
+    [["span", 4, 0, "aok-relative s-icon-text-medium s-prime", [["i", 5, 0, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 1, "", []]]]]], ["div", 2, 1,
+    "a-row", [["span", 3, 0, "", [["span", 4, 0, "a-color-base", []], ["span", 4,
+    1, "a-color-base a-text-bold", []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_data_i.4 c.4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 0, "a-row s-align-children-center", [["span", 3, 0, "aok-inline-block s-image-logo-view",
+    [["span", 4, 0, "aok-relative s-icon-text-medium s-prime", [["i", 5, 0, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 1, "", []]]]]], ["div", 2, 1,
+    "a-row", [["span", 3, 0, "", [["span", 4, 0, "a-color-base", []], ["span", 4,
+    1, "a-color-base a-text-bold", []]]]]], ["div", 2, 2, "a-row", [["span", 3, 0,
+    "", [["span", 4, 0, "a-color-base", []], ["span", 4, 1, "a-color-base a-text-bold",
+    []]]]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div
+  - text
+fba_left_count_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary",
+    [["span", 2, 1, "", [["span", 3, 1, "a-size-base a-color-price", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+  data_2:
+  - left_count
+  - xpath
+  - ./div[2]/span
+  - text
+fba_left_count_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span",
+    4, 2, "a-color-base a-text-bold", []]]]]], ["div", 2, 2, "a-row", [["span", 3,
+    1, "", [["span", 4, 1, "a-color-base", []], ["span", 4, 2, "a-color-base a-text-bold",
+    []]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary", [["span", 2, 1,
+    "", [["span", 3, 1, "a-size-base a-color-price", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+  data_2:
+  - left_count
+  - xpath
+  - ./div[2]/span/span
+  - text
+fba_left_count_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []], ["span", 4, 3, "a-color-base", []]]]]], ["div",
+    2, 3, "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span",
+    4, 2, "a-color-base a-text-bold", []]]]]]]], ["div", 1, 5, "a-row a-size-base
+    a-color-secondary", [["span", 2, 1, "", [["span", 3, 1, "a-size-base a-color-price",
+    []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+  data_2:
+  - left_count
+  - xpath
+  - ./div[2]/span/span
+  - text
+fba_left_count_4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-base a-color-secondary s-align-children-center", [["div",
+    2, 1, "a-row s-align-children-center", [["span", 3, 1, "aok-inline-block s-image-logo-view",
+    [["span", 4, 1, "aok-relative s-icon-text-medium s-prime", [["i", 5, 1, "a-icon
+    a-icon-prime a-icon-medium", []]]], ["span", 4, 2, "", []]]]]], ["div", 2, 2,
+    "a-row", [["span", 3, 1, "", [["span", 4, 1, "a-color-base", []], ["span", 4,
+    2, "a-color-base a-text-bold", []], ["span", 4, 3, "a-color-base", []]]]]]]],
+    ["div", 1, 4, "a-row a-size-base a-color-secondary", [["span", 2, 1, "", [["span",
+    3, 1, "a-size-base a-color-price", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+  data_2:
+  - left_count
+  - xpath
+  - ./div[2]/span/span
+  - text
+fba_left_count_5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["span", 2, 1, "a-badge", [["span", 3, 1, "a-badge-label",
+    [["span", 4, 1, "a-badge-label-inner a-text-ellipsis", [["span", 5, 1, "a-badge-text",
+    []]]]]]]]]], ["div", 1, 2, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]], ["div", 1, 5, "a-row a-size-base a-color-secondary",
+    [["span", 2, 1, "", [["span", 3, 1, "a-size-base a-color-base", []]]]]]]]'
+  data_1:
+  - fba
+  - xpath
+  - ./div[1]
+  - text
+  data_2:
+  - left_count
+  - xpath
+  - ./div[2]/span/span
+  - text
+feature_data_i.27_r.29_c.6:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini puis-interactive-asin-expander-hide",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["span", 2, 0, "a-color-base",
+    []]]]]]'
+  data_1:
+  - feature
+  - xpath
+  - ./div/span
+  - text
+lower_list_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini", [["div",
+    1, 1, "a-row a-size-base a-color-secondary", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["span", 4, 1, "a-size-base a-color-secondary", []], ["br", 4, 1, "", []], ["span",
+    4, 2, "a-color-base", []], ["span", 4, 3, "a-letter-space", []], ["span", 4, 4,
+    "a-declarative", [["a", 5, 1, "a-link-normal s-link-style s-underline-text s-underline-link-text",
+    []]]], ["div", 4, 1, "a-section aok-hidden", [["div", 5, 1, "a-spinner-wrapper
+    aok-hidden", [["span", 6, 1, "a-spinner a-spinner-medium", []]]]]], ["span", 4,
+    6, "a-declarative", [["div", 5, 1, "a-section aok-hidden aod-darken-background",
+    []]]]]]]]]]]]'
+  data_1:
+  - lower_price
+  - xpath
+  - ./div/span/div/span[2]
+  - text
+  data_2:
+  - lower_list
+  - xpath
+  - ./div/span/div/span[4]/a
+  - text
+lower_list_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini", [["div",
+    1, 1, "a-row a-size-base a-color-secondary", [["span", 2, 1, "a-size-base a-color-secondary",
+    []], ["br", 2, 1, "", []], ["span", 2, 2, "a-color-base", []], ["span", 2, 3,
+    "a-letter-space", []], ["span", 2, 4, "a-declarative", [["a", 3, 1, "a-link-normal
+    s-link-style s-underline-text s-underline-link-text", []]]], ["div", 2, 1, "a-section
+    aok-hidden", [["div", 3, 1, "a-spinner-wrapper aok-hidden", [["span", 4, 1, "a-spinner
+    a-spinner-medium", []]]]]], ["span", 2, 6, "a-declarative", [["div", 3, 1, "a-section
+    aok-hidden aod-darken-background", []]]]]]]]'
+  data_1:
+  - lower_price
+  - xpath
+  - ./div/span[2]
+  - text
+  data_2:
+  - lower_list
+  - xpath
+  - ./div/span[4]/a
+  - text
+lower_list_data_i.07_r.6_c.5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini puis-interactive-asin-expander-hide",
+    [["div", 1, 0, "a-row a-size-base a-color-secondary", [["span", 2, 0, "a-size-base
+    a-color-secondary", []], ["br", 2, 0, "", []], ["span", 2, 1, "a-color-base",
+    []], ["span", 2, 2, "a-letter-space", []], ["span", 2, 3, "a-declarative", [["a",
+    3, 0, "a-link-normal s-link-style s-underline-text s-underline-link-text", []]]],
+    ["div", 2, 0, "a-section aok-hidden", [["div", 3, 0, "a-spinner-wrapper aok-hidden",
+    [["span", 4, 0, "a-spinner a-spinner-medium", []]]]]], ["span", 2, 5, "a-declarative",
+    [["div", 3, 0, "a-section aok-hidden aod-darken-background", []]]]]]]]'
+  data_1:
+  - lower_price
+  - xpath
+  - ./div/span[2]
+  - text
+  data_2:
+  - lower_list
+  - xpath
+  - ./div/span[4]
+  - text
+lowest_price_rrp:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["span", 2, 1, "a-badge", [["span", 3, 1, "a-badge-label",
+    [["span", 4, 1, "a-badge-label-inner a-text-ellipsis", [["span", 5, 1, "a-badge-text",
+    []]]]]]]]]], ["div", 1, 2, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base
+    a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "", [["span", 3, 1, "a-size-base a-color-base", []]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[2]/a/span/span[1]
+  - hiddentext
+  data_3:
+  - rrp_type
+  - xpath
+  - ./div/a/div/span[1]
+  - text
+  data_4:
+  - rrp_price
+  - xpath
+  - ./div/a/div/span[2]/span[1]
+  - hiddentext
+price_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/a/span/span[1]
+  - hiddentext
+price_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 3, 1, "a-badge", [["span", 4, 1, "a-badge-label", [["span",
+    5, 1, "a-badge-label-inner a-text-ellipsis", [["span", 6, 1, "a-badge-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/a/span/span[1]
+  - hiddentext
+price_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/span/div/a/span/span[1]
+  - hiddentext
+price_4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["div", 2, 1, "a-row", [["a",
+    3, 1, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 1, "a-price", [["span", 5, 1, "a-offscreen", []],
+    ["span", 5, 2, "", [["span", 6, 1, "a-price-symbol", []], ["span", 6, 2, "a-price-whole",
+    [["span", 7, 1, "a-price-decimal", []]]], ["span", 6, 4, "a-price-fraction", []]]]]],
+    ["div", 4, 1, "", [["span", 5, 1, "a-size-base a-color-secondary", []], ["span",
+    5, 2, "a-price a-text-price", [["span", 6, 1, "a-offscreen", []], ["span", 6,
+    2, "", []]]]]]]]]], ["div", 2, 3, "a-row", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/div[1]/a/span/span[1]
+  - hiddentext
+price_coupon_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-secondary", [["span", 2, 1, "rush-component",
+    [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span", 4, 1, "a-color-base",
+    []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4, 1, "a-size-base s-highlighted-text-padding
+    aok-inline-block s-coupon-highlight-color", []], ["span", 4, 2, "a-color-base",
+    []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_coupon_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span",
+    2, 1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span",
+    4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4,
+    1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/span/div/a/span/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_coupon_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-mini a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span",
+    2, 1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span",
+    4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4,
+    1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_coupon_data_i.6 c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]]]]]],
+    ["div", 2, 1, "a-row", []]]], ["div", 1, 3, "a-row a-size-base a-color-secondary
+    puis-interactive-asin-expander-hide", [["div", 2, 0, "a-row", [["span", 3, 0,
+    "rush-component", [["span", 4, 0, "s-coupon-clipped aok-hidden", [["span", 5,
+    0, "a-color-base", []]]], ["span", 4, 2, "s-coupon-unclipped", [["span", 5, 0,
+    "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 5, 1, "a-color-base", []]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - coupon
+  - xpath
+  - ./div[2]/div/span/span[2]/span[1]
+  - text
+price_data_i.14_r.17_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]]]]]],
+    ["div", 2, 1, "a-row", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/div[1]/a/span/span[1]
+  - hiddentext
+price_prime_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-secondary", [["span", 2, 1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - prime_price
+  - xpath
+  - ./div[2]/span
+  - text
+price_prime_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span",
+    2, 1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - prime_price
+  - xpath
+  - ./div[2]/span
+  - text
+price_prime_data_i.44_r.41_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]]]]]],
+    ["div", 2, 1, "a-row", []]]], ["div", 1, 3, "a-row a-size-base a-color-secondary
+    puis-interactive-asin-expander-hide", [["div", 2, 0, "a-row", [["span", 3, 0,
+    "", []]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - prime_price
+  - xpath
+  - ./div[2]/div/span
+  - text
+price_prime_subscribe_data_i.33_r.35_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["span", 4, 7, "a-size-base a-color-secondary", [["span", 5, 0, "a-price a-text-price",
+    [["span", 6, 0, "a-offscreen", []], ["span", 6, 1, "", []]]]]]]]]], ["div", 2,
+    1, "a-row", []]]], ["div", 1, 3, "a-row a-size-base a-color-secondary puis-interactive-asin-expander-hide",
+    [["div", 2, 0, "a-row", [["span", 3, 0, "", []]]], ["div", 2, 1, "a-row", [["span",
+    3, 0, "", []]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - prime_price
+  - xpath
+  - ./div[2]/div[2]/span
+  - text
+  data_3:
+  - subscribe_price
+  - xpath
+  - ./div[2]/div[1]/span
+  - text
+price_promotion:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-mini a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span",
+    2, 1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - promotion
+  - xpath
+  - ./div[2]/span
+  - text
+price_rrp_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div/a/div/span[2]/span[1]
+  - hiddentext
+price_rrp_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "", []], ["span", 4, 2, "a-price a-text-price", [["span",
+    5, 1, "a-offscreen", []], ["span", 5, 2, "", []]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div/a/div/span[2]/span[1]
+  - hiddentext
+price_rrp_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div/span/div/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div/span/div/a/div/span[2]/span[1]
+  - hiddentext
+price_rrp_coupon_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span",
+    4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4,
+    1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_rrp_coupon_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 3, 1, "a-badge", [["span", 4, 1, "a-badge-label", [["span",
+    5, 1, "a-badge-label-inner a-text-ellipsis", [["span", 6, 1, "a-badge-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span",
+    4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4,
+    1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[2]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[2]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[2]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[3]/span/span[2]/span[1]
+  - text
+price_rrp_coupon_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary",
+    [["span", 2, 1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden",
+    [["span", 4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span",
+    4, 1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/span/div/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/span/div/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_rrp_coupon_4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-mini a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "rush-component", [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span",
+    4, 1, "a-color-base", []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4,
+    1, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 4, 2, "a-color-base", []]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[2]/span/span[2]/span[1]
+  - text
+price_rrp_coupon_data_i.03_r.2_c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["div", 4, 0, "a-section aok-inline-block", [["span", 5, 0, "a-size-base a-color-secondary",
+    []], ["span", 5, 1, "a-price a-text-price", [["span", 6, 0, "a-offscreen", []],
+    ["span", 6, 1, "", []]]]]]]]]], ["div", 2, 2, "a-row", []]]], ["div", 1, 4, "a-row
+    a-size-base a-color-secondary puis-interactive-asin-expander-hide", [["div", 2,
+    0, "a-row", [["span", 3, 0, "rush-component", [["span", 4, 0, "s-coupon-clipped
+    aok-hidden", [["span", 5, 0, "a-color-base", []]]], ["span", 4, 2, "s-coupon-unclipped",
+    [["span", 5, 0, "a-size-base s-highlighted-text-padding aok-inline-block s-coupon-highlight-color",
+    []], ["span", 5, 1, "a-color-base", []]]]]]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/div[1]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - coupon
+  - xpath
+  - ./div[2]/div/span/span[2]/span[1]
+  - text
+price_rrp_data_i.3 c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["div", 4, 0, "a-section aok-inline-block", [["span", 5, 0, "a-size-base a-color-secondary",
+    []], ["span", 5, 1, "a-price a-text-price", [["span", 6, 0, "a-offscreen", []],
+    ["span", 6, 1, "", []]]]]]]]]], ["div", 2, 2, "a-row", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div/div[1]/a/span[1]/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div/div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div/div[1]/a/div/span[2]/span[1]
+  - hiddentext
+price_rrp_prime:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-base a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]], ["div",
+    3, 1, "", [["span", 4, 1, "a-size-base a-color-secondary", []], ["span", 4, 2,
+    "a-price a-text-price", [["span", 5, 1, "a-offscreen", []], ["span", 5, 2, "",
+    []]]]]]]]]], ["div", 1, 3, "a-row a-size-base a-color-secondary", [["span", 2,
+    1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - prime_price
+  - xpath
+  - ./div[2]/span
+  - text
+price_rrp_prime_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "rush-component",
+    [["div", 3, 1, "s-csa-instrumentation-wrapper s-csa-inject-redirect-emitter",
+    [["a", 4, 1, "a-size-base a-link-normal s-no-hover s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 5, 1, "a-price", [["span", 6, 1, "a-offscreen",
+    []], ["span", 6, 2, "", [["span", 7, 1, "a-price-symbol", []], ["span", 7, 2,
+    "a-price-whole", [["span", 8, 1, "a-price-decimal", []]]], ["span", 7, 4, "a-price-fraction",
+    []]]]]], ["div", 5, 1, "", [["span", 6, 1, "a-size-base a-color-secondary", []],
+    ["span", 6, 2, "a-price a-text-price", [["span", 7, 1, "a-offscreen", []], ["span",
+    7, 2, "", []]]]]]]]]]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary",
+    [["span", 2, 1, "", []]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/span/div/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/span/div/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/span/div/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - prime_price
+  - xpath
+  - ./div[2]/span
+  - text
+price_rrp_prime_data_i.4 c.3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["div", 2, 0, "a-row", [["a",
+    3, 0, "a-link-normal s-no-hover s-underline-text s-underline-link-text s-link-style
+    a-text-normal", [["span", 4, 0, "a-price", [["span", 5, 0, "a-offscreen", []],
+    ["span", 5, 1, "", [["span", 6, 0, "a-price-symbol", []], ["span", 6, 1, "a-price-whole",
+    [["span", 7, 0, "a-price-decimal", []]]], ["span", 6, 3, "a-price-fraction", []]]]]],
+    ["div", 4, 0, "a-section aok-inline-block", [["span", 5, 0, "a-size-base a-color-secondary",
+    []], ["span", 5, 1, "a-price a-text-price", [["span", 6, 0, "a-offscreen", []],
+    ["span", 6, 1, "", []]]]]]]]]], ["div", 2, 2, "a-row", []]]], ["div", 1, 4, "a-row
+    a-size-base a-color-secondary puis-interactive-asin-expander-hide", [["div", 2,
+    0, "a-row", [["span", 3, 0, "", []]]]]]]]'
+  data_1:
+  - sale_price
+  - xpath
+  - ./div[1]/div[1]/a/span/span[1]
+  - hiddentext
+  data_2:
+  - rrp_type
+  - xpath
+  - ./div[1]/div[1]/a/div/span[1]
+  - text
+  data_3:
+  - rrp_price
+  - xpath
+  - ./div[1]/div[1]/a/div/span[2]/span[1]
+  - hiddentext
+  data_4:
+  - prime_price
+  - xpath
+  - ./div[2]/div/span
+  - text
+prime_mark:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small a-color-secondary", [["span", 2, 1, "aok-inline-block
+    s-image-logo-view", [["span", 3, 1, "aok-relative s-icon-text-medium s-prime",
+    [["i", 4, 1, "a-icon a-icon-prime a-icon-medium", []]]], ["span", 3, 2, "", []]]]]]]]'
+  remark: just a prime_mark
+rating_review_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_10:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-2 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_11:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-normal-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom puis-review-star-single", [["span", 6, 1, "a-icon-alt",
+    []]]], ["i", 5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a",
+    3, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style", [["span",
+    4, 1, "a-size-base s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-3-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_6:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-3 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_7:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_8:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-price-instructions-style",
+    [["div", 1, 1, "a-row a-size-base a-color-base", [["a", 2, 1, "a-size-mini a-link-normal
+    s-no-hover s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-price", [["span", 4, 1, "a-offscreen", []], ["span", 4, 2,
+    "", [["span", 5, 1, "a-price-symbol", []], ["span", 5, 2, "a-price-whole", [["span",
+    6, 1, "a-price-decimal", []]]], ["span", 5, 4, "a-price-fraction", []]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base a-color-secondary", [["span", 2, 1, "rush-component",
+    [["span", 3, 1, "s-coupon-clipped aok-hidden", [["span", 4, 1, "a-color-base",
+    []]]], ["span", 3, 3, "s-coupon-unclipped", [["span", 4, 1, "a-size-base s-highlighted-text-padding
+    aok-inline-block s-coupon-highlight-color", []], ["span", 4, 2, "a-color-base",
+    []]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]
+  - aria-label
+rating_review_bought_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_10:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "rush-component", [["div",
+    3, 1, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 4, 1, "", [["a", 5, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 6, 1, "a-size-base s-underline-text", []]]]]]]]]]]],
+    ["div", 1, 3, "a-row a-size-base", [["span", 2, 1, "a-size-base a-color-secondary",
+    []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]/div/span
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-normal-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom puis-review-star-single", [["span", 6, 1, "a-icon-alt",
+    []]]], ["i", 5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a",
+    3, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style", [["span",
+    4, 1, "a-size-base s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base",
+    [["span", 2, 1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_4:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-3-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-size-base puis-bold-weight-text",
+    []], ["span", 3, 2, "a-letter-space", []], ["span", 3, 3, "a-declarative", [["a",
+    4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-3 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 6, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_6:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_7:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_8:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-4 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i", 5,
+    2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span
+  - text
+rating_review_bought_9:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-row a-size-small", [["span", 2, 1, "", [["span", 3, 1, "a-declarative",
+    [["a", 4, 1, "a-popover-trigger a-declarative", [["i", 5, 1, "a-icon a-icon-star-small
+    a-star-small-3-5 aok-align-bottom", [["span", 6, 1, "a-icon-alt", []]]], ["i",
+    5, 2, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 4, "", [["a", 3, 1, "a-link-normal
+    s-underline-text s-underline-link-text s-link-style", [["span", 4, 1, "a-size-base
+    s-underline-text", []]]]]]]], ["div", 1, 2, "a-row a-size-base", [["span", 2,
+    1, "a-size-base a-color-secondary", []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_data_i.07_r.6_c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-small", [["span", 2, 0, "", [["span", 3, 0, "a-declarative",
+    [["a", 4, 0, "a-popover-trigger a-declarative", [["i", 5, 0, "a-icon a-icon-star-small
+    a-star-small-4 aok-align-bottom", [["span", 6, 0, "a-icon-alt", []]]], ["i", 5,
+    1, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 3, "rush-component", [["div",
+    3, 0, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 4, 0, "", [["a", 5, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 6, 0, "a-size-base s-underline-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base", [["span", 2, 0, "a-size-base a-color-secondary",
+    []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_data_i.3 c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-small", [["span", 2, 0, "", [["span", 3, 0, "a-declarative",
+    [["a", 4, 0, "a-popover-trigger a-declarative", [["i", 5, 0, "a-icon a-icon-star-small
+    a-star-small-5 aok-align-bottom", [["span", 6, 0, "a-icon-alt", []]]], ["i", 5,
+    1, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 3, "rush-component", [["div",
+    3, 0, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 4, 0, "", [["a", 5, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 6, 0, "a-size-base s-underline-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base", [["span", 2, 0, "a-size-base a-color-secondary",
+    []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_bought_data_i.4 c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-small", [["span", 2, 0, "", [["span", 3, 0, "a-declarative",
+    [["a", 4, 0, "a-popover-trigger a-declarative", [["i", 5, 0, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 0, "a-icon-alt", []]]], ["i",
+    5, 1, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 3, "rush-component", [["div",
+    3, 0, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 4, 0, "", [["a", 5, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 6, 0, "a-size-base s-underline-text", []]]]]]]]]]]],
+    ["div", 1, 2, "a-row a-size-base", [["span", 2, 0, "a-size-base a-color-secondary",
+    []]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div[1]/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div[1]/span[2]/div/span
+  - aria-label
+  data_3:
+  - bought
+  - xpath
+  - ./div[2]/span[1]
+  - text
+rating_review_data_i.29_r.31_c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 0, "a-row a-size-small", [["span", 2, 0, "", [["span", 3, 0, "a-declarative",
+    [["a", 4, 0, "a-popover-trigger a-declarative", [["i", 5, 0, "a-icon a-icon-star-small
+    a-star-small-4-5 aok-align-bottom", [["span", 6, 0, "a-icon-alt", []]]], ["i",
+    5, 1, "a-icon a-icon-popover", []]]]]]]], ["span", 2, 3, "rush-component", [["div",
+    3, 0, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 4, 0, "", [["a", 5, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 6, 0, "a-size-base s-underline-text", []]]]]]]]]]]]]]'
+  data_1:
+  - rating
+  - attribute
+  - ./div/span[1]
+  - aria-label
+  data_2:
+  - review
+  - attribute
+  - ./div/span[2]/div/span
+  - aria-label
+smallbussness:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-section a-spacing-none s-align-children-center", [["div", 2, 1, "", [["div",
+    3, 1, "s-align-children-center", [["span", 4, 1, "a-declarative", [["a", 5, 1,
+    "a-popover-trigger a-declarative s-no-underline s-pc-badge s-align-children-center",
+    [["span", 6, 1, "faceout-image-view", []], ["img", 6, 1, "s-image", []], ["span",
+    6, 2, "a-size-base a-color-base", []], ["i", 6, 1, "a-icon a-icon-popover", []]]]]]]]]]]],
+    ["div", 1, 4, "a-popover-preload", [["div", 2, 1, "puis puis-v1g4cn23aiw4pq21ytu1qia8qu3",
+    [["div", 3, 1, "s-align-children-center", [["div", 4, 1, "s-align-children-center",
+    [["span", 5, 1, "faceout-image-view", []], ["div", 5, 1, "a-image-wrapper a-lazy-loaded
+    a-manually-loaded s-image", [["noscript", 6, 1, "", []]]], ["span", 5, 2, "a-size-base
+    a-color-base a-text-bold", []]]]]], ["div", 3, 4, "a-spacing-small", [["span",
+    4, 1, "a-size-base a-color-secondary", []], ["a", 4, 1, "a-size-base a-link-normal
+    s-underline-text s-underline-link-text s-link-style", []]]]]]]]]]'
+  data_1:
+  - is_smb
+  - xpath
+  - ./div/div/div/span/a/span[2]
+  - text
+smallbussness_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro", [["div",
+    1, 1, "a-section a-spacing-none s-align-children-center", [["div", 2, 1, "", [["div",
+    3, 1, "s-align-children-center", [["span", 4, 1, "a-declarative", [["a", 5, 1,
+    "a-popover-trigger a-declarative s-no-underline s-pc-badge s-align-children-center",
+    [["span", 6, 1, "faceout-image-view", []], ["img", 6, 1, "s-image", []], ["span",
+    6, 2, "a-size-base a-color-base", []], ["i", 6, 1, "a-icon a-icon-popover", []]]]]]]]]]]],
+    ["div", 1, 4, "a-popover-preload", [["div", 2, 1, "puis puis-v20azwp0smsgc01ytmkntf1rk7n",
+    [["div", 3, 1, "s-align-children-center", [["div", 4, 1, "s-align-children-center
+    s-pc-certification", [["span", 5, 1, "faceout-image-view", []], ["div", 5, 1,
+    "a-image-wrapper a-lazy-loaded a-manually-loaded s-image", [["noscript", 6, 1,
+    "", []]]], ["span", 5, 2, "a-size-base a-color-base a-text-bold", []]]]]], ["div",
+    3, 4, "a-spacing-small", [["span", 4, 1, "a-size-base a-color-secondary", []],
+    ["a", 4, 1, "a-size-base a-link-normal s-underline-text s-underline-link-text
+    s-link-style", []]]]]]]]]]'
+  data_1:
+  - is_smb
+  - xpath
+  - ./div[1]/div/div/span/a/span[2]
+  - text
+smallbussness_data_i.05_r.4_c.5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-micro puis-interactive-asin-expander-hide",
+    [["div", 1, 0, "a-section a-spacing-none s-align-children-center", [["div", 2,
+    0, "", [["div", 3, 0, "s-align-children-center", [["span", 4, 0, "a-declarative",
+    [["a", 5, 0, "a-popover-trigger a-declarative s-no-underline s-pc-badge s-align-children-center
+    s-pc-certification", [["div", 6, 0, "a-section s-margin-bottom-none aok-inline-block
+    s-pc-certification", [["span", 7, 0, "faceout-image-view", []], ["img", 7, 0,
+    "s-image", []], ["div", 7, 0, "a-section aok-inline-block aok-align-center s-pc-attribute-pill-text
+    s-margin-bottom-none", [["span", 8, 0, "a-size-base a-color-base", []]]]]], ["i",
+    6, 0, "a-icon a-icon-popover", []]]]]]]]]]]], ["div", 1, 5, "a-popover-preload",
+    [["div", 2, 0, "puis puis-v3av03faevzpoo2j1n4zl59wto9", [["div", 3, 0, "s-align-children-center",
+    [["div", 4, 0, "s-align-children-center s-pc-certification", [["span", 5, 0, "faceout-image-view",
+    []], ["div", 5, 0, "a-image-wrapper a-lazy-loaded a-manually-loaded s-image",
+    [["noscript", 6, 0, "", []]]], ["span", 5, 1, "a-size-base a-color-base a-text-bold",
+    []]]]]], ["div", 3, 3, "a-spacing-small", [["span", 4, 0, "a-size-base a-color-secondary",
+    []], ["a", 4, 0, "a-size-base a-link-normal s-underline-text s-underline-link-text
+    s-link-style", []]]]]]]]]]'
+  data_1:
+  - is_smb
+  - xpath
+  - ./div[1]/div/div/span/a/div/div/span
+  - text
+title_SP_TAG_data_i.27_r.29_c.2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 0, "a-row a-spacing-micro", [["span", 2, 0, "a-declarative", [["a",
+    3, 0, "puis-label-popover puis-sponsored-label-text", [["span", 4, 0, "puis-label-popover-default",
+    [["span", 5, 0, "a-color-secondary", []]]], ["span", 4, 2, "puis-label-popover-hover",
+    [["span", 5, 0, "a-color-base", []]]], ["span", 4, 4, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 0, "a-popover-preload", [["div", 3, 0, "puis puis-v3av03faevzpoo2j1n4zl59wto9",
+    [["span", 4, 0, "", []], ["div", 4, 0, "a-row", [["span", 5, 0, "a-declarative",
+    [["a", 6, 0, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 0, "", []]]]]]]]]]]]]], ["h2", 1, 0, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 0, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]], ["div", 1, 4, "a-row a-size-base a-color-secondary", [["div", 2, 0, "a-row
+    a-color-base", [["span", 3, 0, "a-size-base a-color-base s-background-color-platinum
+    a-padding-mini aok-nowrap aok-align-top aok-inline-block a-spacing-top-micro puis-medium-weight-text",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+  data_3:
+  - tag
+  - xpath
+  - ./div[2]/div/span[1]
+  - text
+title_TAG_data_i.33_r.35_c.1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["h2", 1, 0, "a-size-mini a-spacing-none a-color-base s-line-clamp-3", [["a",
+    2, 0, "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 0, "a-size-base-plus a-color-base a-text-normal", []]]]]], ["div",
+    1, 0, "a-row a-size-base a-color-secondary", [["div", 2, 0, "a-row a-color-base",
+    [["span", 3, 0, "a-size-base a-color-base s-background-color-platinum a-padding-mini
+    aok-nowrap aok-align-top aok-inline-block a-spacing-top-micro puis-medium-weight-text",
+    []], ["span", 3, 1, "a-letter-space", []], ["span", 3, 2, "rush-component", [["div",
+    4, 0, "s-csa-instrumentation-wrapper alf-search-csa-instrumentation-wrapper",
+    [["span", 5, 0, "a-size-base a-color-base s-background-color-platinum a-padding-mini
+    aok-nowrap aok-align-top aok-inline-block a-spacing-top-micro puis-medium-weight-text",
+    []]]]]]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+  data_3:
+  - tag
+  - xpath
+  - ./div/div/span[1]
+  - text
+title_data_i.07_r.6_c.1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["h2", 1, 0, "a-size-mini a-spacing-none a-color-base s-line-clamp-4", [["a",
+    2, 0, "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 0, "a-size-base-plus a-color-base a-text-normal", []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["h2", 1, 1, "a-size-mini a-spacing-none a-color-base s-line-clamp-4", [["a",
+    2, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-size-base-plus a-color-base a-text-normal", []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 1, "a-row a-spacing-micro", [["span", 2, 1, "a-declarative", [["a",
+    3, 1, "puis-label-popover puis-sponsored-label-text", [["span", 4, 1, "puis-label-popover-default",
+    [["span", 5, 1, "a-color-secondary", []]]], ["span", 4, 3, "puis-label-popover-hover",
+    [["span", 5, 1, "a-color-base", []]]], ["span", 4, 5, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 1, "a-popover-preload", [["div", 3, 1, "puis puis-v3vtwxgppca0z12v18v51zrqona",
+    [["span", 4, 1, "", []], ["div", 4, 1, "a-row", [["span", 5, 1, "a-declarative",
+    [["a", 6, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 1, "", []]]]]]]]]]]]]], ["h2", 1, 1, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 1, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_3:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["h2", 1, 1, "a-size-mini a-spacing-none a-color-base s-line-clamp-4", [["a",
+    2, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style a-text-normal",
+    [["span", 3, 1, "a-size-base-plus a-color-base a-text-normal", []]]]]], ["div",
+    1, 1, "a-row a-size-base a-color-secondary", [["div", 2, 1, "a-row a-color-base",
+    [["span", 3, 1, "a-size-base a-color-base s-background-color-platinum a-padding-mini
+    aok-nowrap aok-align-top aok-inline-block a-spacing-top-micro puis-medium-weight-text",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_SP_1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 1, "a-row a-spacing-micro", [["span", 2, 1, "a-declarative", [["a",
+    3, 1, "puis-label-popover puis-sponsored-label-text", [["span", 4, 1, "puis-label-popover-default",
+    [["span", 5, 1, "a-color-secondary", []]]], ["span", 4, 3, "puis-label-popover-hover",
+    [["span", 5, 1, "a-color-base", []]]], ["span", 4, 5, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 1, "a-popover-preload", [["div", 3, 1, "puis puis-v20azwp0smsgc01ytmkntf1rk7n",
+    [["span", 4, 1, "", []], ["div", 4, 1, "a-row", [["span", 5, 1, "a-declarative",
+    [["a", 6, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 1, "", []]]]]]]]]]]]]], ["h2", 1, 1, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 1, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_SP_2:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 1, "a-row a-spacing-micro", [["span", 2, 1, "a-declarative", [["a",
+    3, 1, "puis-label-popover puis-sponsored-label-text", [["span", 4, 1, "puis-label-popover-default",
+    [["span", 5, 1, "a-color-secondary", []]]], ["span", 4, 3, "puis-label-popover-hover",
+    [["span", 5, 1, "a-color-base", []]]], ["span", 4, 5, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 1, "a-popover-preload", [["div", 3, 1, "puis puis-v1z9gq9z4a1fkl2jjcbb6zilkt6",
+    [["span", 4, 1, "", []], ["div", 4, 1, "a-row", [["span", 5, 1, "a-declarative",
+    [["a", 6, 1, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 1, "", []]]]]]]]]]]]]], ["h2", 1, 1, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 1, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 1, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_SP_data_i.03_r.2_c.1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 0, "a-row a-spacing-micro", [["span", 2, 0, "a-declarative", [["a",
+    3, 0, "puis-label-popover puis-sponsored-label-text", [["span", 4, 0, "puis-label-popover-default",
+    [["span", 5, 0, "a-color-secondary", []]]], ["span", 4, 2, "puis-label-popover-hover",
+    [["span", 5, 0, "a-color-base", []]]], ["span", 4, 4, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 0, "a-popover-preload", [["div", 3, 0, "puis puis-v3av03faevzpoo2j1n4zl59wto9",
+    [["span", 4, 0, "", []], ["div", 4, 0, "a-row", [["span", 5, 0, "a-declarative",
+    [["a", 6, 0, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 0, "", []]]]]]]]]]]]]], ["h2", 1, 0, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 0, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+title_url_SP_data_i.3 c.1:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-small s-title-instructions-style",
+    [["div", 1, 0, "a-row a-spacing-micro", [["span", 2, 0, "a-declarative", [["a",
+    3, 0, "puis-label-popover puis-sponsored-label-text", [["span", 4, 0, "puis-label-popover-default",
+    [["span", 5, 0, "a-color-secondary", []]]], ["span", 4, 2, "puis-label-popover-hover",
+    [["span", 5, 0, "a-color-base", []]]], ["span", 4, 4, "aok-inline-block puis-sponsored-label-info-icon",
+    []]]]]], ["div", 2, 0, "a-popover-preload", [["div", 3, 0, "puis puis-v3d0njin9z0tif29djsumm30d93",
+    [["span", 4, 0, "", []], ["div", 4, 0, "a-row", [["span", 5, 0, "a-declarative",
+    [["a", 6, 0, "a-link-normal s-underline-text s-underline-link-text s-link-style",
+    [["span", 7, 0, "", []]]]]]]]]]]]]], ["h2", 1, 0, "a-size-mini a-spacing-none
+    a-color-base s-line-clamp-4", [["a", 2, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style a-text-normal", [["span", 3, 0, "a-size-base-plus a-color-base a-text-normal",
+    []]]]]]]]'
+  data_1:
+  - title
+  - xpath
+  - ./h2/a/span
+  - text
+  data_2:
+  - asin_url
+  - attribute
+  - ./h2/a
+  - href
+use_ages:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini", [["div",
+    1, 1, "a-row a-size-base a-color-base", [["span", 2, 1, "", []]]]]]'
+  data_1:
+  - use_ages
+  - xpath
+  - ./div/span
+  - text
+use_ages_data_i.3 c.5:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-spacing-top-mini puis-interactive-asin-expander-hide",
+    [["div", 1, 0, "a-row a-size-base a-color-base", [["span", 2, 0, "", []]]]]]'
+  data_1:
+  - use_ages
+  - xpath
+  - ./div/span
+  - text
+variant_count:
+  Div_feature: '["div", 0, 0, "a-section a-spacing-none a-text-center", [["div", 1,
+    1, "a-section s-color-swatch-container s-quick-view-text-align-start", [["div",
+    2, 1, "", [["a", 3, 1, "a-link-normal s-color-swatch-link puis-spacing-small s-hidden-in-quick-view",
+    [["u", 4, 1, "", []]]]]]]]]]'
+  data_1:
+  - variant_count
+  - xpath
+  - ./div/div/a/u
+  - text

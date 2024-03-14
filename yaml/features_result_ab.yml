@@ -1,0 +1,48 @@
+Section:
+  Div_feature: xxx
+amazon_choice_1:
+  Div_feature: '["a", 0, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 1, 1, "rush-component", [["div", 2, 1, "a-row a-badge-region",
+    [["span", 3, 1, "a-badge", [["span", 4, 1, "a-badge-label", [["span", 5, 1, "a-badge-label-inner
+    a-text-ellipsis", [["span", 6, 1, "a-badge-text", []]]]]], ["span", 4, 4, "a-badge-supplementary-text
+    a-text-ellipsis", []]]]]]]]]]'
+  data_1:
+  - amz_choice
+  - xpath
+  - ./span/div/span/span/span[2]
+  - text
+amazon_choice_overall_pick:
+  Div_feature: '["span", 0, 0, "", [["div", 1, 1, "a-section", [["div", 2, 1, "a-section",
+    [["span", 3, 1, "a-declarative", [["span", 4, 1, "rush-component", [["div", 5,
+    1, "a-section aok-nowrap aok-block", [["span", 6, 1, "a-badge", [["span", 7, 1,
+    "a-badge-label", [["span", 8, 1, "a-badge-label-inner a-text-ellipsis", []]]]]],
+    ["span", 6, 4, "a-badge", [["span", 7, 1, "a-badge-label", [["span", 8, 1, "a-badge-label-inner
+    a-text-ellipsis", [["div", 9, 1, "a-section", [["span", 10, 1, "a-badge-text",
+    []], ["span", 10, 2, "aok-inline-block aok-align-center ac-badge-info-icon", []]]]]]]]]]]]]]]],
+    ["div", 3, 3, "a-popover-preload", [["div", 4, 1, "a-section a-section ac-badge-popover
+    ac-popover-text", [["span", 5, 1, "a-size-base a-color-base a-text-bold", []],
+    ["br", 5, 1, "", []], ["span", 5, 2, "a-size-base a-color-base", []], ["br", 5,
+    2, "", []]]]]]]]]]]]'
+  data_1:
+  - amz_choice
+  - xpath
+  - ./div/div/span/span/div/span[2]/span/span/div/span[1]
+  - text
+data_i.04_r.3_c.1:
+  Div_feature: '["span", 0, 0, "", [["div", 1, 0, "a-section", [["div", 2, 0, "a-section",
+    [["span", 3, 0, "a-declarative", [["span", 4, 0, "rush-component", [["div", 5,
+    0, "a-section aok-nowrap aok-block", [["span", 6, 0, "a-badge", [["span", 7, 0,
+    "a-badge-label", [["span", 8, 0, "a-badge-label-inner a-text-ellipsis", []]]]]],
+    ["span", 6, 3, "a-badge", [["span", 7, 0, "a-badge-label", [["span", 8, 0, "a-badge-label-inner
+    a-text-ellipsis", [["div", 9, 0, "a-section", [["span", 10, 0, "a-badge-text",
+    []], ["span", 10, 1, "aok-inline-block aok-align-center ac-badge-info-icon", []]]]]]]]]]]]]]]],
+    ["div", 3, 2, "a-popover-preload", [["div", 4, 0, "a-section a-section ac-badge-popover
+    ac-popover-text", [["span", 5, 0, "a-size-base a-color-base a-text-bold", []],
+    ["br", 5, 0, "", []], ["span", 5, 1, "a-size-base a-color-base", []], ["br", 5,
+    1, "", []]]]]]]]]]]]'
+data_i.32_r.29_c.1:
+  Div_feature: '["a", 0, 0, "a-link-normal s-underline-text s-underline-link-text
+    s-link-style", [["span", 1, 0, "rush-component", [["div", 2, 0, "a-row a-badge-region",
+    [["span", 3, 0, "a-badge", [["span", 4, 0, "a-badge-label", [["span", 5, 0, "a-badge-label-inner
+    a-text-ellipsis", [["span", 6, 0, "a-badge-text", []]]]]], ["span", 4, 3, "a-badge-supplementary-text
+    a-text-ellipsis", []]]]]]]]]]'
