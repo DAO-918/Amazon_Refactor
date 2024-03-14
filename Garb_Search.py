@@ -794,12 +794,18 @@ class AmazonSearch:
                 self.d_rank = number
                 self.append_line(f'卖家精灵：\t_数据名称：排名1值\t_数据值=>{self.d_rank}')
         # 价格
-        fba_price = soup.find('span', string=re.compile('FBA费用'))
-        ## ! 22
-        profit_rate = soup.find('span', string=re.compile('毛利率'))
-        
-        variant_count = soup.find('span', string=re.compile('变体数'))
-        
+        fba_span = soup.find('span', string=re.compile('FBA费用'))
+        if fba_span:
+            self.fba_price = fba_span.find_next_sibling('span').text
+            self.append_line(f'卖家精灵：\t_数据名称：FBA费用\t_数据值=>{self.fba_price}')
+        profit_rate_span = soup.find('span', string=re.compile('毛利率'))
+        if profit_rate_span:
+            self.profit_rate = float(int(profit_rate_span.find_next_sibling('span').text.rstrip('%'))/100)
+            self.append_line(f'卖家精灵：\t_数据名称：毛利率\t_数据值=>{self.profit_rate}')
+        variant_count_span = soup.find('span', string=re.compile('变体数'))
+        if variant_count_span:
+            self.variant_count = variant_count_span.find_next_sibling('span').text
+            self.append_line(f'卖家精灵：\t_数据名称：变体数\t_数据值=>{self.variant_count}')
         prime_price = soup.find('span', string=re.compile('Prime价格'))
         if prime_price:
             if self.prime_price == None:
@@ -894,6 +900,8 @@ class AmazonSearch:
             self.rrp_price = re.sub('[,$]', '', self.rrp_price)
         if self.prime_price:
             self.prime_price = re.sub('[,$]', '', self.prime_price)
+        if self.fba_price:
+            self.fba_price = re.sub('[,$]', '', self.fba_price)
         if self.a_rank:
             self.a_rank = self.a_rank.replace(",",".")
         if self.b_rank:
@@ -910,6 +918,7 @@ class AmazonSearch:
                     self.start_sale_time = datetime.strptime(self.start_sale_time, '%Y-%m-%d')
                 except ValueError:
                     self.append_line(f"??时间字符串\"{self.start_sale_time}\"无法用\"%Y-%m-%d\"格式化")
+                    self.start_sale_time = None
             elif hasattr(self.start_sale_time, 'strftime'):
                 # Time is already in datetime format, no conversion needed
                 pass
