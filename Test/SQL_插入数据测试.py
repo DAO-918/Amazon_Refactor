@@ -1,5 +1,5 @@
+# sourcery skip: for-index-underscore, list-comprehension, use-named-expression
 import pymysql
-import configparser
 from datetime import datetime
 
 from Tool.Tool_SQL import *
