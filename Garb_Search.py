@@ -42,9 +42,9 @@ class AmazonSearch:
         # 设置文档文件名为当前时间
         self.docfilename = f"output_{current_time}.docx"
         self.projectroot = os.path.dirname(os.path.abspath(__file__))
-        self.docfilepath = os.path.join(
-            self.projectroot, self.docfilename
-        )
+        parent_directory = os.path.dirname(self.projectroot)
+        self.output_root = os.path.join(parent_directory, '#OUTPUT', os.path.basename(self.projectroot))
+        self.docfilepath = os.path.join(self.output_root, self.docfilename)
         self.doc = Document()
         
         """
@@ -78,7 +78,7 @@ class AmazonSearch:
         self.info_fail_count = 0
         self.asin_all_count = 0
         self.asin_fail_count = 0
-        self.div_class_list = list()
+        self.div_class_list = []
         self.section_dict = {}
 
         self.sql = MysqlUtil()
@@ -379,7 +379,7 @@ class AmazonSearch:
             self.country = 'uk'
         else:
             self.country = lower_case_netloc.split('.')[-1]
-        
+
         self.wait.until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="search"]/div[contains(@class,"s-desktop-content")]/div[1]/div[2]/span[1]/div[1]')))
         div_list = self.driver.find_element(By.XPATH, ".//div[contains(@class, 's-result-list s-search-results')]").find_elements(By.XPATH, "./div")
         self.append_line(f'找到{len(div_list)}个搜索结果')
@@ -400,12 +400,10 @@ class AmazonSearch:
                 self.append_line(f'==品牌广告==\t{self.data_index}=\t{self.data_cel_widget}')
                 self.asin_all_count += 1
                 self.data_type = "SB"
-                
-            # 结果抬头
+
             elif div_class == self.result_class_Head:
                 self.append_line(f'==结果抬头==\t{self.data_index}=\t{self.data_cel_widget}')
-                
-            # 自然位置
+
             elif div_class == self.result_class_NR:
                 self.append_line(f'==自然位置==\t{self.data_index}=\t{self.data_cel_widget}')
                 self.asin_all_count += 1
@@ -424,8 +422,7 @@ class AmazonSearch:
                 self.append_line(self.to_info_current_dict())
                 self.append_line(f'##插入数据asin_info_current:{result}')
                 self.append_line('##################################')
-                
-            # 广告位置
+
             elif div_class == self.result_class_SP:
                 self.append_line(f'==广告位置==\t{self.data_index}=\t{self.data_cel_widget}')
                 self.asin_all_count += 1
@@ -442,15 +439,11 @@ class AmazonSearch:
                 )
                 self.append_line(f'##插入数据asin_info_current:{result}')
                 self.append_line('##################################')
-                
-            # 评价推荐
+
             elif div_class == self.result_class_HR:
                 self.append_line(f'==评价推荐==\t{self.data_index}=\t{self.data_cel_widget}')
                 lis = div.find_elements(By.TAG_NAME, 'li')
-                inner_divs = []
-                # 获取每个li中的div
-                for li in lis:
-                    inner_divs.append(li.find_element(By.XPATH, './div'))
+                inner_divs = [li.find_element(By.XPATH, './div') for li in lis]
                 # 遍历上面获取到的div
                 for div in inner_divs:
                     # 初始化
@@ -470,16 +463,15 @@ class AmazonSearch:
                     )
                     self.append_line(f'##插入数据asin_info_current:{result}')
                     self.append_line('##################################')
-                    
-            # 视频广告
+
             elif div_class == self.result_class_BV:
                 self.append_line(f'==视频广告==\t{self.data_index}=\t{self.data_cel_widget}')
                 self.asin_all_count += 1
                 self.data_type = "BV"
-                
+
             elif div_class == self.result_class_Bottom:
                 self.append_line(f'==底部内容==\t{self.data_index}=\t{self.data_cel_widget}')
-                
+
             else:
                 self.append_line(f'=!=未知广告==\t{self.data_index}=\t{div_class}')
 
@@ -514,8 +506,7 @@ class AmazonSearch:
                 # 当遍历到当前元素时，记录当前元素在同级元素中的位置
                 if elem != parent:
                     i = i + 1
-                # 当循环到自己时，停止循环，避免过度循环
-                elif elem == parent:
+                else:
                     break
         # 标签类型，层级，该层级下有多少个相关元素，class的值，[]下一级元素内容
         feature = [tag_name, level, i, attributes, []]
@@ -546,15 +537,14 @@ class AmazonSearch:
     # 比对div的特征值，找到配置文件中对应的section，在section中根据数据位置获取数据
     # 如果特征值在配置文件中没有找到，则保存特征值
     def match_feature_data(self, div_Info_child, config_name):
-        config_file = 'yaml/features_result_'+config_name+'.yml'
+        config_file = f'yaml/features_result_{config_name}.yml'
         # 获取项目根目录路径
-        root_folder = os.path.dirname(os.path.abspath(__file__))
-        config_img = os.path.join(root_folder, 'yaml', f'img_{config_name}')
-        
+        config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
+
         self.append_line(f'&&当前ASIN下的div元素有：{len(div_Info_child)}个')
         with open(config_file) as f:
             config = yaml.safe_load(f)
-        
+
         # 遍历div_Info_child数组
         for index, child in enumerate(div_Info_child, 1):
             child_class = child.get_attribute("class")
@@ -596,20 +586,19 @@ class AmazonSearch:
                         target_div = child.find_element(By.XPATH, data_xpath)
                         # 获取值的方式
                         # 如果data_type=hiddentext，通过js代码修改元素的class，再获取值
-                        if data_method == 'xpath':
+                        if data_method == 'attribute':
+                            value = target_div.get_attribute(data_type)
+                        elif data_method == 'xpath':
                             if data_type == 'hiddentext':
                                 self.driver.execute_script(
                                     "arguments[0].className = '';", target_div
                                 )
                             value = target_div.text
-                        # 获取元素的属性
-                        if data_method == 'attribute':
-                            value = target_div.get_attribute(data_type)
                         self.append_line(f'匹配到的：{section}\t_数据名称：{data_name}\t_数据值=>{value}')
                         # 通过data_name找到self中对应名称的值，将value值赋值给self.'data_name'
                         # 如果 self 之前没有叫做 data_name 的属性，这条语句将会给 self 增加一个新的属性，并将 value 赋值给它
                         setattr(self, data_name, value)
-                        key_flag = key_flag + 1
+                        key_flag += 1
                     break  # exists = True
             new_section = None
             if not exists:
@@ -624,7 +613,7 @@ class AmazonSearch:
                 self.append_line(f'!!新增元素特征值：{new_section}\t目标配置类型：{config_name}')
                 with open(config_file, 'w') as f:
                     yaml.dump(config, f)
-                    
+
                 y = child.location['y']
                 self.driver.execute_script(f"window.scrollTo(0, {y});")
                 # 获取元素的x,y坐标
@@ -647,7 +636,7 @@ class AmazonSearch:
         self.data_component_id = div.get_attribute("data-component-id")
         # value_if_true if condition else value_if_false
         self.data_cel_widget = (div.get_attribute('data-cel-widget').replace('search_result_', '') if div.get_attribute('data-cel-widget') is not None else '')
-        if self.data_index == None:
+        if self.data_index is None:
             self.data_index = f'Z{div.find_element(By.XPATH, "..").get_attribute("aria-posinset")}'
         elif int(self.data_index) < 10:
             self.data_index = f'0{self.data_index}'
@@ -655,7 +644,7 @@ class AmazonSearch:
     # 获取div_info中的数据
     def get_search_data(self, div):
         #self.roll_down()
-        
+
         # 找到 "a-section a-spacing-base" 为class的div
         # div_main = self.find_target_div_by_class(div, "a-section a-spacing-base")
         # 应该使用.//而不是//。因为//会在整个文档中查找，而.//则只在div1的子元素中查找。
@@ -663,7 +652,7 @@ class AmazonSearch:
         #div_main = div.find_element(By.XPATH, ".//div[@class='a-section a-spacing-base']")
         div_main = div.find_element(By.XPATH, ".//div[contains(@class, 'a-section a-spacing-base')]")
         # a-section a-spacing-base a-text-center 在评价推荐中的ASINdiv中class可能包含a-text-center
-        
+
         # 同级div下的class为none是卖家精灵 
         #div_main_sibling = div_main.find_elements(By.XPATH, "./following-sibling::div")
         div_main_sibling = div_main.find_element(By.XPATH, "..").find_elements(By.XPATH, "./div")
@@ -676,18 +665,18 @@ class AmazonSearch:
                 div_xiyou = div
             if div.get_attribute("class") == '':
                 div_seller= div
-        
+
         # 判断是否有Amazon'sChoice 或 Best Seller标志
         div_main_child = div_main.find_elements(By.XPATH, "./div")
         div_main_child_len = len(div_main_child)
         div_main_AB = None
-        if div_main_child_len == 3:
-            div_main_AB = div_main.find_element(By.XPATH, "./div[1]")
-            div_main_Image = div_main.find_element(By.XPATH, "./div[2]")
-            div_main_Info = div_main.find_element(By.XPATH, "./div[3]")
         if div_main_child_len == 2:
             div_main_Image = div_main.find_element(By.XPATH, "./div[1]")
             div_main_Info = div_main.find_element(By.XPATH, "./div[2]")
+        elif div_main_child_len == 3:
+            div_main_AB = div_main.find_element(By.XPATH, "./div[1]")
+            div_main_Image = div_main.find_element(By.XPATH, "./div[2]")
+            div_main_Info = div_main.find_element(By.XPATH, "./div[3]")
         # div_main_AB
         if div_main_AB:
             div_Info_AB_child = div_main_AB.find_elements(By.XPATH, "./*")
@@ -702,7 +691,7 @@ class AmazonSearch:
                 self.image = div_main_Image.find_element(
                     By.XPATH, "./span/a/div/img"
                 ).get_attribute("src")
-            except:
+            except Exception:
                 asin_herf = div_main_Image.find_element(By.XPATH, "./div/span/a").get_attribute(
                     "href"
                 )
@@ -807,9 +796,9 @@ class AmazonSearch:
             self.variant_count = variant_count_span.find_next_sibling('span').text
             self.append_line(f'卖家精灵：\t_数据名称：变体数\t_数据值=>{self.variant_count}')
         prime_price = soup.find('span', string=re.compile('Prime价格'))
-        if prime_price:
-            if self.prime_price == None:
-                self.prime_price = prime_price.find_next_sibling('span').text
+        if prime_price: # !
+            self.prime_price = prime_price.find_next_sibling('span').text
+            self.append_line(f'卖家精灵：\t_数据名称：Prime价格\t_数据值=>{self.variant_count}')
         # 重量
         weight_grams = soup.find('span', string=re.compile('grams'))
         weight_Kilograms = soup.find('span', string=re.compile('Kilograms'))
@@ -817,22 +806,22 @@ class AmazonSearch:
         weight_ounces = soup.find('span', string=re.compile('ounces'))
         if weight_grams:
             weight = weight_grams.text
-            weight = re.search(r'(\d+\.?\d*)', weight).group(1)
+            weight = re.search(r'(\d+\.?\d*)', weight)[1]
             self.weight = int(weight)
             self.weight_unit = 'grams'
         elif weight_Kilograms:
             weight = weight_Kilograms.text
-            weight = re.search(r'(\d+\.?\d*)', weight).group(1)
+            weight = re.search(r'(\d+\.?\d*)', weight)[1]
             self.weight = int(weight * 1000)
             self.weight_unit = 'grams'
         elif weight_pounds:
             weight = weight_pounds.text
-            weight = re.search(r'(\d+\.?\d*)', weight).group(1)
+            weight = re.search(r'(\d+\.?\d*)', weight)[1]
             self.weight = int(weight * 1000 * 2.2046)
             self.weight_unit = 'grams'
         elif weight_ounces:
             weight = weight_ounces.text
-            weight = re.search(r'(\d+\.?\d*)', weight).group(1)
+            weight = re.search(r'(\d+\.?\d*)', weight)[1]
             self.weight = int(weight * 1000 * 28.349)
             self.weight_unit = 'grams'
         self.append_line(f'卖家精灵：\t_数据名称：重量\t_数据值=>{self.weight}')
@@ -869,7 +858,12 @@ class AmazonSearch:
             date_text = date_span.text
             date_match = re.search(r'(\d{4}-\d{2}-\d{2})', date_text)
             if date_match:
-                date_str = date_match.group(1)
+                # 在Python的re（正则表达式）模块中，match_object.group(1) 和 match_object[1]实际上是等同的，它们都用于获取正则表达式匹配的第一个括号中的内容,也就是第一个分组
+                # 此外，group(0)代表整个匹配的结果，这和match_object[0]是等价的。
+                # 但是需要注意的是，re.search()可能会返回None（如果在字符串中没有找到匹配项），此时如果直接使用group()或者[]会导致执行错误。
+                # 因此，你应该在调用这些方法之前，要先检查re.search()的返回值是否为None。
+                #date_str = date_match.group(1)
+                date_str = date_match[1]
                 self.start_sale_time = datetime.strptime(date_str, '%Y-%m-%d').date()
         self.append_line(f'卖家精灵：\t_数据名称：上架时间\t_数据值=>{self.start_sale_time}')
         # 五点描述
@@ -919,10 +913,7 @@ class AmazonSearch:
                 except ValueError:
                     self.append_line(f"??时间字符串\"{self.start_sale_time}\"无法用\"%Y-%m-%d\"格式化")
                     self.start_sale_time = None
-            elif hasattr(self.start_sale_time, 'strftime'):
-                # Time is already in datetime format, no conversion needed
-                pass
-            else:
+            elif not hasattr(self.start_sale_time, 'strftime'):
                 self.append_line(f"??不清楚如何处理变量类型：{type(self.start_sale_time)}")
         if self.rating:
             self.rating = self.rating.split('out of')[0].strip(' ')
@@ -966,6 +957,15 @@ class AmazonSearch:
         Info_class = (
             "a-section a-spacing-small puis-padding-left-small puis-padding-right-small"
         )
+        
+        def assert_contains(image_class, main_image_class):
+            return image_class in main_image_class
+        
+        import unittest 
+        # assertTrue(expr, msg=None) assertTrue是Python的unittest模块中的一个函数，它被用于测试一个表达式的值是否为True。如果表达式的值为True，则该测试将通过，否则，测试将失败。
+        self.assertTrue(assert_contains(Image_class, div_main_Image_class), msg = f'{self.data_component_id},\tdiv_main_Image_class\t包含')
+
+        # sourcery skip: no-conditionals-in-tests
         if div_main_AB is not None:
             div_main_AB_class = div_main_AB.get_attribute("class")
             if div_main_AB_class == AB_class:
