@@ -40,7 +40,7 @@ class AmazonSearch:
         # 生成当前时间的字符串，格式为 YYYYMMDD_HHMM
         current_time = datetime.now().strftime("%Y%m%d_%H%M")
         # 设置文档文件名为当前时间
-        self.docfilename = f"output_{current_time}.docx"
+        self.docfilename = f"Garb_Search_output_{current_time}.docx"
         self.projectroot = os.path.dirname(os.path.abspath(__file__))
         parent_directory = os.path.dirname(self.projectroot)
         self.output_root = os.path.join(parent_directory, '#OUTPUT', os.path.basename(self.projectroot))
@@ -795,9 +795,9 @@ class AmazonSearch:
         if variant_count_span:
             self.variant_count = variant_count_span.find_next_sibling('span').text
             self.append_line(f'卖家精灵：\t_数据名称：变体数\t_数据值=>{self.variant_count}')
-        prime_price = soup.find('span', string=re.compile('Prime价格'))
-        if prime_price: # !
-            self.prime_price = prime_price.find_next_sibling('span').text
+        prime_price_span = soup.find('span', string=re.compile('Prime价格'))
+        if prime_price_span: # !
+            self.prime_price = prime_price_span.find_next_sibling('span').text
             self.append_line(f'卖家精灵：\t_数据名称：Prime价格\t_数据值=>{self.variant_count}')
         # 重量
         weight_grams = soup.find('span', string=re.compile('grams'))
