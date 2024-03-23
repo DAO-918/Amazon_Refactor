@@ -50,10 +50,10 @@ class Brick4Info():
         # 生成当前时间的字符串，格式为 YYYYMMDD_HHMM
         current_time = datetime.now().strftime("%Y%m%d_%H%M")
         # 设置文档文件名为当前时间
-        self.docfilename = f"Brick4_Info_output_{current_time}.docx"
+        self.docfilename = f"Brick4_Info_Output_{current_time}.docx"
         self.projectroot = os.path.dirname(os.path.abspath(__file__))
         parent_directory = os.path.dirname(self.projectroot)
-        self.output_root = os.path.join(parent_directory, '#OUTPUT', os.path.basename(self.projectroot))
+        self.output_root = os.path.join(parent_directory, '# OUTPUT', os.path.basename(self.projectroot))
         self.docfilepath = os.path.join(self.output_root, self.docfilename)
         self.doc = Document()
 

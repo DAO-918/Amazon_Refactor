@@ -39,28 +39,28 @@ class AmazonDeal:
         self.info_fail_count = 0
         self.asin_all_count = 0
         self.asin_fail_count = 0
-        self.div_class_list = list()
+        self.div_class_list = []
         self.section_dict = {}
 
         self.sql = MysqlUtil()
 
     # 调试时，每次get_Search都运行一次
-    def info_init(info):
-        info.asin = None
-        info.time = None
-        info.image = None
-        info.title = None
-        info.deal_relate  = None
-        info.data_deal_id = None
-        info.data_csa_c_id = None
-        info.off_discount  = None
-        info.off_price  = None
-        info.claimed  = None
-        info.start_time  = None
-        info.page_count  = None
-        info.locate_count  = None
-        info.index_count  = None
-        return info
+    def info_init(self):
+        self.asin = None
+        self.time = None
+        self.image = None
+        self.title = None
+        self.deal_relate = None
+        self.data_deal_id = None
+        self.data_csa_c_id = None
+        self.off_discount = None
+        self.off_price = None
+        self.claimed = None
+        self.start_time = None
+        self.page_count = None
+        self.locate_count = None
+        self.index_count = None
+        return self
 
     def select_deal_tag(self,deal_tag_name):
         toy_select_parent = self.driver.find_element(By.XPATH,'//*[@id="grid-main-container"]/div[2]')
