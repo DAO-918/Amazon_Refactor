@@ -53,12 +53,12 @@ class ExcelConver:
         self.报价表记录_colstr_记录时间 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='记录时间')
         
         self.报价表对照_Sheet1 = self.报价表对照_wb['Sheet1']
-        self.报价表对照_colstr_报价表整合列名 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='报价表整合列名')
-        self.报价表对照_colstr_是否匹配 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='是否匹配')
-        self.报价表对照_colstr_A精准匹配 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='A精准匹配')
-        self.报价表对照_colstr_A模糊匹配 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='A模糊匹配')
-        self.报价表对照_colstr_B精准匹配 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='B精准匹配')
-        self.报价表对照_colstr_B模糊匹配 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='B模糊匹配')
+        self.报价表对照_colstr_报价表整合列名 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='报价表整合列名')
+        self.报价表对照_colstr_是否匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='是否匹配')
+        self.报价表对照_colstr_A精准匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='A精准匹配')
+        self.报价表对照_colstr_A模糊匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='A模糊匹配')
+        self.报价表对照_colstr_B精准匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='B精准匹配')
+        self.报价表对照_colstr_B模糊匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='B模糊匹配')
         
         self.目标报价表_path = None
         self.目标报价表_wb = None
@@ -67,10 +67,11 @@ class ExcelConver:
     # [list(i) for i in sheet.rows] 会获取表格sheet的所有行，然后将每一行转换为一个列表并存储它们在一个名为row的大列表中。
     # [list(i) for i in sheet.columns] 会获取表格sheet的所有列，然后进行相同的处理，将列数据存储在一个名为col的大列表中。
     # len(row)和len(col)会分别计算这两个列表的长度，它们就表示了该表格的行数和列数。
+    
     def tool_count(self,sheet):
-        row = [list(i) for i in sheet.rows]
-        col = [list(i) for i in sheet.columns]
-        return len(row), len(col)
+        row = [list(i) for i in sheet.iter_rows()]
+        col = len(row[0]) if row else 0  # get the number of columns from the first row.        
+        return len(row), col
 
     # !目标报价表：找到图片的位置和导出图片
     def excel_img_read(self):
@@ -161,8 +162,8 @@ class ExcelConver:
             (
                 cell.column_letter
                 for cell in sheet[rowindex]
-                if  (match_mode == '精准匹配' and cell == colname) or \
-                    (match_mode == '模糊匹配' and colname in cell)
+                if  (match_mode == '精准匹配' and cell.value == colname) or \
+                    (match_mode == '模糊匹配' and colname in cell.value)
             ),
             None,)
 
@@ -203,20 +204,24 @@ class ExcelConver:
         # sourcery skip: hoist-statement-from-loop, lift-duplicated-conditional, merge-duplicate-blocks, merge-repeated-ifs, remove-redundant-if, simplify-boolean-comparison
         # 打开报价表记录
         报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.报价表记录_Sheet1)
+        print(报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol)
         for i in range(2, 报价表记录_Sheet1_maxrow + 1):
-            if self.报价表记录_Sheet1[f'{self.报价表记录_colstr_记录时间}{i}'] is None:
-                报价表名称 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_报价表名称}{i}']
-                品牌 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_品牌}{i}']
-                列名行号1 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}']
-                列名行号2 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}']
-                起始位置 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_起始位置}{i}']
-                报价表路径 = os.path.join(self.offer_root, 品牌, 报价表名称)
+            if self.报价表记录_Sheet1[f'{self.报价表记录_colstr_记录时间}{i}'].value is None:
+                报价表名称 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_报价表名称}{i}'].value
+                品牌 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_品牌}{i}'].value
+                类别 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_类别}{i}'].value
+                列名行号1 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}'].value
+                列名行号2 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}'].value
+                起始位置 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_起始位置}{i}'].value
+                报价表路径 = os.path.join(self.offer_root, 类别, 品牌, 报价表名称)
                 wb = load_workbook(filename=报价表路径, read_only=True)
                 # 遍历目标报价表的sheet
                 for sheetname in wb.sheetnames:
                     ws = wb[sheetname]
+                    ws_maxrow, ws_maxcol = self.tool_count(ws)
                     # sheet的每一列
-                    for col in ws.columns:
+                    for col in ws.iter_cols(min_row=列名行号1, max_row=ws_maxrow ,max_col=ws_maxcol):
+                        col_letter = N
                         ws_列名1 = col[列名行号1]
                         ws_列名2 = col[列名行号2]
                         is_same = False
@@ -310,3 +315,4 @@ if __name__ == '__main__':
         print(f'Name of the parent directory: {dir_name}')
     
     ex.recode_excel()
+    ex.contrast_data_fill()
