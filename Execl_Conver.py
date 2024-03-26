@@ -64,14 +64,14 @@ class ExcelConver:
         self.目标报价表_wb = None
 
     # !计算表格的总行数和总列数
-    # [list(i) for i in sheet.rows] 会获取表格sheet的所有行，然后将每一行转换为一个列表并存储它们在一个名为row的大列表中。
-    # [list(i) for i in sheet.columns] 会获取表格sheet的所有列，然后进行相同的处理，将列数据存储在一个名为col的大列表中。
-    # len(row)和len(col)会分别计算这两个列表的长度，它们就表示了该表格的行数和列数。
-    
     def tool_count(self,sheet):
-        row = [list(i) for i in sheet.iter_rows()]
-        col = len(row[0]) if row else 0  # get the number of columns from the first row.        
-        return len(row), col
+        row_count = 0
+        while sheet.cell(row=row_count+1, column=1).value is not None:
+            row_count += 1
+        column_count = 0
+        while sheet.cell(row=1, column=column_count+1).value is not None:
+            column_count += 1       
+        return row_count, column_count
 
     # !目标报价表：找到图片的位置和导出图片
     def excel_img_read(self):
@@ -214,14 +214,14 @@ class ExcelConver:
                 列名行号2 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}'].value
                 起始位置 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_起始位置}{i}'].value
                 报价表路径 = os.path.join(self.offer_root, 类别, 品牌, 报价表名称)
-                wb = load_workbook(filename=报价表路径, read_only=True)
+                wb = load_workbook(filename=报价表路径, read_only=False)
                 # 遍历目标报价表的sheet
                 for sheetname in wb.sheetnames:
                     ws = wb[sheetname]
                     ws_maxrow, ws_maxcol = self.tool_count(ws)
                     # sheet的每一列
-                    for col in ws.iter_cols(min_row=列名行号1, max_row=ws_maxrow ,max_col=ws_maxcol):
-                        col_letter = N
+                    for i, col in enumerate(ws.iter_cols(min_row=列名行号1, max_row=ws_maxrow ,max_col=ws_maxcol), start=1):
+                        col_letter = get_column_letter(i)
                         ws_列名1 = col[列名行号1]
                         ws_列名2 = col[列名行号2]
                         is_same = False
@@ -283,8 +283,17 @@ class ExcelConver:
                                         if exact in ws_列名1:
                                             find_flag = True
                                             break
-                        # 写入报价表整合 cell_range = ws['A1':'C2']
-                        self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname=报价表整合列名)
+                        # 写入报价表整合
+                        报价表整合_Sheet1_目标列 = self.find_colname_letter(sheet=self.报价表整合_Sheet1, rowindex=1, colname=报价表整合列名)
+                        报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.报价表整合_Sheet1)
+                        # col 是数组 0指第一行 起始位置是行号要减一
+                        position = 1
+                        for col_index in range(int(起始位置-1), len(col)):
+                            self.报价表整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, col=报价表整合_Sheet1_目标列, value=col[col_index].value)
+                            position = position +1
+                        
+                        self.报价表整合_Sheet1[f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow}':f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
+                            = ws[f'{col_letter}{int(起始位置)}':f'{col_letter}{len(col)}']
 
 
         self.报价表记录_Sheet1[f'{self.报价表记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
