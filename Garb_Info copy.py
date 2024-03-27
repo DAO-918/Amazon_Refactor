@@ -1,3 +1,4 @@
+from calendar import c
 import os
 import time
 import re
@@ -38,7 +39,7 @@ class AmazonInfo():
         self, driver: webdriver.Chrome, wait: WebDriverWait, actions: ActionChains
     ):
         self.driver, self.wait, self.actions = driver, wait, actions
-        self.static_value()
+        #self.static_value()
         
         self.projectroot = os.path.dirname(os.path.abspath(__file__))
         parent_directory = os.path.dirname(self.projectroot)
@@ -51,17 +52,28 @@ class AmazonInfo():
         self.docfilepath = os.path.join(self.output_root, self.docfilename)
         
         self.listing_root = os.path.join(parent_directory, '# LISTING')
+        self.product_root = os.path.join(self.listing_root, '产品数据')
         
-        self.e汇总_path = os.path.join(self.listing_root, 'ASIN_信息汇总.xlsx')
-        self.e汇总_Sheet1 = load_workbook(filename=self.e汇总_path, read_only=False)
-        self.e汇总_colstr_链接 = self.find_colname_letter(sheet=self.e汇总_Sheet1, rowindex=1, colname='链接')
+        self.e汇总_path = os.path.join(self.listing_root, '汇总表格', 'ASIN_信息汇总.xlsx')
+        self.e汇总_wb = load_workbook(filename=self.e汇总_path, read_only=False)
+        self.e汇总_Sheet1 = self.e汇总_wb['Sheet1']
+        self.e汇总_colstr_链接 = self.find_colname_letter(sheet=self.e汇总_Sheet1, rowindex=2, colname='链接')
         
-        self.e队列_path = os.path.join(self.listing_root, 'ASIN_抓取队列.xlsx')
-        self.e队列_Sheet1 = load_workbook(filename=self.e队列_path, read_only=False)
+        self.e队列_path = os.path.join(self.listing_root, '汇总表格', 'ASIN_抓取队列.xlsx')
+        self.e队列_wb = load_workbook(filename=self.e队列_path, read_only=False)
+        self.e队列_Sheet1 = self.e汇总_wb['Sheet1']
         self.e队列_colstr_链接 = self.find_colname_letter(sheet=self.e队列_Sheet1, rowindex=1, colname='链接')
         
+        self.x记录_path = os.path.join(self.listing_root, '汇总表格', 'EXCE_表格记录.xlsx')
+        self.x记录_wb = load_workbook(filename=self.x记录_path, read_only=False)
+        self.x记录_Sheet1 = self.e汇总_wb['Sheet1']
+        self.x记录_colstr_表格名称 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='表格名称')
+        self.x记录_colstr_分类 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='分类')
+        self.x记录_colstr_ASIN计数 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='ASIN计数')
+        self.x记录_colstr_更新时间 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='更新时间')
         
-        
+        self.info_all_count = 0
+        self.info_fail_count = 0
         self.doc = Document()
         
     # !doc日志文档写入
@@ -121,8 +133,9 @@ class AmazonInfo():
     # !比对div的特征值，找到配置文件中对应的section，在section中根据数据位置获取数据
     # 如果特征值在配置文件中没有找到，则保存特征值
     def match_feature_data(self, div_Info_child, config_name):
+        # sourcery skip: low-code-quality
         config_file = f'yaml/features_result_{config_name}.yml'
-        # 获取项目根目录路径
+        # 获取存放图片目录路径
         config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
 
         self.append_line(f'&&当前ASIN下的div元素有：{len(div_Info_child)}个')
@@ -131,12 +144,15 @@ class AmazonInfo():
 
         # 遍历div_Info_child数组
         for index, child in enumerate(div_Info_child, 1):
+            # 将数字转字符串
+            index_str = f'0{index}' if index < 10 else str(index)
             child_class = child.get_attribute("class")
+            print(child_class)
             feature_symbol = None
             if child_class == '':
                 feature_symbol = 'div'
             child_xpath = self.get_xpath(child)
-            self.append_line(f'--当前匹配的是第 {index} 个div')
+            self.append_line(f'--当前匹配的是第 {index_str} 个div')
             self.append_line(f'--当前匹配的xpath：{child_xpath}')
             # 先获取div的特征值
             features_list = self.get_div_features(child, 0)
@@ -192,7 +208,7 @@ class AmazonInfo():
                 self.info_fail_count += 1
                 # 'Section{}'.format(len(config)+1) len(config)+1 就是数量+1,即新增一个section后的总数，'Section{}'.format(3) = 'Section3'
                 #new_section = f'{feature_symbol} data_i.{info.data_index} c.{index}'
-                new_section = f'data_i.{self.data_index}_r.{self.data_cel_widget}_c.{index}'                # 当 data_index 为 None时，该div时HR下的asin
+                new_section = f'data_i.{self.ASIN}_c.{index_str}'                # 当 data_index 为 None时，该div时HR下的asin
                 config[new_section] = {'Div_feature': feature_str}
                 self.append_line(f'!!新增元素特征值：{new_section}\t目标配置类型：{config_name}')
                 with open(config_file, 'w') as f:
@@ -208,8 +224,23 @@ class AmazonInfo():
                 # 截取指定区域
                 self.driver.get_screenshot_as_file('screenshot.png')
                 img = Image.open('screenshot.png')
-                img = img.crop((child_x, 0, child_x+child_width, child_height))
-                img.save(f'{config_img}\\{new_section}.png')
+                #img.save(f'{config_img}\\screenshot.png')                
+                img_crop = img.crop((child_x, 0, child_x+child_width, child_height))
+                try:
+                    img_crop.save(f'{config_img}\\{new_section}.png')
+                except Exception:
+                    self.append_line(f'{new_section}\t @@child_width:{child_width}=child_height:{child_height}\t 目标为空div')
+
+    # 计算section出现的次数
+    def count_section(self, section_name):
+        '''
+        if section_name in self.section_dict:
+            self.section_dict[section_name] += 1
+        else:
+            self.section_dict[section_name] = 1
+        '''
+        self.section_dict = defaultdict(int)
+        self.section_dict[section_name] += 1
 
     # !格式化html并输出到doc
     def get_element_structure(self, element, level=0):
@@ -261,15 +292,104 @@ class AmazonInfo():
             None,)
     
     # !!!
-    def garb_info(self):
+    def garb_info(self, url):  # sourcery skip: extract-method
+        # 编译正则表达式提取ASIN
+        asin_pattern = re.compile(r'/dp/([A-Z0-9]{10})')
+        match = asin_pattern.search(url)
+        self.ASIN = match[1] if match else None
+        country = url.split('/')[2].split('.')[-1]
+        if country == 'com':
+            self.Country = 'us'
+        info_主要信息 = self.driver.find_element(By.XPATH, '//*[@id="centerCol"]')
+        info_主要信息_child = info_主要信息.find_elements(By.XPATH, './div')
+        self.match_feature_data(info_主要信息_child, 'asin')
         
-        pass
+        try:
+            info_经常购买 = self.driver.find_element(By.XPATH, '//*[@id="CardInstanceAIsiVJYo9vE1IudOdPrv2Q"]/div/div[1]')
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel1"]/ol')
+            # Products related to this item 在 What's in the box 和 Videos中间
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel2"]/ol')
+            # From the brand 品牌故事的展示信息
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel3"]/ol')
+            # Videos 相关产品的视频
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel4"]/ol')
+            # Similar brands on Amazon
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel5"]/ol')
+            # Reviews with images
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel6"]/ol')
+            # Products related to this item 在 Product information 上面
+            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel7"]/ol')
+            # Related Climate Pledge Friendly items
+            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel8"]/ol')
+        except Exception:
+            print (Exception)
 
+    # !目标报价表：找到表的某一列中符合该值的行号
+    def find_colindex_value_rowindex(self, sheet, rowvalue, colindex, match_mode='精准匹配'):        
+        for index, row in enumerate(sheet.iter_rows(), start=1):
+        # 如果匹配模式为 '精准匹配'
+            if match_mode == '精准匹配':
+                if row[colindex].value == rowvalue: # row[0] 获取当前列的值
+                    return index # 返回匹配行的行号
+            # 如果匹配模式为 '模糊匹配'
+            elif match_mode == '模糊匹配':
+                if rowvalue in str(row[colindex].value):
+                    return index # 返回匹配行的行号
+        # 如果没有找到匹配的行，返回 None
+        return None
+
+    # !计算表格的总行数和总列数
+    def tool_count(self,sheet):
+        row_count = 0
+        while sheet.cell(row=row_count+1, column=1).value is not None:
+            row_count += 1
+        column_count = 0
+        while sheet.cell(row=1, column=column_count+1).value is not None:
+            column_count += 1       
+        return row_count, column_count
+
+    # !遍历目标文件夹下对应后缀的文件
+    def list_files_by_type(self, directory , file_type='.xlsx'):
+        # sourcery skip: for-append-to-extend
+        excel_files = []
+        # 对指定目录及其所有子目录进行遍历
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                if file.endswith(file_type):
+                    excel_files.append(os.path.join(root, file))
+        return excel_files
+    
     def excel_loop_grab(self):
-        
-        pass
+        file_list = self.list_files_by_type(self.product_root, '.xlsx')
+
+        for file_path in file_list:
+            ase_name = os.path.basename(file_path)
+            dir_name = os.path.basename(os.path.dirname(file_path))
+            #pdir_name = os.path.basename(os.path.dirname(os.path.dirname(file_path)))
+            # any：这个函数测试可迭代的元素是否有至少一个为真。
+            # any用于检查表格中是否有至少一个单元格的值等于ase_name。如果有任何一个单元格的值等于 ase_name, 则 any 函数返回 True，否则返回 False。
+            x记录_Sheet1_maxrow, x记录_Sheet1_maxcol = self.tool_count(self.x记录_Sheet1)
+            ase_name_exist = any(
+                cell.value == ase_name
+                for cell in self.x记录_Sheet1[self.x记录_colstr_表格名称]
+            )
+            if not ase_name_exist:
+                self.x记录_Sheet1[f'{self.x记录_colstr_表格名称}{x记录_Sheet1_maxrow+1}'] = ase_name
+                self.x记录_Sheet1[f'{self.x记录_colstr_分类}{x记录_Sheet1_maxrow+1}'] = dir_name
+                self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = x记录_Sheet1_maxrow - 1
+                self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{x记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
+                #self.x记录_Sheet1[f'{self.e记录_colstr_类别}{报价表记录_Sheet1_maxrow+1}'] = pdir_name
+            else:
+                所在行号 = self.find_colindex_value_rowindex(self.x记录_Sheet1, ase_name, column_index_from_string(self.x记录_colstr_表格名称))
+                ASIN计数 = self.x记录_Sheet1.cell(row=所在行号, column=column_index_from_string(self.x记录_colstr_分类))
+                if ASIN计数 < x记录_Sheet1_maxrow - 1:
+                    self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = x记录_Sheet1_maxrow - 1
+                    self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{x记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
+            
+        self.x记录_wb.save(self.x记录_path)
 
     def excel_fill_in(self):
+        
         pass
 
     #update方法可以将返回的字典合并到result字典中
@@ -884,8 +1004,9 @@ if __name__ == '__main__':
     sc = ChromeStart("Seller")
     driver,wait,actions = sc.GetDriver()
     AmazonI = AmazonInfo(driver,wait,actions)
-    sc.BindPage('https://www.amazon.com/TEMI-Simulated-Realistic-Tyrannosaurus-Breathing/dp/B09X2NCM1M',"Contain")
+    sc.BindPage('https://www.amazon.com/dp/B07H9GY33H',"Contain")
     AmazonI.get_title()
+    AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
     print(AmazonI.title) 
-    print(AmazonI.get_price())
+    #print(AmazonI.get_price())
     

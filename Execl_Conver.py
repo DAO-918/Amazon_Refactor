@@ -201,7 +201,7 @@ class ExcelConver:
         self.e记录_wb.save(self.e记录_path)
 
     def contrast_data_fill(self):
-        # sourcery skip: hoist-statement-from-loop, lift-duplicated-conditional, merge-duplicate-blocks, merge-repeated-ifs, remove-redundant-if, simplify-boolean-comparison
+        # sourcery skip: hoist-statement-from-loop, lift-duplicated-conditional, low-code-quality, merge-duplicate-blocks, merge-repeated-ifs, remove-redundant-if, simplify-boolean-comparison
         # 打开报价表记录
         报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.报价表记录_Sheet1)
         print(报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol)

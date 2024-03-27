@@ -537,6 +537,7 @@ class AmazonSearch:
     # 比对div的特征值，找到配置文件中对应的section，在section中根据数据位置获取数据
     # 如果特征值在配置文件中没有找到，则保存特征值
     def match_feature_data(self, div_Info_child, config_name):
+        # sourcery skip: low-code-quality
         config_file = f'yaml/features_result_{config_name}.yml'
         # 获取项目根目录路径
         config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
@@ -713,7 +714,7 @@ class AmazonSearch:
         if div_xiyou:
             self.get_xiyou_data(div_xiyou)
 
-    def get_seller_data(self, div_seller):
+    def get_seller_data(self, div_seller):  # sourcery skip: low-code-quality, use-named-expression
         self.append_line(f'{self.get_xpath(div_seller)}')
         # 获取Seller信息部分
         # 获取div_seller的outer HTML
@@ -942,6 +943,7 @@ class AmazonSearch:
     
     # 递归直到找到符合class_name的div
     def find_target_div_by_class(self, div, class_name):
+        # sourcery skip: use-named-expression
         if div.get_attribute('class') == class_name:
             return div
         for child in div.find_elements(By.XPATH, "./div"):

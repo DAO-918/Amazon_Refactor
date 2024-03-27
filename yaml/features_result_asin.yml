@@ -1,0 +1,54 @@
+Section:
+  Div_feature: xxx
+data_i.B07H9GY33H_c.01:
+  Div_feature: '["div", 0, 0, "celwidget", [["style", 1, 0, "", []], ["div", 1, 0,
+    "a-section a-spacing-none", [["h1", 2, 0, "a-size-large a-spacing-none", [["span",
+    3, 0, "a-size-large product-title-word-break", []]]], ["div", 2, 0, "a-section
+    a-spacing-none expand aok-hidden", []]]]]]'
+data_i.B07H9GY33H_c.02:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-section a-spacing-none",
+    [["a", 2, 0, "a-link-normal", []]]]]]'
+data_i.B07H9GY33H_c.03:
+  Div_feature: '["div", 0, 0, "celwidget", [["style", 1, 0, "", []], ["div", 1, 0,
+    "", [["span", 2, 0, "a-declarative", [["span", 3, 0, "reviewCountTextLinkedHistogram
+    noUnderline", [["span", 4, 0, "a-declarative", [["a", 5, 0, "a-popover-trigger
+    a-declarative", [["i", 6, 0, "a-icon a-icon-star a-star-4-5 cm-cr-review-stars-spacing-big",
+    [["span", 7, 0, "a-icon-alt", []]]], ["i", 6, 1, "a-icon a-icon-popover", []]]]]],
+    ["span", 4, 2, "a-letter-space", []]]]]], ["span", 2, 5, "a-letter-space", []],
+    ["span", 2, 6, "a-declarative", [["a", 3, 0, "a-link-normal", [["span", 4, 0,
+    "a-size-base", []]]]]], ["script", 2, 0, "", []], ["script", 2, 1, "", []]]]]]'
+data_i.B07H9GY33H_c.04:
+  Div_feature: '["div", 0, 0, "celwidget", [["span", 1, 0, "askPipe", []], ["span",
+    1, 1, "", [["a", 2, 0, "a-link-normal askATFLink", [["span", 3, 0, "a-size-base",
+    []]]]]]]]'
+data_i.B07H9GY33H_c.05:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "ac-badge-wrapper", [["div",
+    2, 0, "a-popover-preload", [["span", 3, 0, "a-size-small", []]]], ["span", 2,
+    1, "a-declarative", [["span", 3, 0, "a-size-small aok-float-left ac-badge-rectangle",
+    [["span", 4, 0, "ac-badge-text-primary ac-white", []], ["span", 4, 1, "ac-badge-text-secondary
+    ac-orange", []]]], ["span", 3, 3, "aok-float-left ac-badge-triangle", []]]], ["span",
+    2, 6, "ac-for-text", []]]], ["script", 1, 0, "", []]]]'
+data_i.B07H9GY33H_c.06:
+  Div_feature: '["div", 0, 0, "celwidget", []]'
+data_i.B07H9GY33H_c.07:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-popover-preload", []]]]'
+data_i.B07H9GY33H_c.09:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "celwidget pf_rd_p-f20fcda8-2440-4bfe-9c09-83295cb4a15a
+    pf_rd_r-9AZTN1XKENKQR37W26W9 pd_rd_wg-SIK59 pd_rd_i-B07LB84QQP pd_rd_w-9yo8d content-id-amzn1.sym.f20fcda8-2440-4bfe-9c09-83295cb4a15a
+    pd_rd_r-e55658bd-a3a3-4590-9155-68387ee1f63e ", [["div", 2, 0, "a-section a-spacing-small",
+    [["hr", 3, 0, "a-spacing-base a-divider-normal", []], ["div", 3, 0, "a-row a-spacing-none",
+    [["div", 4, 0, "a-column a-span12 a-span-last", [["div", 5, 0, "a-section a-spacing-none",
+    [["h4", 6, 0, "", []]]], ["div", 5, 1, "value-pick-ac-badge-row value-pick-a-spacing-top-small",
+    [["span", 6, 0, "a-size-small value-pick-aok-float-left value-pick-ac-badge-rectangle",
+    [["span", 7, 0, "value-pick-ac-badge-text-primary value-pick-ac-white", []], ["span",
+    7, 1, "value-pick-ac-badge-text-secondary value-pick-ac-orange", []]]], ["span",
+    6, 3, "aok-float-left ac-badge-triangle", []]]], ["div", 5, 2, "a-fixed-left-grid
+    a-spacing-top-mini", [["div", 6, 0, "a-fixed-left-grid-inner", [["div", 7, 0,
+    "a-fixed-left-grid-col a-col-left", [["div", 8, 0, "a-row", [["a", 9, 0, "a-link-normal",
+    [["img", 10, 0, "", []]]]]]]], ["div", 7, 2, "a-fixed-left-grid-col a-col-right",
+    [["div", 8, 0, "a-row", [["a", 9, 0, "a-size-base a-link-normal", []]]], ["div",
+    8, 1, "a-row", []], ["div", 8, 2, "a-row", [["i", 9, 0, "a-icon a-icon-star a-star-4-5",
+    []], ["a", 9, 0, "a-link-normal", []]]], ["div", 8, 3, "a-row", [["span", 9, 0,
+    "a-size-base a-color-price", []], ["i", 9, 0, "a-icon a-icon-prime a-icon-small
+    aok-hidden", []]]], ["div", 8, 4, "a-row", []]]]]]]]]]]], ["script", 3, 0, "",
+    []], ["script", 3, 1, "", []], ["span", 3, 5, "a-letter-space", []]]]]]]]'

@@ -76,6 +76,7 @@ class ChromeStart:
         self.wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, 'body')))
     
     def BindPage(self,valurl:str,match_mode:str):
+        # sourcery skip: merge-duplicate-blocks, switch
         for handle in self.driver.window_handles:
             self.driver.switch_to.window(handle)
             if match_mode == "Exact":
