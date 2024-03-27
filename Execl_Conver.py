@@ -34,34 +34,34 @@ class ExcelConver:
         source_root = os.path.join(parent_directory, '# 报价表整合')
         self.offer_root = os.path.join(source_root, '报价表')
         self.image_root = os.path.join(source_root, '图片库')
-        self.报价表整合_path = os.path.join(source_root, '# 报价表整合.xlsx')
-        self.报价表记录_path = os.path.join(source_root, '报价表记录.xlsx')
-        self.报价表对照_path = os.path.join(source_root, '报价表对照.xlsx')
-        self.报价表整合_wb = load_workbook(filename=self.报价表整合_path, read_only=False)
-        self.报价表记录_wb = load_workbook(filename=self.报价表记录_path, read_only=False)
-        self.报价表对照_wb = load_workbook(filename=self.报价表对照_path, read_only=True)
         
-        self.报价表整合_Sheet1 = self.报价表整合_wb['Sheet1']
+        self.e整合_path = os.path.join(source_root, '# 报价表整合.xlsx')
+        self.e整合_wb = load_workbook(filename=self.e整合_path, read_only=False)
+        self.e整合_Sheet1 = self.e整合_wb['Sheet1']
         
-        self.报价表记录_Sheet1 = self.报价表记录_wb['Sheet1']
-        self.报价表记录_colstr_报价表名称 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='报价表名称')
-        self.报价表记录_colstr_品牌 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='品牌')
-        self.报价表记录_colstr_类别 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='类别')
-        self.报价表记录_colstr_列名行号1 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='列名行号1')
-        self.报价表记录_colstr_列名行号2 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='列名行号2')
-        self.报价表记录_colstr_起始位置 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='起始位置')
-        self.报价表记录_colstr_记录时间 = self.find_colname_letter(sheet=self.报价表记录_Sheet1, rowindex=1, colname='记录时间')
+        self.e记录_path = os.path.join(source_root, '报价表记录.xlsx')
+        self.e记录_wb = load_workbook(filename=self.e记录_path, read_only=False)
+        self.e记录_Sheet1 = self.e记录_wb['Sheet1']
+        self.e记录_colstr_报价表名称 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='报价表名称')
+        self.e记录_colstr_品牌 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='品牌')
+        self.e记录_colstr_类别 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='类别')
+        self.e记录_colstr_列名行号1 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='列名行号1')
+        self.e记录_colstr_列名行号2 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='列名行号2')
+        self.e记录_colstr_起始位置 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='起始位置')
+        self.e记录_colstr_记录时间 = self.find_colname_letter(sheet=self.e记录_Sheet1, rowindex=1, colname='记录时间')
         
-        self.报价表对照_Sheet1 = self.报价表对照_wb['Sheet1']
-        self.报价表对照_colstr_报价表整合列名 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='报价表整合列名')
-        self.报价表对照_colstr_是否匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='是否匹配')
-        self.报价表对照_colstr_A精准匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='A精准匹配')
-        self.报价表对照_colstr_A模糊匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='A模糊匹配')
-        self.报价表对照_colstr_B精准匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='B精准匹配')
-        self.报价表对照_colstr_B模糊匹配 = self.find_colname_letter(sheet=self.报价表对照_Sheet1, rowindex=1, colname='B模糊匹配')
+        self.e对照_path = os.path.join(source_root, '报价表对照.xlsx')
+        self.e对照_wb = load_workbook(filename=self.e对照_path, read_only=True)
+        self.e对照_Sheet1 = self.e对照_wb['Sheet1']
+        self.e对照_colstr_报价表整合列名 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='报价表整合列名')
+        self.e对照_colstr_是否匹配 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='是否匹配')
+        self.e对照_colstr_A精准匹配 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='A精准匹配')
+        self.e对照_colstr_A模糊匹配 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='A模糊匹配')
+        self.e对照_colstr_B精准匹配 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='B精准匹配')
+        self.e对照_colstr_B模糊匹配 = self.find_colname_letter(sheet=self.e对照_Sheet1, rowindex=1, colname='B模糊匹配')
         
-        self.目标报价表_path = None
-        self.目标报价表_wb = None
+        self.e目标报价表_path = None
+        self.e目标报价表_wb = None
 
     # !计算表格的总行数和总列数
     def tool_count(self,sheet):
@@ -104,9 +104,9 @@ class ExcelConver:
 
     # !报价表对照：格式化报价表对照的JSON数组
     def stand_execel_contrast(self):
-        报价表对照_wb_write = load_workbook(filename=self.报价表对照_path, read_only=False)
-        报价表对照_sheet1 = 报价表对照_wb_write['Sheet1']
-        for row in 报价表对照_sheet1.iter_rows(min_row=2, max_col=6):
+        e对照_wb_write = load_workbook(filename=self.e对照_path, read_only=False)
+        e对照_sheet1 = e对照_wb_write['Sheet1']
+        for row in e对照_sheet1.iter_rows(min_row=2, max_col=6):
             for i, cell in enumerate(row, start=1):
                 if i<= 2:
                     continue
@@ -119,7 +119,7 @@ class ExcelConver:
                     new_value = cell_value.replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").split(",")
                     cell.value = json.dumps(new_value, ensure_ascii=False)  # convert list to json string with Chinese characters
         # 保存表格
-        报价表对照_wb_write.save(self.报价表对照_path)
+        e对照_wb_write.save(self.e对照_path)
 
     # !报价表对照：读取值
     def read_excel_contrast(self):
@@ -134,7 +134,7 @@ class ExcelConver:
             B模糊匹配 = json.loads(row[5].value)
             print(报价表整合列名, 是否匹配, A精准匹配, A模糊匹配, B精准匹配, B模糊匹配)
 
-    # !目标报价表：找到目标报价表的单元格
+    # !目标报价表：找到目标报价表的单元格的值
     # 1.遍历指定行（col_rowindex）的所有列，寻找名称和colname匹配的列。匹配的方式取决于在match_mode中指定的模式
     # 2.在指定的行中找不到任何匹配列，函数将返回一个错误信息。
     # 3.如果找到了匹配的列，则返回位于value_rowindex行、匹配列中的单元格的值。
@@ -190,15 +190,15 @@ class ExcelConver:
             # any用于检查表格中是否有至少一个单元格的值等于ase_name。如果有任何一个单元格的值等于 ase_name, 则 any 函数返回 True，否则返回 False。
             ase_name_exist = any(
                 cell.value == ase_name
-                for cell in self.报价表记录_Sheet1[self.报价表记录_colstr_报价表名称]
+                for cell in self.e记录_Sheet1[self.e记录_colstr_报价表名称]
             )
             if not ase_name_exist:
                 报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.报价表记录_Sheet1)
-                self.报价表记录_Sheet1[f'{self.报价表记录_colstr_报价表名称}{报价表记录_Sheet1_maxrow+1}'] = ase_name
-                self.报价表记录_Sheet1[f'{self.报价表记录_colstr_品牌}{报价表记录_Sheet1_maxrow+1}'] = dir_name
-                self.报价表记录_Sheet1[f'{self.报价表记录_colstr_类别}{报价表记录_Sheet1_maxrow+1}'] = pdir_name
+                self.e记录_Sheet1[f'{self.e记录_colstr_报价表名称}{报价表记录_Sheet1_maxrow+1}'] = ase_name
+                self.e记录_Sheet1[f'{self.e记录_colstr_品牌}{报价表记录_Sheet1_maxrow+1}'] = dir_name
+                self.e记录_Sheet1[f'{self.e记录_colstr_类别}{报价表记录_Sheet1_maxrow+1}'] = pdir_name
                 
-        self.报价表记录_wb.save(self.报价表记录_path)
+        self.e记录_wb.save(self.e记录_path)
 
     def contrast_data_fill(self):
         # sourcery skip: hoist-statement-from-loop, lift-duplicated-conditional, merge-duplicate-blocks, merge-repeated-ifs, remove-redundant-if, simplify-boolean-comparison
@@ -206,13 +206,13 @@ class ExcelConver:
         报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.报价表记录_Sheet1)
         print(报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol)
         for i in range(2, 报价表记录_Sheet1_maxrow + 1):
-            if self.报价表记录_Sheet1[f'{self.报价表记录_colstr_记录时间}{i}'].value is None:
-                报价表名称 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_报价表名称}{i}'].value
-                品牌 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_品牌}{i}'].value
-                类别 = self.报价表记录_Sheet1[f'{self.报价表记录_colstr_类别}{i}'].value
-                列名行号1 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}'].value
-                列名行号2 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_列名行号1}{i}'].value
-                起始位置 = self.报价表对照_Sheet1[f'{self.报价表记录_colstr_起始位置}{i}'].value
+            if self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{i}'].value is None:
+                报价表名称 = self.e记录_Sheet1[f'{self.e记录_colstr_报价表名称}{i}'].value
+                品牌 = self.e记录_Sheet1[f'{self.e记录_colstr_品牌}{i}'].value
+                类别 = self.e记录_Sheet1[f'{self.e记录_colstr_类别}{i}'].value
+                列名行号1 = self.e对照_Sheet1[f'{self.e记录_colstr_列名行号1}{i}'].value
+                列名行号2 = self.e对照_Sheet1[f'{self.e记录_colstr_列名行号1}{i}'].value
+                起始位置 = self.e对照_Sheet1[f'{self.e记录_colstr_起始位置}{i}'].value
                 报价表路径 = os.path.join(self.offer_root, 类别, 品牌, 报价表名称)
                 wb = load_workbook(filename=报价表路径, read_only=False)
                 # 遍历目标报价表的sheet
@@ -231,15 +231,15 @@ class ExcelConver:
                         if ws_列名1 == ws_列名2:
                             is_same = True
                         # 找到列对应报价表整合中的列名
-                        for 报价表对照_row in self.报价表对照_Sheet1.iter_rows(min_row=2, max_col=7):
-                            报价表整合列名 = 报价表对照_row[column_index_from_string(self.报价表对照_colstr_报价表整合列名)].value
-                            是否匹配 = 报价表对照_row[column_index_from_string(self.报价表对照_colstr_是否匹配)].value
+                        for 报价表对照_row in self.e对照_Sheet1.iter_rows(min_row=2, max_col=7):
+                            报价表整合列名 = 报价表对照_row[column_index_from_string(self.e对照_colstr_报价表整合列名)].value
+                            是否匹配 = 报价表对照_row[column_index_from_string(self.e对照_colstr_是否匹配)].value
                             if 是否匹配 == '1':
                                 continue
-                            A精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.报价表对照_colstr_A精准匹配)].value)
-                            A模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.报价表对照_colstr_A模糊匹配)].value)
-                            B精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.报价表对照_colstr_B精准匹配)].value)
-                            B模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.报价表对照_colstr_B模糊匹配)].value)
+                            A精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_A精准匹配)].value)
+                            A模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_A模糊匹配)].value)
+                            B精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_B精准匹配)].value)
+                            B模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_B模糊匹配)].value)
                             if ws_列名1 is not None and ws_列名2 is not None and is_same == True:
                                 if A_find_flag == False:
                                     for exact in A精准匹配:
@@ -284,19 +284,19 @@ class ExcelConver:
                                             find_flag = True
                                             break
                         # 写入报价表整合
-                        报价表整合_Sheet1_目标列 = self.find_colname_letter(sheet=self.报价表整合_Sheet1, rowindex=1, colname=报价表整合列名)
-                        报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.报价表整合_Sheet1)
+                        报价表整合_Sheet1_目标列 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname=报价表整合列名)
+                        报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.e整合_Sheet1)
                         # col 是数组 0指第一行 起始位置是行号要减一
                         position = 1
                         for col_index in range(int(起始位置-1), len(col)):
-                            self.报价表整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, col=报价表整合_Sheet1_目标列, value=col[col_index].value)
+                            self.e整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, col=报价表整合_Sheet1_目标列, value=col[col_index].value)
                             position = position +1
                         
-                        self.报价表整合_Sheet1[f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow}':f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
+                        self.e整合_Sheet1[f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow}':f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
                             = ws[f'{col_letter}{int(起始位置)}':f'{col_letter}{len(col)}']
 
 
-        self.报价表记录_Sheet1[f'{self.报价表记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
+        self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
         # 读取报价表对照
         
 

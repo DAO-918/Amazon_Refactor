@@ -16,11 +16,14 @@ from selenium.webdriver.support import expected_conditions
 from bs4 import BeautifulSoup
 
 from urllib.parse import urlparse
+import logging
 
 from collections import defaultdict
 
 from docx import Document
-import logging
+
+from openpyxl import load_workbook
+from openpyxl.utils import column_index_from_string, get_column_letter
 
 from PIL import Image
 from PIL import Image
@@ -36,17 +39,32 @@ class AmazonInfo():
     ):
         self.driver, self.wait, self.actions = driver, wait, actions
         self.static_value()
+        
+        self.projectroot = os.path.dirname(os.path.abspath(__file__))
+        parent_directory = os.path.dirname(self.projectroot)
+        
         # 生成当前时间的字符串，格式为 YYYYMMDD_HHMM
         current_time = datetime.now().strftime("%Y%m%d_%H%M")
         # 设置文档文件名为当前时间
         self.docfilename = f"Garb_Info_output_{current_time}.docx"
-        self.projectroot = os.path.dirname(os.path.abspath(__file__))
-        parent_directory = os.path.dirname(self.projectroot)
-        self.output_root = os.path.join(parent_directory, '#OUTPUT', os.path.basename(self.projectroot))
+        self.output_root = os.path.join(parent_directory, '# OUTPUT', os.path.basename(self.projectroot))
         self.docfilepath = os.path.join(self.output_root, self.docfilename)
+        
+        self.listing_root = os.path.join(parent_directory, '# LISTING')
+        
+        self.e汇总_path = os.path.join(self.listing_root, 'ASIN_信息汇总.xlsx')
+        self.e汇总_Sheet1 = load_workbook(filename=self.e汇总_path, read_only=False)
+        self.e汇总_colstr_链接 = self.find_colname_letter(sheet=self.e汇总_Sheet1, rowindex=1, colname='链接')
+        
+        self.e队列_path = os.path.join(self.listing_root, 'ASIN_抓取队列.xlsx')
+        self.e队列_Sheet1 = load_workbook(filename=self.e队列_path, read_only=False)
+        self.e队列_colstr_链接 = self.find_colname_letter(sheet=self.e队列_Sheet1, rowindex=1, colname='链接')
+        
+        
+        
         self.doc = Document()
         
-
+    # !doc日志文档写入
     def append_line(self, line, flag=True):
         # 当 savelog=True 且 flag=True 时，整个表达式为 True。
         # 当 savelog=True 且 flag=False 时，整个表达式为 False。
@@ -67,6 +85,7 @@ class AmazonInfo():
         # 保存文档
         self.doc.save(self.docfilepath)
 
+    # !获取div特征
     def get_div_features(self, parent, level=0,flag=False):
         # 获取父元素的标签名
         tag_name = parent.tag_name
@@ -98,7 +117,101 @@ class AmazonInfo():
             # 将子元素的特征添加到当前div元素的特征列表中
             feature[4].append(child_feature)
         return feature
+    
+    # !比对div的特征值，找到配置文件中对应的section，在section中根据数据位置获取数据
+    # 如果特征值在配置文件中没有找到，则保存特征值
+    def match_feature_data(self, div_Info_child, config_name):
+        config_file = f'yaml/features_result_{config_name}.yml'
+        # 获取项目根目录路径
+        config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
 
+        self.append_line(f'&&当前ASIN下的div元素有：{len(div_Info_child)}个')
+        with open(config_file) as f:
+            config = yaml.safe_load(f)
+
+        # 遍历div_Info_child数组
+        for index, child in enumerate(div_Info_child, 1):
+            child_class = child.get_attribute("class")
+            feature_symbol = None
+            if child_class == '':
+                feature_symbol = 'div'
+            child_xpath = self.get_xpath(child)
+            self.append_line(f'--当前匹配的是第 {index} 个div')
+            self.append_line(f'--当前匹配的xpath：{child_xpath}')
+            # 先获取div的特征值
+            features_list = self.get_div_features(child, 0)
+            # 将特征值转为json
+            feature_str = json.dumps(features_list)
+            exists = False
+            self.info_all_count += 1
+            key_value = None
+            value = None
+            # 遍历配置文件
+            for section in config:
+                # 匹配特征值
+                if config[section]['Div_feature'] == feature_str:
+                    self.count_section(section)
+                    self.append_line(f'--已匹配对应的特征值section：{section}')
+                    exists = True
+                    key_flag = 1
+                    while key_flag > 0:
+                        # section中有几个需要获取的data，后缀就到几
+                        key_name = f'data_{key_flag}'
+                        # 匹配失败，即section的需要获取值已经到尾部，跳出循环
+                        if key_name not in config[section]:
+                            key_flag = -1
+                            continue
+                        # 匹配成功后，获取键值
+                        key_value = config[section][key_name]
+                        data_name = key_value[0]
+                        data_method = key_value[1]
+                        data_xpath = key_value[2]
+                        data_type = key_value[3]
+                        target_div = child.find_element(By.XPATH, data_xpath)
+                        # 获取值的方式
+                        # 如果data_type=hiddentext，通过js代码修改元素的class，再获取值
+                        if data_method == 'attribute':
+                            value = target_div.get_attribute(data_type)
+                        elif data_method == 'xpath':
+                            if data_type == 'hiddentext':
+                                self.driver.execute_script(
+                                    "arguments[0].className = '';", target_div
+                                )
+                            value = target_div.text
+                        self.append_line(f'匹配到的：{section}\t_数据名称：{data_name}\t_数据值=>{value}')
+                        # 通过data_name找到self中对应名称的值，将value值赋值给self.'data_name'
+                        # 如果 self 之前没有叫做 data_name 的属性，这条语句将会给 self 增加一个新的属性，并将 value 赋值给它
+                        setattr(self, data_name, value)
+                        key_flag += 1
+                    break  # exists = True
+            new_section = None
+            if not exists:
+                self.get_element_structure(child)
+                # 重新获取一次div特征值，并打印在文档中
+                self.get_div_features(child, 0, True)
+                self.info_fail_count += 1
+                # 'Section{}'.format(len(config)+1) len(config)+1 就是数量+1,即新增一个section后的总数，'Section{}'.format(3) = 'Section3'
+                #new_section = f'{feature_symbol} data_i.{info.data_index} c.{index}'
+                new_section = f'data_i.{self.data_index}_r.{self.data_cel_widget}_c.{index}'                # 当 data_index 为 None时，该div时HR下的asin
+                config[new_section] = {'Div_feature': feature_str}
+                self.append_line(f'!!新增元素特征值：{new_section}\t目标配置类型：{config_name}')
+                with open(config_file, 'w') as f:
+                    yaml.dump(config, f)
+
+                y = child.location['y']
+                self.driver.execute_script(f"window.scrollTo(0, {y});")
+                # 获取元素的x,y坐标
+                child_x = child.location['x']
+                child_y = child.location['y']
+                child_width = child.size['width']
+                child_height = child.size['height']
+                # 截取指定区域
+                self.driver.get_screenshot_as_file('screenshot.png')
+                img = Image.open('screenshot.png')
+                img = img.crop((child_x, 0, child_x+child_width, child_height))
+                img.save(f'{config_img}\\{new_section}.png')
+
+    # !格式化html并输出到doc
     def get_element_structure(self, element, level=0):
         outer_html = element.get_attribute('outerHTML')
         soup = BeautifulSoup(outer_html, "html.parser")
@@ -108,6 +221,7 @@ class AmazonInfo():
         for line in pretty_html.split('\n'):
             self.append_line(line)
 
+    # !获取div的xpath
     def get_xpath(self, element):
     # 将JavaScript getXpath函数嵌入到Python代码中
         script = """
@@ -133,11 +247,29 @@ class AmazonInfo():
         """
         return self.driver.execute_script(script, element)
     
-    # !!!
+    # !找到列名对应的列序号，返回字母
+    def find_colname_letter(self, sheet, rowindex, colname, match_mode='精准匹配'):
+        # next：这个函数会返回一个迭代器的下一个元素。
+        # next 用于获取满足条件（该行的值等于colname）的第一个元素的列字母。如果没有元素满足条件，它将返回一个默认值，这里是None
+        return next(
+            (
+                cell.column_letter
+                for cell in sheet[rowindex]
+                if  (match_mode == '精准匹配' and cell.value == colname) or \
+                    (match_mode == '模糊匹配' and colname in cell.value)
+            ),
+            None,)
     
-
+    # !!!
     def garb_info(self):
         
+        pass
+
+    def excel_loop_grab(self):
+        
+        pass
+
+    def excel_fill_in(self):
         pass
 
     #update方法可以将返回的字典合并到result字典中
