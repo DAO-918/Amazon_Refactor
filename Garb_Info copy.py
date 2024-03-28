@@ -7,8 +7,8 @@ import json
 import yaml
 from datetime import datetime
 
-from selenium import webdriver
 import selenium
+from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -17,7 +17,8 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support import expected_conditions
 from bs4 import BeautifulSoup
 
-from urllib.parse import urlparse
+import urllib.parse
+# from urllib.parse import urlparse
 import logging
 
 from collections import defaultdict
@@ -62,7 +63,7 @@ class AmazonInfo():
         
         self.e队列_path = os.path.join(self.listing_root, '汇总表格', 'ASIN_抓取队列.xlsx')
         self.e队列_wb = load_workbook(filename=self.e队列_path, read_only=False)
-        self.e队列_Sheet1 = self.e汇总_wb['Sheet1']
+        self.e队列_Sheet1 = self.e队列_wb['Sheet1']
         self.e队列_colstr_链接 = self.find_colname_letter(sheet=self.e队列_Sheet1, rowindex=1, colname='链接')
         self.e队列_colstr_ASIN = self.find_colname_letter(sheet=self.e队列_Sheet1, rowindex=1, colname='ASIN')
         self.e队列_colstr_国家 = self.find_colname_letter(sheet=self.e队列_Sheet1, rowindex=1, colname='国家')
@@ -79,7 +80,7 @@ class AmazonInfo():
         
         self.x记录_path = os.path.join(self.listing_root, '汇总表格', 'EXCE_表格记录.xlsx')
         self.x记录_wb = load_workbook(filename=self.x记录_path, read_only=False)
-        self.x记录_Sheet1 = self.e汇总_wb['Sheet1']
+        self.x记录_Sheet1 = self.x记录_wb['Sheet1']
         self.x记录_colstr_表格名称 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='表格名称')
         self.x记录_colstr_分类 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='分类')
         self.x记录_colstr_子类 = self.find_colname_letter(sheet=self.x记录_Sheet1, rowindex=1, colname='子类')
@@ -294,26 +295,56 @@ class AmazonInfo():
     
     # !找到列名对应的列序号，返回字母
     def find_colname_letter(self, sheet, rowindex, colname, match_mode='精准匹配'):
+        # sourcery skip: inline-immediately-returned-variable, merge-duplicate-blocks, switch
         # next：这个函数会返回一个迭代器的下一个元素。
         # next 用于获取满足条件（该行的值等于colname）的第一个元素的列字母。如果没有元素满足条件，它将返回一个默认值，这里是None
-        return next(
+        #cell_letter = None
+        #for cell in sheet[rowindex]:
+        #    if  match_mode == '精准匹配':
+        #        if cell.value == colname:
+        #            cell_letter = cell.column_letter
+        #    elif match_mode == '模糊匹配':
+        #        if colname in cell.value:
+        #            cell_letter = cell.column_letter
+        # 等价于：
+        cell_letter = next(
             (
                 cell.column_letter
                 for cell in sheet[rowindex]
-                if  (match_mode == '精准匹配' and cell.value == colname) or \
-                    (match_mode == '模糊匹配' and colname in cell.value)
+                if  (match_mode == '精准匹配' and cell.value == colname) or (match_mode == '模糊匹配' and colname in cell.value)
             ),
             None,)
-    
-    # !!!
-    def garb_info(self, url):  # sourcery skip: extract-method
-        # 编译正则表达式提取ASIN
-        asin_pattern = re.compile(r'/dp/([A-Z0-9]{10})')
+        return cell_letter
+
+    # !格式化链接
+    # https://www.amazon.com/sspa/click?ie=UTF8&spc=MTo2Mjk2MDY0NTc3MDY0MDg3OjE3MTE2MjQyMTI6c3BfYXRmOjMwMDAzMTY0Nzg2NzQwMjo6MDo6&url=%2FDinosaur-Storage-Educational-Realistic-Jurassic%2Fdp%2FB0B3RRZX8R%2Fref%3Dsr_1_1_sspa%
+    # 将以上的链接转缓存https://www.amazon.com/dp/{asin} 其中{asin}是从链接中找到的asin，上面链接中的{asin}是B0B3RRZX8R
+    # dp%2F后面的十个字符是asin，
+    # 输出 return https://www.amazon.com/{asin}, {asin}, 国家 
+    # 当url的域名后缀是com，国家是us
+    # 当url的域名后缀是co.uk，国家是uk
+    # 当url的域名后缀是其他是，国家就是后缀
+    def format_url(self, url):
+        if 'sspa' in url:
+            asin_pattern = re.compile(r'dp%2F([A-Za-z0-9]{10})')
+        else:
+            asin_pattern = re.compile(r'/dp/([A-Z0-9]{10})')
         match = asin_pattern.search(url)
-        self.ASIN = match[1] if match else None
-        country = url.split('/')[2].split('.')[-1]
-        if country == 'com':
-            self.Country = 'us'
+        asin = match[1] if match else None
+        parsed_url = urllib.parse.urlparse(url)
+        domain = parsed_url.netloc
+        domain_parts = domain.split('.')
+        if len(domain_parts) >= 4:
+            domain_suffix = f'{domain_parts[-2]}.{domain_parts[-1]}'
+        else:
+            domain_suffix = domain_parts[-1]
+        domain_suffix_country_dict = {'com': 'us', 'co.uk': 'uk'}
+        country = domain_suffix_country_dict.get(domain_suffix, domain_suffix)
+        new_url = f'https://www.amazon.com/dp/{asin}'
+        return new_url, asin, country
+
+    # !
+    def garb_info(self, url):  # sourcery skip: extract-method
         info_主要信息 = self.driver.find_element(By.XPATH, '//*[@id="centerCol"]')
         info_主要信息_child = info_主要信息.find_elements(By.XPATH, './div')
         self.match_feature_data(info_主要信息_child, 'asin')
@@ -342,11 +373,11 @@ class AmazonInfo():
         for index, row in enumerate(sheet.iter_rows(), start=1):
         # 如果匹配模式为 '精准匹配'
             if match_mode == '精准匹配':
-                if row[colindex].value == rowvalue: # row[0] 获取当前列的值
+                if row[colindex-1].value == rowvalue: # row[0] 获取当前列的值
                     return index # 返回匹配行的行号
             # 如果匹配模式为 '模糊匹配'
             elif match_mode == '模糊匹配':
-                if rowvalue in str(row[colindex].value):
+                if rowvalue in str(row[colindex-1].value):
                     return index # 返回匹配行的行号
         # 如果没有找到匹配的行，返回 None
         return None
@@ -374,7 +405,6 @@ class AmazonInfo():
 
     def excel_merge_with(self):  # sourcery skip: extract-duplicate-method
         file_list = self.list_files_by_type(self.product_root, '.xlsx')
-
         for file_path in file_list:
             ase_name = os.path.basename(file_path)
             dir_name = os.path.basename(os.path.dirname(file_path))
@@ -384,26 +414,29 @@ class AmazonInfo():
                 dir_name = None
             # any：这个函数测试可迭代的元素是否有至少一个为真。
             # any用于检查表格中是否有至少一个单元格的值等于ase_name。如果有任何一个单元格的值等于 ase_name, 则 any 函数返回 True，否则返回 False。
-            x记录_Sheet1_maxrow, x记录_Sheet1_maxcol = self.tool_count(self.x记录_Sheet1)
+            wb = load_workbook(filename=file_path,read_only=True)
+            ws = wb['Sheet1']
+            ws_maxrow, ws_maxcol = self.tool_count(ws)
+            x记录_Sheet1_maxrow, x记录_Sheet1_maxcol= self.tool_count(self.x记录_Sheet1)
             ase_name_exist = any(
                 cell.value == ase_name
                 for cell in self.x记录_Sheet1[self.x记录_colstr_表格名称]
             )
+            # 更新ASIN队列信息
             self.excel_write_link(file_path)
             if not ase_name_exist:
                 self.x记录_Sheet1[f'{self.x记录_colstr_表格名称}{x记录_Sheet1_maxrow+1}'] = ase_name
                 self.x记录_Sheet1[f'{self.x记录_colstr_分类}{x记录_Sheet1_maxrow+1}'] = pdir_name
                 self.x记录_Sheet1[f'{self.x记录_colstr_子类}{x记录_Sheet1_maxrow+1}'] = dir_name
-                self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = x记录_Sheet1_maxrow - 1
+                self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = ws_maxrow - 1
                 self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{x记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
-                
             else:
                 所在行号 = self.find_colindex_value_rowindex(self.x记录_Sheet1, ase_name, column_index_from_string(self.x记录_colstr_表格名称))
-                ASIN计数 = self.x记录_Sheet1.cell(row=所在行号, column=column_index_from_string(self.x记录_colstr_分类))
+                ASIN计数 = self.x记录_Sheet1.cell(row=所在行号, column=column_index_from_string(self.x记录_colstr_ASIN计数)).value
                 if ASIN计数 < x记录_Sheet1_maxrow - 1:
-                    self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = x记录_Sheet1_maxrow - 1
-                    self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{x记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
-        
+                    self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{所在行号}'] = ws_maxrow - 1
+                    self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{所在行号}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
+                    
         self.x记录_wb.save(self.x记录_path)
 
     # !将表格中的链接都汇总到抓取队列中
@@ -411,27 +444,39 @@ class AmazonInfo():
     def excel_write_link(self, file_path):
         wb = load_workbook(filename=file_path, read_only=False)
         ws = wb['Sheet1']
-        colindex_链接 = column_index_from_string(self.find_colname_letter(sheet=ws, rowindex=1, colname='链接')) -1
-        colindex_ASIN = column_index_from_string(self.find_colname_letter(sheet=ws, rowindex=1, colname='ASIN')) -1
-        colindex_国家 = column_index_from_string(self.find_colname_letter(sheet=ws, rowindex=1, colname='国家')) -1
-        colindex_更新 = column_index_from_string(self.find_colname_letter(sheet=ws, rowindex=1, colname='更新')) -1
-        for row in ws.iter_rows(min_row=1, max_col=4):
-            链接 = row[colindex_链接]
-            asin = row[colindex_ASIN]
-            国家 = row[colindex_国家]
-            更新 = row[colindex_更新]
+        colstr_链接 = self.find_colname_letter(sheet=ws, rowindex=1, colname='链接')
+        colstr_ASIN = self.find_colname_letter(sheet=ws, rowindex=1, colname='ASIN')
+        colstr_国家 = self.find_colname_letter(sheet=ws, rowindex=1, colname='国家')
+        colstr_更新 = self.find_colname_letter(sheet=ws, rowindex=1, colname='更新')
+        colnum_链接 = column_index_from_string(colstr_链接) -1
+        colnum_ASIN = column_index_from_string(colstr_ASIN) -1
+        colnum_国家 = column_index_from_string(colstr_国家) -1
+        colnum_更新 = column_index_from_string(colstr_更新) -1
+        ws_maxrow, ws_maxcol = self.tool_count(ws)
+        # 最低从第二行开始，index的起始值是2
+        for index, row in enumerate(ws.iter_rows(min_row=2, max_row=ws_maxrow, max_col=4),start=2):
+            链接 = row[colnum_链接].value
+            asin = row[colnum_ASIN].value
+            国家 = row[colnum_国家].value
+            更新 = row[colnum_更新].value
             链接_exist = any(
                 cell.value == 链接
                 for cell in self.e队列_Sheet1[self.e队列_colstr_链接]
             )
+            # 为空时立即添加到ASIN队列
             if not 链接_exist:
+                链接,asin,国家 = self.format_url(链接)
+                ws[f'{colstr_链接}{index}'] = 链接
+                ws[f'{colstr_ASIN}{index}'] = asin
+                ws[f'{colstr_国家}{index}'] = 国家
+                ws[f'{colstr_更新}{index}'] = 7
                 e队列_Sheet1_maxrow, e队列_Sheet1_maxcol = self.tool_count(self.e队列_Sheet1)
                 self.e队列_Sheet1[f'{self.e队列_colstr_链接}{e队列_Sheet1_maxrow+1}'] = 链接
                 self.e队列_Sheet1[f'{self.e队列_colstr_ASIN}{e队列_Sheet1_maxrow+1}'] = asin
                 self.e队列_Sheet1[f'{self.e队列_colstr_国家}{e队列_Sheet1_maxrow+1}'] = 国家
                 self.e队列_Sheet1[f'{self.e队列_colstr_立即更新}{e队列_Sheet1_maxrow+1}'] = True
                 self.e队列_Sheet1[f'{self.e队列_colstr_是否更新}{e队列_Sheet1_maxrow+1}'] = True
-                self.e队列_Sheet1[f'{self.e队列_colstr_更新周期}{e队列_Sheet1_maxrow+1}'] = 更新
+                self.e队列_Sheet1[f'{self.e队列_colstr_更新周期}{e队列_Sheet1_maxrow+1}'] = 7
                 self.e队列_Sheet1[f'{self.e队列_colstr_主图450}{e队列_Sheet1_maxrow+1}'] = True
                 self.e队列_Sheet1[f'{self.e队列_colstr_主图1500}{e队列_Sheet1_maxrow+1}'] = True
                 self.e队列_Sheet1[f'{self.e队列_colstr_isKeepa}{e队列_Sheet1_maxrow+1}'] = True
@@ -439,19 +484,24 @@ class AmazonInfo():
                 self.e队列_Sheet1[f'{self.e队列_colstr_isXiYou}{e队列_Sheet1_maxrow+1}'] = True
             # 如果更新==i 立马更新，等表格通过excel_loop_grab填充后，再恢复成e队列_Sheet1中的更新周期
             elif str(更新) == 'i':
-                所在行号 = self.find_colindex_value_rowindex(self.e队列_Sheet1, 链接, column_index_from_string(self.e汇总_colstr_链接))
+                所在行号 = self.find_colindex_value_rowindex(self.e队列_Sheet1, 链接, column_index_from_string(self.e队列_colstr_链接))
                 self.e队列_Sheet1[f'{self.e队列_colstr_立即更新}{所在行号}'] = True
+            # 更新ASIN队列的更新周期
             else:
-                所在行号 = self.find_colindex_value_rowindex(self.e队列_Sheet1, 链接, column_index_from_string(self.e汇总_colstr_链接))
+                所在行号 = self.find_colindex_value_rowindex(self.e队列_Sheet1, 链接, column_index_from_string(self.e队列_colstr_链接))
                 self.e队列_Sheet1[f'{self.e队列_colstr_更新周期}{所在行号}'] = 更新
-
-        self.e队列_wb.save(self.e汇总_path)
+                
+        wb.save(file_path)
+        self.e队列_wb.save(self.e队列_path)
 
     def excel_loop_grab(self):
-        
+        # 最低从第三行开始，index的起始值是3
+        maxrow, maxcol= self.tool_count(self.e队列_Sheet1)
+        for index, row in enumerate(self.e队列_Sheet1.iter_rows(min_row=3,max_row=maxrow,max_col=maxcol), start=3):
+            
+            pass
 
     def excel_fill_in(self):
-        
         pass
 
     #update方法可以将返回的字典合并到result字典中
@@ -844,7 +894,7 @@ class AmazonInfo():
         return {'主图450':image_main450}
 
     def get_main1500(self):
-        # sourcery skip: extract-duplicate-method, extract-method
+        # sourcery skip: class-extract-method, extract-duplicate-method, extract-method
         image_left1 = get_imgspan(self.driver)[1]
         image_main1500 = []
         # 如果参数isBigImg为真，获取1000+的大尺寸主图
@@ -1066,9 +1116,12 @@ if __name__ == '__main__':
     sc = ChromeStart("Seller")
     driver,wait,actions = sc.GetDriver()
     AmazonI = AmazonInfo(driver,wait,actions)
-    sc.BindPage('https://www.amazon.com/dp/B07H9GY33H',"Contain")
-    AmazonI.get_title()
-    AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
-    print(AmazonI.title) 
+    #sc.BindPage('https://www.amazon.com/dp/B07H9GY33H',"Contain")
+    #AmazonI.get_title()
+    #AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
+    #print(AmazonI.title) 
     #print(AmazonI.get_price())
+    
+    AmazonI.excel_merge_with()
+    AmazonI.excel_write_link('D:\Code\# LISTING\产品数据\玩具-积木\乐高花束\ASIN_Info-乐高花束2.xlsx')
     
