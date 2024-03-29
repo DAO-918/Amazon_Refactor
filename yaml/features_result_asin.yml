@@ -1,54 +1,952 @@
 Section:
   Div_feature: xxx
-data_i.B07H9GY33H_c.01:
-  Div_feature: '["div", 0, 0, "celwidget", [["style", 1, 0, "", []], ["div", 1, 0,
-    "a-section a-spacing-none", [["h1", 2, 0, "a-size-large a-spacing-none", [["span",
-    3, 0, "a-size-large product-title-word-break", []]]], ["div", 2, 0, "a-section
-    a-spacing-none expand aok-hidden", []]]]]]'
-data_i.B07H9GY33H_c.02:
+data_i.B09V38ST65_c.01:
+  Div_feature: '["div", 0, 0, "celwidget", [null, ["div", 1, 0, "a-section a-spacing-none",
+    [["h1", 2, 0, "a-size-large a-spacing-none", [["span", 3, 0, "a-size-large product-title-word-break",
+    []]]], ["div", 2, 0, "a-section a-spacing-none expand aok-hidden", []]]]]]'
+  Div_outerHTML: '<div class="celwidget" data-cel-widget="title_feature_div" data-csa-c-asin="B09V38ST65"
+    data-csa-c-content-id="title" data-csa-c-id="3ztc96-yb6b3t-thgegu-s3wane" data-csa-c-is-in-initial-active-row="false"
+    data-csa-c-slot-id="title_feature_div" data-csa-c-type="widget" data-feature-name="title"
+    id="title_feature_div">
+
+
+    <div class="a-section a-spacing-none" id="titleSection"> <h1 class="a-size-large
+    a-spacing-none" id="title"> <span class="a-size-large product-title-word-break"
+    id="productTitle">        PLAYBEA Dinosaur Toys - 12 7-Inch Realistic Dinosaurs
+    Figures with Storage Box |Dino Toys for Kids 3-5 5-7 | Toddler Boy Toys       </span>
+    </h1> <div class="a-section a-spacing-none expand aok-hidden" id="expandTitleToggle"></div>
+    </div> </div>'
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.02:
   Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-section a-spacing-none",
     [["a", 2, 0, "a-link-normal", []]]]]]'
-data_i.B07H9GY33H_c.03:
-  Div_feature: '["div", 0, 0, "celwidget", [["style", 1, 0, "", []], ["div", 1, 0,
-    "", [["span", 2, 0, "a-declarative", [["span", 3, 0, "reviewCountTextLinkedHistogram
-    noUnderline", [["span", 4, 0, "a-declarative", [["a", 5, 0, "a-popover-trigger
-    a-declarative", [["i", 6, 0, "a-icon a-icon-star a-star-4-5 cm-cr-review-stars-spacing-big",
-    [["span", 7, 0, "a-icon-alt", []]]], ["i", 6, 1, "a-icon a-icon-popover", []]]]]],
-    ["span", 4, 2, "a-letter-space", []]]]]], ["span", 2, 5, "a-letter-space", []],
-    ["span", 2, 6, "a-declarative", [["a", 3, 0, "a-link-normal", [["span", 4, 0,
-    "a-size-base", []]]]]], ["script", 2, 0, "", []], ["script", 2, 1, "", []]]]]]'
-data_i.B07H9GY33H_c.04:
+  Div_outerHTML: '<div class="celwidget" data-cel-widget="bylineInfo_feature_div"
+    data-csa-c-asin="B09V38ST65" data-csa-c-content-id="bylineInfo" data-csa-c-id="7cax1y-as90vn-ighkat-hwb260"
+    data-csa-c-is-in-initial-active-row="false" data-csa-c-slot-id="bylineInfo_feature_div"
+    data-csa-c-type="widget" data-feature-name="bylineInfo" id="bylineInfo_feature_div">
+
+    <div class="a-section a-spacing-none"> <a class="a-link-normal" href="/stores/PLAYVIBE/page/667B4D6D-1E53-41EA-9B0A-29DCB76169C9?ref_=ast_bln"
+    id="bylineInfo">Visit the PLAYVIBE Store</a> </div> </div>'
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.03:
+  Div_feature: '["div", 0, 0, "celwidget", [null, ["div", 1, 0, "", [["span", 2, 0,
+    "a-declarative", [["span", 3, 0, "reviewCountTextLinkedHistogram noUnderline",
+    [["span", 4, 0, "a-declarative", [["a", 5, 0, "a-popover-trigger a-declarative",
+    [["i", 6, 0, "a-icon a-icon-star a-star-4-5 cm-cr-review-stars-spacing-big", [["span",
+    7, 0, "a-icon-alt", []]]], ["i", 6, 1, "a-icon a-icon-popover", []]]]]], ["span",
+    4, 2, "a-letter-space", []]]]]], ["span", 2, 5, "a-letter-space", []], ["span",
+    2, 6, "a-declarative", [["a", 3, 0, "a-link-normal", [["span", 4, 0, "a-size-base",
+    []]]]]], null, null]]]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"averageCustomerReviews_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"averageCustomerReviews\"\
+    \ data-csa-c-id=\"gy058d-g1zek7-gjrii-aubvwg\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"averageCustomerReviews_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"averageCustomerReviews\" id=\"averageCustomerReviews_feature_div\"\
+    >\n\n<div data-asin=\"B09V38ST65\" data-ref=\"dpx_acr_pop_\" id=\"averageCustomerReviews\"\
+    >\n<span class=\"a-declarative\" data-acrstarslink-click-metrics=\"{}\" data-action=\"\
+    acrStarsLink-click-metrics\" data-csa-c-func-deps=\"aui-da-acrStarsLink-click-metrics\"\
+    \ data-csa-c-id=\"21tlm8-78ji7f-gniqws-r51zf3\" data-csa-c-type=\"widget\"> <span\
+    \ class=\"reviewCountTextLinkedHistogram noUnderline\" id=\"acrPopover\" title=\"\
+    4.7 out of 5 stars\">\n<span class=\"a-declarative\" data-a-popover='{\"max-width\"\
+    :\"700\",\"closeButton\":\"false\",\"position\":\"triggerBottom\",\"url\":\"/gp/customer-reviews/widgets/average-customer-review/popover/ref=dpx_acr_pop_?contextId=dpx&amp;asin=B09V38ST65\"\
+    }' data-action=\"a-popover\" data-csa-c-func-deps=\"aui-da-a-popover\" data-csa-c-id=\"\
+    p7nvv1-2y8s4l-mputj2-r9i0z5\" data-csa-c-type=\"widget\"> <a class=\"a-popover-trigger\
+    \ a-declarative\" href=\"javascript:void(0)\" role=\"button\"> <i class=\"a-icon\
+    \ a-icon-star a-star-4-5 cm-cr-review-stars-spacing-big\"><span class=\"a-icon-alt\"\
+    >4.7 out of 5 stars</span></i> <i class=\"a-icon a-icon-popover\"></i></a> </span>\
+    \ <span class=\"a-letter-space\"></span> </span>\n</span> <span class=\"a-letter-space\"\
+    ></span> <span class=\"a-declarative\" data-acrlink-click-metrics=\"{}\" data-action=\"\
+    acrLink-click-metrics\" data-csa-c-func-deps=\"aui-da-acrLink-click-metrics\"\
+    \ data-csa-c-id=\"q44mxy-t6qafo-87z1kc-t2x0p4\" data-csa-c-type=\"widget\"> <a\
+    \ class=\"a-link-normal\" href=\"#customerReviews\" id=\"acrCustomerReviewLink\"\
+    > <span class=\"a-size-base\" id=\"acrCustomerReviewText\">4,757</span> </a> </span>\
+    \ \n\n</div>\n</div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.04:
   Div_feature: '["div", 0, 0, "celwidget", [["span", 1, 0, "askPipe", []], ["span",
     1, 1, "", [["a", 2, 0, "a-link-normal askATFLink", [["span", 3, 0, "a-size-base",
     []]]]]]]]'
-data_i.B07H9GY33H_c.05:
+  Div_outerHTML: '<div class="celwidget" data-cel-widget="ask_feature_div" data-csa-c-asin="B09V38ST65"
+    data-csa-c-content-id="ask" data-csa-c-id="j1ae63-m2b4ix-mdg7yg-bcy9ow" data-csa-c-is-in-initial-active-row="false"
+    data-csa-c-slot-id="ask_feature_div" data-csa-c-type="widget" data-feature-name="ask"
+    id="ask_feature_div">
+
+    <span class="askPipe"> | </span>
+
+    <span data-csa-c-content-id="ask-atf-link-search-this-page-content" data-csa-c-id="5xsxq9-4y7654-4a0x62-g3lv3s"
+    data-csa-c-slot-id="ask-atf-link-search-this-page" data-csa-c-type="widget">
+
+    <a class="a-link-normal askATFLink" href="#Ask" id="askATFLink"> <span class="a-size-base">
+    Search this page </span> </a> </span>
+
+    </div>'
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.05:
   Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "ac-badge-wrapper", [["div",
     2, 0, "a-popover-preload", [["span", 3, 0, "a-size-small", []]]], ["span", 2,
     1, "a-declarative", [["span", 3, 0, "a-size-small aok-float-left ac-badge-rectangle",
     [["span", 4, 0, "ac-badge-text-primary ac-white", []], ["span", 4, 1, "ac-badge-text-secondary
     ac-orange", []]]], ["span", 3, 3, "aok-float-left ac-badge-triangle", []]]], ["span",
-    2, 6, "ac-for-text", []]]], ["script", 1, 0, "", []]]]'
-data_i.B07H9GY33H_c.06:
-  Div_feature: '["div", 0, 0, "celwidget", []]'
-data_i.B07H9GY33H_c.07:
-  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-popover-preload", []]]]'
-data_i.B07H9GY33H_c.09:
-  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "celwidget pf_rd_p-f20fcda8-2440-4bfe-9c09-83295cb4a15a
-    pf_rd_r-9AZTN1XKENKQR37W26W9 pd_rd_wg-SIK59 pd_rd_i-B07LB84QQP pd_rd_w-9yo8d content-id-amzn1.sym.f20fcda8-2440-4bfe-9c09-83295cb4a15a
-    pd_rd_r-e55658bd-a3a3-4590-9155-68387ee1f63e ", [["div", 2, 0, "a-section a-spacing-small",
-    [["hr", 3, 0, "a-spacing-base a-divider-normal", []], ["div", 3, 0, "a-row a-spacing-none",
-    [["div", 4, 0, "a-column a-span12 a-span-last", [["div", 5, 0, "a-section a-spacing-none",
-    [["h4", 6, 0, "", []]]], ["div", 5, 1, "value-pick-ac-badge-row value-pick-a-spacing-top-small",
-    [["span", 6, 0, "a-size-small value-pick-aok-float-left value-pick-ac-badge-rectangle",
-    [["span", 7, 0, "value-pick-ac-badge-text-primary value-pick-ac-white", []], ["span",
-    7, 1, "value-pick-ac-badge-text-secondary value-pick-ac-orange", []]]], ["span",
-    6, 3, "aok-float-left ac-badge-triangle", []]]], ["div", 5, 2, "a-fixed-left-grid
-    a-spacing-top-mini", [["div", 6, 0, "a-fixed-left-grid-inner", [["div", 7, 0,
-    "a-fixed-left-grid-col a-col-left", [["div", 8, 0, "a-row", [["a", 9, 0, "a-link-normal",
-    [["img", 10, 0, "", []]]]]]]], ["div", 7, 2, "a-fixed-left-grid-col a-col-right",
-    [["div", 8, 0, "a-row", [["a", 9, 0, "a-size-base a-link-normal", []]]], ["div",
-    8, 1, "a-row", []], ["div", 8, 2, "a-row", [["i", 9, 0, "a-icon a-icon-star a-star-4-5",
-    []], ["a", 9, 0, "a-link-normal", []]]], ["div", 8, 3, "a-row", [["span", 9, 0,
-    "a-size-base a-color-price", []], ["i", 9, 0, "a-icon a-icon-prime a-icon-small
-    aok-hidden", []]]], ["div", 8, 4, "a-row", []]]]]]]]]]]], ["script", 3, 0, "",
-    []], ["script", 3, 1, "", []], ["span", 3, 5, "a-letter-space", []]]]]]]]'
+    2, 6, "ac-for-text", []]]], null]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"acBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"acBadge\" data-csa-c-id=\"\
+    6uunyb-dj670g-oycixu-2vyrll\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    acBadge_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"acBadge\"\
+    \ id=\"acBadge_feature_div\">\n<div class=\"ac-badge-wrapper\" cssclass=\"aok-float-left\"\
+    >\n<div class=\"a-popover-preload\" id=\"a-popover-amazons-choice-popover\"> <span\
+    \ class=\"a-size-small\"> Amazon's Choice highlights highly rated, well-priced\
+    \ products available to ship immediately. </span> </div> <span class=\"a-declarative\"\
+    \ data-a-popover='{\"name\":\"amazons-choice-popover\",\"position\":\"triggerTop\"\
+    }' data-action=\"a-popover\" data-csa-c-func-deps=\"aui-da-a-popover\" data-csa-c-id=\"\
+    rqtlm6-5cb1xx-lnc2o2-dez0ey\" data-csa-c-type=\"widget\"> <span class=\"a-size-small\
+    \ aok-float-left ac-badge-rectangle\"> <span class=\"ac-badge-text-primary ac-white\"\
+    >Amazon's </span> <span class=\"ac-badge-text-secondary ac-orange\">Choice</span>\
+    \ </span> <span class=\"aok-float-left ac-badge-triangle\"></span> </span> <span\
+    \ class=\"ac-for-text\">\n</span>\n</div>\n </div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.11:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-section a-spacing-micro
+    social-proofing-faceout", [["div", 2, 0, "a-section social-proofing-faceout-title
+    social-proofing-faceout-title-alignment-left", [["span", 3, 0, "a-size-small social-proofing-faceout-title-text
+    social-proofing-faceout-cx-enhancement-T6", [["span", 4, 0, "a-text-bold a-text-italic",
+    []], ["span", 4, 1, "a-text-italic", []]]]]]]], null]]'
+  Div_outerHTML: '<div class="celwidget" data-cel-widget="socialProofingAsinFaceout_feature_div"
+    data-csa-c-asin="B09V38ST65" data-csa-c-content-id="socialProofingAsinFaceout"
+    data-csa-c-id="cdaudl-c15wsm-psbvpl-n8x2rs" data-csa-c-is-in-initial-active-row="false"
+    data-csa-c-slot-id="socialProofingAsinFaceout_feature_div" data-csa-c-type="widget"
+    data-feature-name="socialProofingAsinFaceout" id="socialProofingAsinFaceout_feature_div">
+
+    <div class="a-section a-spacing-micro social-proofing-faceout"> <div class="a-section
+    social-proofing-faceout-title social-proofing-faceout-title-alignment-left"> <span
+    class="a-size-small social-proofing-faceout-title-text social-proofing-faceout-cx-enhancement-T6"
+    id="social-proofing-faceout-title-tk_bought"> <span class="a-text-bold a-text-italic">3K+</span><span
+    class="a-text-italic"> bought in past month</span> </span> </div> </div>  </div>'
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.14:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "", [["div", 2, 0, "offersConsistencyEnabled",
+    [["div", 3, 0, "", [["div", 4, 0, "", [["div", 5, 0, "celwidget", [["span", 6,
+    0, "dealBadge aok-relative", [["span", 7, 0, "aok-hidden", []], ["span", 7, 1,
+    "aok-hidden", []], ["span", 7, 2, "aok-hidden", []], ["span", 7, 3, "aok-hidden",
+    []], ["span", 7, 4, "a-size-small dealBadgeTextColor a-text-bold", [["span", 8,
+    0, "", []]]]]], null]], ["div", 5, 1, "celwidget", [null]], ["div", 5, 2, "celwidget",
+    [null, ["div", 6, 0, "a-section a-spacing-none aok-align-center aok-relative",
+    [["span", 7, 0, "aok-offscreen", []], ["span", 7, 1, "a-size-large a-color-price
+    savingPriceOverride aok-align-center reinventPriceSavingsPercentageMargin savingsPercentage",
+    []], ["span", 7, 2, "a-price aok-align-center reinventPricePriceToPayMargin priceToPay",
+    [["span", 8, 0, "a-offscreen", []], ["span", 8, 1, "", [["span", 9, 0, "a-price-symbol",
+    []], ["span", 9, 1, "a-price-whole", [["span", 10, 0, "a-price-decimal", []]]],
+    ["span", 9, 3, "a-price-fraction", []]]]]], ["span", 7, 9, "a-size-mini a-color-base
+    aok-align-center aok-nowrap", []]]], ["div", 6, 1, "a-section a-spacing-small
+    aok-align-center", [["span", 7, 0, "", [["span", 8, 0, "aok-relative", [["span",
+    9, 0, "a-size-small aok-offscreen", []], ["span", 9, 1, "a-size-small a-color-secondary
+    aok-align-center basisPrice", [["span", 10, 0, "a-price a-text-price", [["span",
+    11, 0, "a-offscreen", []], ["span", 11, 1, "", []]]]]]]], ["span", 8, 6, "a-size-small
+    aok-align-center basisPriceLegalMessage", [["span", 9, 0, "a-declarative", [["a",
+    10, 0, "a-popover-trigger a-declarative reinventPriceLegalMessagePopover", [["svg",
+    11, 0, "reinventPrice_legalMessage_icon", [null]], ["i", 11, 0, "a-icon a-icon-popover",
+    []]]]]], ["div", 9, 0, "a-popover-preload", [["div", 10, 0, "a-section a-spacing-none",
+    [["h3", 11, 0, "", []], ["span", 11, 0, "a-size-base", [["br", 12, 0, "", []],
+    ["a", 12, 0, "a-link-normal", []]]]]]]], null, null]]]]]]]], ["div", 5, 7, "celwidget",
+    []], ["div", 5, 8, "celwidget", []], ["div", 5, 9, "celwidget", []], ["div", 5,
+    10, "celwidget", []], ["div", 5, 11, "celwidget", []], ["div", 5, 12, "celwidget",
+    []], ["div", 5, 13, "celwidget", []], ["div", 5, 14, "celwidget", []], ["div",
+    5, 15, "celwidget", [["input", 6, 0, "", []], ["input", 6, 1, "", []], null]],
+    ["div", 5, 16, "celwidget", [["dptags:querylogoperation", 6, 0, "", [["span",
+    7, 0, "a-size-base", [["b", 8, 0, "", []], ["a", 8, 0, "", []]]]]]]], ["div",
+    5, 17, "celwidget", [["span", 6, 0, "a-hidden", []], ["span", 6, 1, "a-block",
+    [["span", 7, 0, "a-inline-block", [["span", 8, 0, "a-declarative", [["span", 9,
+    0, "celwidget", [["a", 10, 0, "a-popover-trigger a-declarative a-inline-block",
+    [["i", 11, 0, "a-icon a-icon-popover", []]]]]]]], ["div", 8, 0, "a-popover-preload",
+    [["div", 9, 0, "celwidget", [["h5", 10, 0, "", []], ["p", 10, 0, "a-spacing-none
+    a-spacing-top-small", []], ["a", 10, 0, "a-link-normal", []], ["div", 10, 0, "a-row
+    a-expander-container a-expander-inline-container", [["a", 11, 0, "a-expander-header
+    a-declarative a-expander-inline-header a-link-expander", [["i", 12, 0, "a-icon
+    a-icon-expand", []], ["span", 12, 0, "a-expander-prompt", []]]], ["div", 11, 0,
+    "a-expander-content a-expander-inline-content a-expander-inner", [["ol", 12, 0,
+    "a-ordered-list a-vertical", [["li", 13, 0, "", [["span", 14, 0, "a-list-item",
+    []]]], ["li", 13, 1, "", [["span", 14, 0, "a-list-item", []]]], ["li", 13, 2,
+    "", [["span", 14, 0, "a-list-item", []]]]]]]]]]]]]]]]]]]], ["div", 5, 22, "celwidget",
+    []], ["div", 5, 23, "celwidget", []], ["div", 5, 24, "celwidget", []], ["div",
+    5, 25, "celwidget", []], ["div", 5, 26, "celwidget", []], ["div", 5, 27, "celwidget",
+    []], ["div", 5, 28, "celwidget", []], ["div", 5, 29, "celwidget", []], ["div",
+    5, 30, "celwidget", []], ["div", 5, 31, "celwidget", []], ["div", 5, 32, "celwidget",
+    []], ["div", 5, 33, "celwidget", [["table", 6, 0, "a-normal a-spacing-none reInventPriceTable",
+    []], null]], ["div", 5, 34, "celwidget", []], ["div", 5, 35, "celwidget", []],
+    ["div", 5, 36, "celwidget", []], ["div", 5, 37, "celwidget", []], ["div", 5, 38,
+    "celwidget", []], ["div", 5, 39, "celwidget", []], ["div", 5, 40, "celwidget",
+    []], ["div", 5, 41, "celwidget", []]]]]], ["div", 3, 44, "", [["div", 4, 0, "",
+    [["div", 5, 0, "celwidget", []], ["div", 5, 1, "celwidget", [null]], ["div", 5,
+    2, "celwidget", [null, ["div", 6, 0, "a-section a-spacing-none aok-align-center
+    aok-relative", [["span", 7, 0, "aok-offscreen", []], ["span", 7, 1, "a-size-large
+    a-color-price savingPriceOverride aok-align-center reinventPriceSavingsPercentageMargin
+    savingsPercentage", []], ["span", 7, 2, "a-price aok-align-center reinventPricePriceToPayMargin
+    priceToPay", [["span", 8, 0, "a-offscreen", []], ["span", 8, 1, "", [["span",
+    9, 0, "a-price-symbol", []], ["span", 9, 1, "a-price-whole", [["span", 10, 0,
+    "a-price-decimal", []]]], ["span", 9, 3, "a-price-fraction", []]]]]], ["span",
+    7, 9, "a-size-mini a-color-base aok-align-center aok-nowrap", []]]], ["div", 6,
+    1, "a-section a-spacing-small aok-align-center", [["span", 7, 0, "", [["span",
+    8, 0, "aok-relative", [["span", 9, 0, "a-size-small aok-offscreen", []], ["span",
+    9, 1, "a-size-small a-color-secondary aok-align-center basisPrice", [["span",
+    10, 0, "a-price a-text-price", [["span", 11, 0, "a-offscreen", []], ["span", 11,
+    1, "", []]]]]]]], ["span", 8, 6, "a-size-small aok-align-center basisPriceLegalMessage",
+    [["span", 9, 0, "a-declarative", [["a", 10, 0, "a-popover-trigger a-declarative
+    reinventPriceLegalMessagePopover", [["svg", 11, 0, "reinventPrice_legalMessage_icon",
+    [null]], ["i", 11, 0, "a-icon a-icon-popover", []]]]]], ["div", 9, 0, "a-popover-preload",
+    [["div", 10, 0, "a-section a-spacing-none", [["h3", 11, 0, "", []], ["span", 11,
+    0, "a-size-base", [["br", 12, 0, "", []], ["a", 12, 0, "a-link-normal", []]]]]]]],
+    null, null]]]]]]]], ["div", 5, 7, "celwidget", []], ["div", 5, 8, "celwidget",
+    []], ["div", 5, 9, "celwidget", []], ["div", 5, 10, "celwidget", []], ["div",
+    5, 11, "celwidget", []], ["div", 5, 12, "celwidget", []], ["div", 5, 13, "celwidget",
+    []], ["div", 5, 14, "celwidget", []], ["div", 5, 15, "celwidget", [["input", 6,
+    0, "", []], ["input", 6, 1, "", []], null]], ["div", 5, 16, "celwidget", [["dptags:querylogoperation",
+    6, 0, "", [["span", 7, 0, "a-size-base", [["b", 8, 0, "", []], ["a", 8, 0, "",
+    []]]]]]]], ["div", 5, 17, "celwidget", [["span", 6, 0, "a-hidden", []], ["span",
+    6, 1, "a-block", [["span", 7, 0, "a-inline-block", [["span", 8, 0, "a-declarative",
+    [["span", 9, 0, "celwidget", [["a", 10, 0, "a-popover-trigger a-declarative a-inline-block",
+    [["i", 11, 0, "a-icon a-icon-popover", []]]]]]]], ["div", 8, 0, "a-popover-preload",
+    [["div", 9, 0, "celwidget", [["h5", 10, 0, "", []], ["p", 10, 0, "a-spacing-none
+    a-spacing-top-small", []], ["a", 10, 0, "a-link-normal", []], ["div", 10, 0, "a-row
+    a-expander-container a-expander-inline-container", [["a", 11, 0, "a-expander-header
+    a-declarative a-expander-inline-header a-link-expander", [["i", 12, 0, "a-icon
+    a-icon-expand", []], ["span", 12, 0, "a-expander-prompt", []]]], ["div", 11, 0,
+    "a-expander-content a-expander-inline-content a-expander-inner", [["ol", 12, 0,
+    "a-ordered-list a-vertical", [["li", 13, 0, "", [["span", 14, 0, "a-list-item",
+    []]]], ["li", 13, 1, "", [["span", 14, 0, "a-list-item", []]]], ["li", 13, 2,
+    "", [["span", 14, 0, "a-list-item", []]]]]]]]]]]]]]]]]]]], ["div", 5, 22, "celwidget",
+    []], ["div", 5, 23, "celwidget", []], ["div", 5, 24, "celwidget", []], ["div",
+    5, 25, "celwidget", []], ["div", 5, 26, "celwidget", []], ["div", 5, 27, "celwidget",
+    []], ["div", 5, 28, "celwidget", []], ["div", 5, 29, "celwidget", []], ["div",
+    5, 30, "celwidget", []], ["div", 5, 31, "celwidget", []], ["div", 5, 32, "celwidget",
+    []], ["div", 5, 33, "celwidget", [["table", 6, 0, "a-normal a-spacing-none reInventPriceTable",
+    []], null]], ["div", 5, 34, "celwidget", []], ["div", 5, 35, "celwidget", []],
+    ["div", 5, 36, "celwidget", []], ["div", 5, 37, "celwidget", []], ["div", 5, 38,
+    "celwidget", []], ["div", 5, 39, "celwidget", []], ["div", 5, 40, "celwidget",
+    []], ["div", 5, 41, "celwidget", []]]]]]]]]]]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"apex_desktop\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"apex_desktop\" data-csa-c-id=\"6sm92t-olt0s3-dlv4rp-xa4atg\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"apex_desktop\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"apex_desktop\" id=\"apex_desktop\"\
+    >\n<div data-csa-c-content-id=\"apex\" data-csa-c-id=\"v744d9-ywvvyb-hcbf6h-p8vfw2\"\
+    \ data-csa-c-slot-id=\"apex_dp_center_column\" data-csa-c-type=\"widget\">\n<div\
+    \ class=\"offersConsistencyEnabled\">\n<div id=\"apex_desktop_qualifiedBuybox\"\
+    \ style=\"\">\n<div data-csa-c-content-id=\"apex_with_rio_cx\" data-csa-c-id=\"\
+    lk8eol-m09h73-sxn19m-f17wo2\" data-csa-c-slot-id=\"apex_dp_center_column\" data-csa-c-type=\"\
+    widget\">\n<div class=\"celwidget\" data-cel-widget=\"dealBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"dealBadge\" data-csa-c-id=\"\
+    rl1kcs-y3b270-ysvc51-v8hzan\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    dealBadge_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"dealBadge\"\
+    \ id=\"dealBadge_feature_div\">\n<span class=\"dealBadge aok-relative\">\n<span\
+    \ class=\"aok-hidden\" id=\"deals_countdown_timer_from_hours_screen_reader_label\"\
+    >Limited time deal NO_OF_HOURS hours NO_OF_MINUTES minutes</span> <span class=\"\
+    aok-hidden\" id=\"deals_countdown_timer_from_minutes_without_seconds_screen_reader_label\"\
+    >Limited time deal NO_OF_MINUTES minutes</span> <span class=\"aok-hidden\" id=\"\
+    deals_countdown_timer_from_minutes_with_seconds_screen_reader_label\">Limited\
+    \ time deal NO_OF_MINUTES minutes NO_OF_SECONDS seconds</span> <span class=\"\
+    aok-hidden\" id=\"deals_countdown_timer_from_seconds_screen_reader_label\">Limited\
+    \ time deal NO_OF_SECONDS seconds</span> <span class=\"a-size-small dealBadgeTextColor\
+    \ a-text-bold\" id=\"dealBadgeSupportingText\"> <span>Limited time deal</span>\
+    \ </span> </span>\n\n</div>\n<div class=\"celwidget\" data-cel-widget=\"delightPricingBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"delightPricingBadge\"\
+    \ data-csa-c-id=\"dfg8sk-q88rlu-7hq48b-gjd059\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"delightPricingBadge_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"delightPricingBadge\" id=\"delightPricingBadge_feature_div\"\
+    >\n\n<!-- considering updating DetailPageDelightPricingTests package whenever\
+    \ you change the template view -->\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    corePriceDisplay_desktop_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    corePriceDisplay_desktop\" data-csa-c-id=\"jgzgac-hmwmme-87cmoa-kwqfv6\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"corePriceDisplay_desktop_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"corePriceDisplay_desktop\" id=\"corePriceDisplay_desktop_feature_div\"\
+    >\n\n<div class=\"a-section a-spacing-none aok-align-center aok-relative\"> <span\
+    \ class=\"aok-offscreen\">   $16.99 with 15 percent savings    </span> <span aria-hidden=\"\
+    true\" class=\"a-size-large a-color-price savingPriceOverride aok-align-center\
+    \ reinventPriceSavingsPercentageMargin savingsPercentage\">-15%</span> <span class=\"\
+    a-price aok-align-center reinventPricePriceToPayMargin priceToPay\" data-a-color=\"\
+    base\" data-a-size=\"xl\"><span class=\"a-offscreen\"> </span><span aria-hidden=\"\
+    true\"><span class=\"a-price-symbol\">$</span><span class=\"a-price-whole\">16<span\
+    \ class=\"a-price-decimal\">.</span></span><span class=\"a-price-fraction\">99</span></span></span>\
+    \ <span class=\"a-size-mini a-color-base aok-align-center aok-nowrap\" id=\"taxInclusiveMessage\"\
+    > </span> </div> <div class=\"a-section a-spacing-small aok-align-center\"> <span>\
+    \ <span class=\"aok-relative\"><span class=\"a-size-small aok-offscreen\"> Typical\
+    \ price: $19.99 </span><span aria-hidden=\"true\" class=\"a-size-small a-color-secondary\
+    \ aok-align-center basisPrice\">Typical price:      <span class=\"a-price a-text-price\"\
+    \ data-a-color=\"secondary\" data-a-size=\"s\" data-a-strike=\"true\"><span class=\"\
+    a-offscreen\">$19.99</span><span aria-hidden=\"true\">$19.99</span></span> </span></span>\
+    \ <span class=\"a-size-small aok-align-center basisPriceLegalMessage\"> <span\
+    \ class=\"a-declarative\" data-a-popover='{\"closeButton\":\"true\",\"name\":\"\
+    basisPriceLegalMessageDisplayPreload-75ec9695-c0c3-452f-9ac6-05da475b15dc\",\"\
+    position\":\"triggerBottom\"}' data-action=\"a-popover\" data-csa-c-func-deps=\"\
+    aui-da-a-popover\" data-csa-c-id=\"9gsans-7j0vd-gqf6t8-ylc77l\" data-csa-c-type=\"\
+    widget\"> <a aria-label=\"Learn more about Amazon pricing and savings\" class=\"\
+    a-popover-trigger a-declarative reinventPriceLegalMessagePopover\" href=\"javascript:void(0)\"\
+    \ role=\"button\"> <svg aria-hidden=\"true\" class=\"reinventPrice_legalMessage_icon\"\
+    \ role=\"img\" viewbox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\">\n\
+    \n</svg>\n<i class=\"a-icon a-icon-popover\"></i></a> </span> <div class=\"a-popover-preload\"\
+    \ id=\"a-popover-basisPriceLegalMessageDisplayPreload-75ec9695-c0c3-452f-9ac6-05da475b15dc\"\
+    > <div class=\"a-section a-spacing-none\"> <h3></h3> <span class=\"a-size-base\"\
+    >This is determined using the 90-day median price paid by customers for the product\
+    \ on Amazon. We exclude prices paid by customers for the product during a limited\
+    \ time deal.<br/><a class=\"a-link-normal\" href=\"https://www.amazon.com/gp/help/customer/display.html?nodeId=GQ6B6RH72AX8D2TD&amp;ref_=dp_hp\"\
+    >Learn more</a></span> </div> </div> \n\n</span> </span> </div> </div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"vaipsCombinedDeviceAndPlanExperience_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"vaipsCombinedDeviceAndPlanExperience\"\
+    \ data-csa-c-id=\"v5zohe-xomh6u-3oout2-sevv8b\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"vaipsCombinedDeviceAndPlanExperience_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"vaipsCombinedDeviceAndPlanExperience\"\
+    \ id=\"vaipsCombinedDeviceAndPlanExperience_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"priceTracker_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"priceTracker\" data-csa-c-id=\"iwrbrx-tlngyb-d97ksf-51gqsw\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"priceTracker_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"priceTracker\" id=\"priceTracker_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"taxInclusiveMessage_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"taxInclusiveMessage\"\
+    \ data-csa-c-id=\"o4xadx-11gxo3-fo5g6f-7cgs3p\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"taxInclusiveMessage_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"taxInclusiveMessage\" id=\"taxInclusiveMessage_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"delightPricingBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"delightPricingBadge\"\
+    \ data-csa-c-id=\"zdr6ii-34ifj8-ue46vi-zbiefs\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"delightPricingBadge_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"delightPricingBadge\" id=\"delightPricingBadge_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"omnibusPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"omnibusPrice\" data-csa-c-id=\"\
+    tj05m2-47lr92-ov7q85-3aj1af\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    omnibusPrice_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"omnibusPrice\"\
+    \ id=\"omnibusPrice_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    jewelryPriceBreakup_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    jewelryPriceBreakup\" data-csa-c-id=\"tbvmo7-ho4fgk-chb0mt-ksw5o3\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"jewelryPriceBreakup_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"jewelryPriceBreakup\" id=\"jewelryPriceBreakup_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"agsIfdInsidePrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"agsIfdInsidePrice\" data-csa-c-id=\"\
+    np33oo-6shmgg-fnu6fo-5l15rc\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    agsIfdInsidePrice_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    agsIfdInsidePrice\" id=\"agsIfdInsidePrice_feature_div\">\n<!-- For LightningDeal\
+    \ use case, agsShippingAndIfdInsideBuyBox is only configured on regular offer,\
+    \ so set defaultPageContext as buyingPrice -->\n</div>\n<div class=\"celwidget\"\
+    \ data-cel-widget=\"regulatoryDeposit_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"regulatoryDeposit\" data-csa-c-id=\"961gyi-g62dcu-9v7ofn-ashxtt\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"regulatoryDeposit_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"regulatoryDeposit\" id=\"regulatoryDeposit_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"deliveryPriceBadging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"deliveryPriceBadging\"\
+    \ data-csa-c-id=\"faoxi5-t6chsd-usi5r1-b34dhe\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"deliveryPriceBadging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"deliveryPriceBadging\" id=\"deliveryPriceBadging_feature_div\"\
+    >\n<input id=\"deliveryBlockSelectAsin\" type=\"hidden\" value=\"B09V38ST65\"\
+    />\n<input id=\"deliveryBlockSelectMerchant\" type=\"hidden\" value=\"A1F9NYYAFFTKGY\"\
+    />\n </div>\n<div class=\"celwidget\" data-cel-widget=\"freeShippingPriceBadging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"freeShippingPriceBadging\"\
+    \ data-csa-c-id=\"rckgq2-ckzh02-57i08q-6be5rj\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"freeShippingPriceBadging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"freeShippingPriceBadging\" id=\"freeShippingPriceBadging_feature_div\"\
+    >\n<dptags:querylogoperation methodname=\"addCount\" metric=\"FSPB:COMMON:JSP_RENDER:renderCount\"\
+    >\n<span class=\"a-size-base\">\nGet <b>Fast, Free Shipping</b> with <a href=\"\
+    /hp/wlp/pipeline/membersignup?ref=primedp_ventures_desktopBelowThreshold&amp;primeCampaignId=primedp_ventures_desktopBelowThreshold\"\
+    \ target=\"_blank\">Amazon Prime</a>\n</span> </dptags:querylogoperation></div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"freeReturns_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"freeReturns\" data-csa-c-id=\"bdbjqf-ime3ui-29bz22-kkypkv\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"freeReturns_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"freeReturns\" id=\"freeReturns_feature_div\"\
+    >\n<span class=\"a-hidden\" id=\"creturns-return-policy-linebreak\"></span> <span\
+    \ class=\"a-block\" id=\"creturns-return-policy-content\"> <span class=\"a-inline-block\"\
+    \ id=\"creturns-return-policy-message\"> <span class=\"a-declarative\" data-a-popover='{\"\
+    max-width\":\"280\",\"name\":\"cReturnsPolicyPopover\",\"activate\":\"onclick\"\
+    ,\"position\":\"triggerBottom\"}' data-action=\"a-popover\" data-csa-c-func-deps=\"\
+    aui-da-a-popover\" data-csa-c-id=\"96ib7f-xj9o6s-glszpf-a56hfy\" data-csa-c-type=\"\
+    widget\"> <span cel_widget_id=\"free-returns-policy-anchorText-pc\" class=\"celwidget\"\
+    \ data-cel-widget=\"free-returns-policy-anchorText-pc\" data-csa-c-id=\"sntjre-kune43-d26808-s97a4d\"\
+    \ id=\"free-returns-policy-celWidget\">\n<a class=\"a-popover-trigger a-declarative\
+    \ a-inline-block\" href=\"javascript:void(0)\" id=\"creturns-policy-anchor-text\"\
+    \ role=\"button\"> FREE Returns <i class=\"a-icon a-icon-popover\"></i></a> </span>\n\
+    </span> <div class=\"a-popover-preload\" id=\"a-popover-cReturnsPolicyPopover\"\
+    > <div aria-describedby=\"creturns-policy-main-content\" aria-labelledby=\"creturns-policy-header\"\
+    \ aria-modal=\"true\" cel_widget_id=\"free-returns-policy-popover-pc\" class=\"\
+    celwidget\" data-cel-widget=\"free-returns-policy-popover-pc\" data-csa-c-id=\"\
+    it5fdf-t04ja4-npf8qr-i140l5\" id=\"free-returns-policy-popover-celWidget\" role=\"\
+    dialog\">\n<h5 id=\"creturns-policy-header\">Return this item for free</h5> <p\
+    \ class=\"a-spacing-none a-spacing-top-small\" id=\"creturns-policy-main-content\"\
+    >Free returns are available for the shipping address you chose. You can return\
+    \ the item for any reason in new and unused condition: no shipping charges </p>\
+    \ <a class=\"a-link-normal\" href=\"/freereturns\" id=\"creturns-policy-url-text-pc\"\
+    > Learn more about free returns. </a> <div aria-labelledby=\"creturns-policy-expandable-content-header\"\
+    \ class=\"a-row a-expander-container a-expander-inline-container\" data-a-expander-name=\"\
+    creturnsHowToReturnExpander\"> <a aria-expanded=\"false\" class=\"a-expander-header\
+    \ a-declarative a-expander-inline-header a-link-expander\" data-a-expander-toggle='{\"\
+    allowLinkDefault\":true, \"expand_prompt\":\"\", \"collapse_prompt\":\"\"}' data-action=\"\
+    a-expander-toggle\" data-csa-c-func-deps=\"aui-da-a-expander-toggle\" data-csa-c-id=\"\
+    1datrr-ctof8e-jkwobr-kynuex\" data-csa-c-type=\"widget\" data-csa-interaction-events=\"\
+    click\" href=\"javascript:void(0)\" id=\"creturns-policy-expandable-content-header\"\
+    \ role=\"button\"><i class=\"a-icon a-icon-expand\"></i><span class=\"a-expander-prompt\"\
+    >How to return the item?</span></a> <div aria-expanded=\"false\" class=\"a-expander-content\
+    \ a-expander-inline-content a-expander-inner\" id=\"creturnsHowToReturnExpanderContent\"\
+    \ style=\"display:none\"> <ol class=\"a-ordered-list a-vertical\" role=\"list\"\
+    > <li role=\"listitem\"><span class=\"a-list-item\">Go to your orders and start\
+    \ the return</span></li> <li role=\"listitem\"><span class=\"a-list-item\">Select\
+    \ the return method</span></li> <li role=\"listitem\"><span class=\"a-list-item\"\
+    >Ship it!</span></li> </ol> </div> </div> </div> </div> </span> </span> </div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"almTaxExclusivePrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"almTaxExclusivePrice\"\
+    \ data-csa-c-id=\"8ioftk-5vgas-p3nlai-ydu0cj\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"almTaxExclusivePrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"almTaxExclusivePrice\" id=\"almTaxExclusivePrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"oneTimePaymentPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"oneTimePaymentPrice\"\
+    \ data-csa-c-id=\"dpq42p-7it36k-to4z28-43mtby\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"oneTimePaymentPrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"oneTimePaymentPrice\" id=\"oneTimePaymentPrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"installmentPaymentPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"installmentPaymentPrice\"\
+    \ data-csa-c-id=\"f77vl3-ncfnl3-ns1fo0-yfefwc\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"installmentPaymentPrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"installmentPaymentPrice\" id=\"installmentPaymentPrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"amazonDevicesCustomPriceMessaging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"amazonDevicesCustomPriceMessaging\"\
+    \ data-csa-c-id=\"b29hpe-ar0wsk-vo2prc-9aa6tw\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"amazonDevicesCustomPriceMessaging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"amazonDevicesCustomPriceMessaging\" id=\"amazonDevicesCustomPriceMessaging_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"bundleLTBSSavings_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"bundleLTBSSavings\" data-csa-c-id=\"\
+    s62mc3-x7x57c-ezyqih-pi0898\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    bundleLTBSSavings_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    bundleLTBSSavings\" id=\"bundleLTBSSavings_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"volumeAwarePricingTableLoader_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"volumeAwarePricingTableLoader\" data-csa-c-id=\"\
+    hqu7c5-vqwbvy-57ic3i-t0q12n\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    volumeAwarePricingTableLoader_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    volumeAwarePricingTableLoader\" id=\"volumeAwarePricingTableLoader_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"promoMessagingDiscountValue_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"promoMessagingDiscountValue\"\
+    \ data-csa-c-id=\"j2jssd-i0qqjf-5rfwm8-jtkl0t\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"promoMessagingDiscountValue_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"promoMessagingDiscountValue\" id=\"promoMessagingDiscountValue_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"vatMessage_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"vatMessage\" data-csa-c-id=\"\
+    xpv0bq-hnyadb-mcerse-uriadf\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    vatMessage_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"vatMessage\"\
+    \ id=\"vatMessage_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    points_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"points\"\
+    \ data-csa-c-id=\"thci1j-6waam2-we9cz8-528yj\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"points_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    points\" id=\"points_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    pep_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"pep\"\
+    \ data-csa-c-id=\"a9p31e-vgoi1j-bnhybo-c0ww7u\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"pep_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    pep\" id=\"pep_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    almPrimeSavings_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    almPrimeSavings\" data-csa-c-id=\"kgrre2-u6n4f0-vmeb11-1urg3b\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"almPrimeSavings_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"almPrimeSavings\" id=\"almPrimeSavings_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"reinvent_price_tabular_desktop\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"reinvent_price_tabular_desktop\"\
+    \ data-csa-c-id=\"4o3owh-nvdt34-5g4ejw-k0elgb\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"reinvent_price_tabular_desktop\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"reinvent_price_tabular_desktop\" id=\"reinvent_price_tabular_desktop\"\
+    >\n<table class=\"a-normal a-spacing-none reInventPriceTable\"> </table>  </div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"rebates_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"rebates\" data-csa-c-id=\"jii8xx-yvztw7-yjd7cg-8312k9\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"rebates_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"rebates\" id=\"rebates_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"volumeAwarePricingPriceBlockMessaging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"volumeAwarePricingPriceBlockMessaging\"\
+    \ data-csa-c-id=\"hk1bjx-rxf0j8-onkvm0-h7o7pg\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"volumeAwarePricingPriceBlockMessaging_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"volumeAwarePricingPriceBlockMessaging\"\
+    \ id=\"volumeAwarePricingPriceBlockMessaging_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"agsBadgeInsidePrice_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"agsBadgeInsidePrice\" data-csa-c-id=\"u51b6y-lkib0d-us8n1d-3whpk5\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"agsBadgeInsidePrice_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"agsBadgeInsidePrice\" id=\"agsBadgeInsidePrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"superSaverBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"superSaverBadge\" data-csa-c-id=\"\
+    5rcp3r-b0nxbw-cv3rnp-3zsc\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    superSaverBadge_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    superSaverBadge\" id=\"superSaverBadge_feature_div\">\n</div>\n<div class=\"celwidget\"\
+    \ data-cel-widget=\"tradeInPriceBlock_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"tradeInPriceBlock\" data-csa-c-id=\"fxi5o0-2kli8x-fo5n2o-kyfymi\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"tradeInPriceBlock_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"tradeInPriceBlock\" id=\"tradeInPriceBlock_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"quantityPricingTableSummaryInPriceBlock_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"quantityPricingTableSummaryInPriceBlock\"\
+    \ data-csa-c-id=\"2ko2x-fueej-d9wpt1-11b4bq\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"quantityPricingTableSummaryInPriceBlock_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"quantityPricingTableSummaryInPriceBlock\"\
+    \ id=\"quantityPricingTableSummaryInPriceBlock_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"exportsTaxMessage_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"exportsTaxMessage\" data-csa-c-id=\"c5qyhb-y0ibmh-cb9z3w-ws2mdb\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"exportsTaxMessage_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"exportsTaxMessage\" id=\"exportsTaxMessage_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"amazonGlobal_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"amazonGlobal\" data-csa-c-id=\"\
+    flszba-6x3hkf-hwtpz4-3ht6jc\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    amazonGlobal_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"amazonGlobal\"\
+    \ id=\"amazonGlobal_feature_div\">\n</div>\n</div>\n</div>\n<div id=\"apex_desktop_pickupOfferDisplay_Desktop\"\
+    \ style=\"display:none;\">\n<div data-csa-c-content-id=\"apex_with_rio_cx\" data-csa-c-id=\"\
+    wawkc4-j64dft-aildjq-31hp78\" data-csa-c-slot-id=\"apex_dp_center_column\" data-csa-c-type=\"\
+    widget\">\n<div class=\"celwidget\" data-cel-widget=\"dealBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"dealBadge\" data-csa-c-id=\"\
+    waljf4-89swju-qijs7n-sw93ys\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    dealBadge_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"dealBadge\"\
+    \ id=\"dealBadge_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    delightPricingBadge_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    delightPricingBadge\" data-csa-c-id=\"43bdyq-47xosz-47tz4t-lr3h5q\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"delightPricingBadge_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"delightPricingBadge\" id=\"delightPricingBadge_feature_div\"\
+    >\n\n<!-- considering updating DetailPageDelightPricingTests package whenever\
+    \ you change the template view -->\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    corePriceDisplay_desktop_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    corePriceDisplay_desktop\" data-csa-c-id=\"2ujasr-u4yjbn-qjiir8-ks5vgb\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"corePriceDisplay_desktop_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"corePriceDisplay_desktop\" id=\"corePriceDisplay_desktop_feature_div\"\
+    >\n\n<div class=\"a-section a-spacing-none aok-align-center aok-relative\"> <span\
+    \ class=\"aok-offscreen\">   $16.99 with 15 percent savings    </span> <span aria-hidden=\"\
+    true\" class=\"a-size-large a-color-price savingPriceOverride aok-align-center\
+    \ reinventPriceSavingsPercentageMargin savingsPercentage\">-15%</span> <span class=\"\
+    a-price aok-align-center reinventPricePriceToPayMargin priceToPay\" data-a-color=\"\
+    base\" data-a-size=\"xl\"><span class=\"a-offscreen\"> </span><span aria-hidden=\"\
+    true\"><span class=\"a-price-symbol\">$</span><span class=\"a-price-whole\">16<span\
+    \ class=\"a-price-decimal\">.</span></span><span class=\"a-price-fraction\">99</span></span></span>\
+    \ <span class=\"a-size-mini a-color-base aok-align-center aok-nowrap\" id=\"taxInclusiveMessage\"\
+    > </span> </div> <div class=\"a-section a-spacing-small aok-align-center\"> <span>\
+    \ <span class=\"aok-relative\"><span class=\"a-size-small aok-offscreen\"> Typical\
+    \ price: $19.99 </span><span aria-hidden=\"true\" class=\"a-size-small a-color-secondary\
+    \ aok-align-center basisPrice\">Typical price:      <span class=\"a-price a-text-price\"\
+    \ data-a-color=\"secondary\" data-a-size=\"s\" data-a-strike=\"true\"><span class=\"\
+    a-offscreen\">$19.99</span><span aria-hidden=\"true\">$19.99</span></span> </span></span>\
+    \ <span class=\"a-size-small aok-align-center basisPriceLegalMessage\"> <span\
+    \ class=\"a-declarative\" data-a-popover='{\"closeButton\":\"true\",\"name\":\"\
+    basisPriceLegalMessageDisplayPreload-d87b87bf-06b2-40dc-9725-c014313d4566\",\"\
+    position\":\"triggerBottom\"}' data-action=\"a-popover\" data-csa-c-func-deps=\"\
+    aui-da-a-popover\" data-csa-c-id=\"xn7o30-tdh0ox-v8ok9y-jndiny\" data-csa-c-type=\"\
+    widget\"> <a aria-label=\"Learn more about Amazon pricing and savings\" class=\"\
+    a-popover-trigger a-declarative reinventPriceLegalMessagePopover\" href=\"javascript:void(0)\"\
+    \ role=\"button\"> <svg aria-hidden=\"true\" class=\"reinventPrice_legalMessage_icon\"\
+    \ role=\"img\" viewbox=\"0 0 512 512\" xmlns=\"http://www.w3.org/2000/svg\">\n\
+    \n</svg>\n<i class=\"a-icon a-icon-popover\"></i></a> </span> <div class=\"a-popover-preload\"\
+    \ id=\"a-popover-basisPriceLegalMessageDisplayPreload-d87b87bf-06b2-40dc-9725-c014313d4566\"\
+    > <div class=\"a-section a-spacing-none\"> <h3></h3> <span class=\"a-size-base\"\
+    >This is determined using the 90-day median price paid by customers for the product\
+    \ on Amazon. We exclude prices paid by customers for the product during a limited\
+    \ time deal.<br/><a class=\"a-link-normal\" href=\"https://www.amazon.com/gp/help/customer/display.html?nodeId=GQ6B6RH72AX8D2TD&amp;ref_=dp_hp\"\
+    >Learn more</a></span> </div> </div> \n\n</span> </span> </div> </div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"vaipsCombinedDeviceAndPlanExperience_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"vaipsCombinedDeviceAndPlanExperience\"\
+    \ data-csa-c-id=\"3am4i-vvyvsg-27utqt-whtds1\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"vaipsCombinedDeviceAndPlanExperience_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"vaipsCombinedDeviceAndPlanExperience\"\
+    \ id=\"vaipsCombinedDeviceAndPlanExperience_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"priceTracker_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"priceTracker\" data-csa-c-id=\"vbisjh-1vs93c-mzzvbd-pbd1i9\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"priceTracker_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"priceTracker\" id=\"priceTracker_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"taxInclusiveMessage_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"taxInclusiveMessage\"\
+    \ data-csa-c-id=\"4b7y8c-6gxzlz-pj68az-63g0g2\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"taxInclusiveMessage_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"taxInclusiveMessage\" id=\"taxInclusiveMessage_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"delightPricingBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"delightPricingBadge\"\
+    \ data-csa-c-id=\"wkro94-pjztza-7y66qe-q7qnr6\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"delightPricingBadge_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"delightPricingBadge\" id=\"delightPricingBadge_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"omnibusPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"omnibusPrice\" data-csa-c-id=\"\
+    68syft-pmevo8-j4xkwr-iny1jb\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    omnibusPrice_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"omnibusPrice\"\
+    \ id=\"omnibusPrice_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    jewelryPriceBreakup_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    jewelryPriceBreakup\" data-csa-c-id=\"h630c4-r9x3cr-28g9qq-ffa5dn\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"jewelryPriceBreakup_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"jewelryPriceBreakup\" id=\"jewelryPriceBreakup_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"agsIfdInsidePrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"agsIfdInsidePrice\" data-csa-c-id=\"\
+    sevlx-kyto1p-5qhdx7-uxy0kj\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    agsIfdInsidePrice_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    agsIfdInsidePrice\" id=\"agsIfdInsidePrice_feature_div\">\n<!-- For LightningDeal\
+    \ use case, agsShippingAndIfdInsideBuyBox is only configured on regular offer,\
+    \ so set defaultPageContext as buyingPrice -->\n</div>\n<div class=\"celwidget\"\
+    \ data-cel-widget=\"regulatoryDeposit_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"regulatoryDeposit\" data-csa-c-id=\"unp5n8-8bti2n-h0vpga-v3byjq\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"regulatoryDeposit_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"regulatoryDeposit\" id=\"regulatoryDeposit_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"deliveryPriceBadging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"deliveryPriceBadging\"\
+    \ data-csa-c-id=\"36wxot-dpgl91-18ihrx-lnm3n9\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"deliveryPriceBadging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"deliveryPriceBadging\" id=\"deliveryPriceBadging_feature_div\"\
+    >\n<input id=\"deliveryBlockSelectAsin\" type=\"hidden\" value=\"B09V38ST65\"\
+    />\n<input id=\"deliveryBlockSelectMerchant\" type=\"hidden\" value=\"A1F9NYYAFFTKGY\"\
+    />\n </div>\n<div class=\"celwidget\" data-cel-widget=\"freeShippingPriceBadging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"freeShippingPriceBadging\"\
+    \ data-csa-c-id=\"ooo0ti-ts3eo4-l7dedc-w3at2g\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"freeShippingPriceBadging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"freeShippingPriceBadging\" id=\"freeShippingPriceBadging_feature_div\"\
+    >\n<dptags:querylogoperation methodname=\"addCount\" metric=\"FSPB:COMMON:JSP_RENDER:renderCount\"\
+    >\n<span class=\"a-size-base\">\nGet <b>Fast, Free Shipping</b> with <a href=\"\
+    /hp/wlp/pipeline/membersignup?ref=primedp_ventures_desktopBelowThreshold&amp;primeCampaignId=primedp_ventures_desktopBelowThreshold\"\
+    \ target=\"_blank\">Amazon Prime</a>\n</span> </dptags:querylogoperation></div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"freeReturns_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"freeReturns\" data-csa-c-id=\"arpbn8-sqgl97-yzu8ow-kqdi1z\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"freeReturns_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"freeReturns\" id=\"freeReturns_feature_div\"\
+    >\n<span class=\"a-hidden\" id=\"creturns-return-policy-linebreak\"></span> <span\
+    \ class=\"a-block\" id=\"creturns-return-policy-content\"> <span class=\"a-inline-block\"\
+    \ id=\"creturns-return-policy-message\"> <span class=\"a-declarative\" data-a-popover='{\"\
+    max-width\":\"280\",\"name\":\"cReturnsPolicyPopover\",\"activate\":\"onclick\"\
+    ,\"position\":\"triggerBottom\"}' data-action=\"a-popover\" data-csa-c-func-deps=\"\
+    aui-da-a-popover\" data-csa-c-id=\"dtv0nj-engj9l-f2x3tl-3zj6co\" data-csa-c-type=\"\
+    widget\"> <span cel_widget_id=\"free-returns-policy-anchorText-pc\" class=\"celwidget\"\
+    \ data-cel-widget=\"free-returns-policy-anchorText-pc\" data-csa-c-id=\"m4v27s-rcvpw1-q7rt2d-wxknze\"\
+    \ id=\"free-returns-policy-celWidget\">\n<a class=\"a-popover-trigger a-declarative\
+    \ a-inline-block\" href=\"javascript:void(0)\" id=\"creturns-policy-anchor-text\"\
+    \ role=\"button\"> FREE Returns <i class=\"a-icon a-icon-popover\"></i></a> </span>\n\
+    </span> <div class=\"a-popover-preload\" id=\"a-popover-cReturnsPolicyPopover\"\
+    > <div aria-describedby=\"creturns-policy-main-content\" aria-labelledby=\"creturns-policy-header\"\
+    \ aria-modal=\"true\" cel_widget_id=\"free-returns-policy-popover-pc\" class=\"\
+    celwidget\" data-cel-widget=\"free-returns-policy-popover-pc\" data-csa-c-id=\"\
+    jlyfa6-daviyp-bnedtv-91e34d\" id=\"free-returns-policy-popover-celWidget\" role=\"\
+    dialog\">\n<h5 id=\"creturns-policy-header\">Return this item for free</h5> <p\
+    \ class=\"a-spacing-none a-spacing-top-small\" id=\"creturns-policy-main-content\"\
+    >Free returns are available for the shipping address you chose. You can return\
+    \ the item for any reason in new and unused condition: no shipping charges </p>\
+    \ <a class=\"a-link-normal\" href=\"/freereturns\" id=\"creturns-policy-url-text-pc\"\
+    > Learn more about free returns. </a> <div aria-labelledby=\"creturns-policy-expandable-content-header\"\
+    \ class=\"a-row a-expander-container a-expander-inline-container\" data-a-expander-name=\"\
+    creturnsHowToReturnExpander\"> <a aria-expanded=\"false\" class=\"a-expander-header\
+    \ a-declarative a-expander-inline-header a-link-expander\" data-a-expander-toggle='{\"\
+    allowLinkDefault\":true, \"expand_prompt\":\"\", \"collapse_prompt\":\"\"}' data-action=\"\
+    a-expander-toggle\" data-csa-c-func-deps=\"aui-da-a-expander-toggle\" data-csa-c-id=\"\
+    sy0uao-9285n3-8mnnhr-p4ddtj\" data-csa-c-type=\"widget\" data-csa-interaction-events=\"\
+    click\" href=\"javascript:void(0)\" id=\"creturns-policy-expandable-content-header\"\
+    \ role=\"button\"><i class=\"a-icon a-icon-expand\"></i><span class=\"a-expander-prompt\"\
+    >How to return the item?</span></a> <div aria-expanded=\"false\" class=\"a-expander-content\
+    \ a-expander-inline-content a-expander-inner\" id=\"creturnsHowToReturnExpanderContent\"\
+    \ style=\"display:none\"> <ol class=\"a-ordered-list a-vertical\" role=\"list\"\
+    > <li role=\"listitem\"><span class=\"a-list-item\">Go to your orders and start\
+    \ the return</span></li> <li role=\"listitem\"><span class=\"a-list-item\">Select\
+    \ the return method</span></li> <li role=\"listitem\"><span class=\"a-list-item\"\
+    >Ship it!</span></li> </ol> </div> </div> </div> </div> </span> </span> </div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"almTaxExclusivePrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"almTaxExclusivePrice\"\
+    \ data-csa-c-id=\"8eyc41-stig1d-mt6q1j-hwisx8\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"almTaxExclusivePrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"almTaxExclusivePrice\" id=\"almTaxExclusivePrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"oneTimePaymentPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"oneTimePaymentPrice\"\
+    \ data-csa-c-id=\"nl9h0y-mru8b4-2065mo-ojgulg\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"oneTimePaymentPrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"oneTimePaymentPrice\" id=\"oneTimePaymentPrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"installmentPaymentPrice_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"installmentPaymentPrice\"\
+    \ data-csa-c-id=\"sbe1yq-yy6gsm-3g58hb-gaiyeo\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"installmentPaymentPrice_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"installmentPaymentPrice\" id=\"installmentPaymentPrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"amazonDevicesCustomPriceMessaging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"amazonDevicesCustomPriceMessaging\"\
+    \ data-csa-c-id=\"xm0zp8-qayc3q-ag5b7q-puo218\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"amazonDevicesCustomPriceMessaging_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"amazonDevicesCustomPriceMessaging\" id=\"amazonDevicesCustomPriceMessaging_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"bundleLTBSSavings_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"bundleLTBSSavings\" data-csa-c-id=\"\
+    mhyca6-pebdjm-mafyyd-cmtdir\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    bundleLTBSSavings_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    bundleLTBSSavings\" id=\"bundleLTBSSavings_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"volumeAwarePricingTableLoader_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"volumeAwarePricingTableLoader\" data-csa-c-id=\"\
+    phc9jf-gg5wnv-vpc6ah-4x3j9s\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    volumeAwarePricingTableLoader_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    volumeAwarePricingTableLoader\" id=\"volumeAwarePricingTableLoader_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"promoMessagingDiscountValue_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"promoMessagingDiscountValue\"\
+    \ data-csa-c-id=\"8pe22w-441ybm-l4ouyl-rvkkzw\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"promoMessagingDiscountValue_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"promoMessagingDiscountValue\" id=\"promoMessagingDiscountValue_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"vatMessage_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"vatMessage\" data-csa-c-id=\"\
+    3ylf3n-50jjea-wwkw16-cbp0fj\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    vatMessage_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"vatMessage\"\
+    \ id=\"vatMessage_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    points_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"points\"\
+    \ data-csa-c-id=\"czxus7-joys8n-45tu4t-lq6bym\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"points_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    points\" id=\"points_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    pep_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"pep\"\
+    \ data-csa-c-id=\"8vvww0-d64a6c-7a76ei-2pl85i\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"pep_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    pep\" id=\"pep_feature_div\">\n</div>\n<div class=\"celwidget\" data-cel-widget=\"\
+    almPrimeSavings_feature_div\" data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"\
+    almPrimeSavings\" data-csa-c-id=\"js6eg9-43c7z-5pljko-hhe0mf\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"almPrimeSavings_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"almPrimeSavings\" id=\"almPrimeSavings_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"reinvent_price_tabular_desktop\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"reinvent_price_tabular_desktop\"\
+    \ data-csa-c-id=\"k9wekm-8rao1a-xv9zdm-369gbj\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"reinvent_price_tabular_desktop\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"reinvent_price_tabular_desktop\" id=\"reinvent_price_tabular_desktop\"\
+    >\n<table class=\"a-normal a-spacing-none reInventPriceTable\"> </table>  </div>\n\
+    <div class=\"celwidget\" data-cel-widget=\"rebates_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"rebates\" data-csa-c-id=\"kmpkl4-kzxxk-oxfva-3q41ei\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"rebates_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"rebates\" id=\"rebates_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"volumeAwarePricingPriceBlockMessaging_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"volumeAwarePricingPriceBlockMessaging\"\
+    \ data-csa-c-id=\"lwg2nv-7ggkok-6r9y09-hs00w7\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"volumeAwarePricingPriceBlockMessaging_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"volumeAwarePricingPriceBlockMessaging\"\
+    \ id=\"volumeAwarePricingPriceBlockMessaging_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"agsBadgeInsidePrice_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"agsBadgeInsidePrice\" data-csa-c-id=\"vhqvrn-yjrrl3-flrdsl-123m9d\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"agsBadgeInsidePrice_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"agsBadgeInsidePrice\" id=\"agsBadgeInsidePrice_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"superSaverBadge_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"superSaverBadge\" data-csa-c-id=\"\
+    tqf4ir-rpkhd5-xlcwm5-fl6egs\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    superSaverBadge_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"\
+    superSaverBadge\" id=\"superSaverBadge_feature_div\">\n</div>\n<div class=\"celwidget\"\
+    \ data-cel-widget=\"tradeInPriceBlock_feature_div\" data-csa-c-asin=\"B09V38ST65\"\
+    \ data-csa-c-content-id=\"tradeInPriceBlock\" data-csa-c-id=\"uj2f6m-czax3i-5f5412-wzev86\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"tradeInPriceBlock_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"tradeInPriceBlock\" id=\"tradeInPriceBlock_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"quantityPricingTableSummaryInPriceBlock_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"quantityPricingTableSummaryInPriceBlock\"\
+    \ data-csa-c-id=\"jr0rwm-x49aia-u9rhok-3cfi9a\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"quantityPricingTableSummaryInPriceBlock_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"quantityPricingTableSummaryInPriceBlock\"\
+    \ id=\"quantityPricingTableSummaryInPriceBlock_feature_div\">\n</div>\n<div class=\"\
+    celwidget\" data-cel-widget=\"exportsTaxMessage_feature_div\" data-csa-c-asin=\"\
+    B09V38ST65\" data-csa-c-content-id=\"exportsTaxMessage\" data-csa-c-id=\"g5whft-r6c2e-wjlpcq-beybrv\"\
+    \ data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"exportsTaxMessage_feature_div\"\
+    \ data-csa-c-type=\"widget\" data-feature-name=\"exportsTaxMessage\" id=\"exportsTaxMessage_feature_div\"\
+    >\n</div>\n<div class=\"celwidget\" data-cel-widget=\"amazonGlobal_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"amazonGlobal\" data-csa-c-id=\"\
+    cu26rz-valrla-amiga9-dfj1e5\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    amazonGlobal_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"amazonGlobal\"\
+    \ id=\"amazonGlobal_feature_div\">\n</div>\n</div>\n</div>\n</div>\n</div>\n</div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.19:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "offersConsistencyEnabled",
+    [["div", 2, 0, "", [["div", 3, 0, "", [["div", 4, 0, "maple-banner ", [null, ["a",
+    5, 0, "a-link-normal aok-block aok-align-center-horizontally", [["div", 6, 0,
+    "a-section maple-banner__container maple-banner--background maple-banner--border",
+    [["div", 7, 0, "a-section maple-banner__row", [["div", 8, 0, "a-section a-padding-base
+    maple-banner__col", [["div", 9, 0, "a-section maple-banner__text", [["span", 10,
+    0, "", [["span", 11, 0, "", []], ["span", 11, 1, "", [["span", 12, 0, "", []]]],
+    ["span", 11, 3, "", [["span", 12, 0, "", []]]]]]]]]]]]]]]]]]]]]], ["div", 2, 7,
+    "", []]]], null]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"issuancePriceblockAmabot_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"issuancePriceblockAmabot\"\
+    \ data-csa-c-id=\"cciar8-7a0v06-ama4o1-ohb6m1\" data-csa-c-is-in-initial-active-row=\"\
+    false\" data-csa-c-slot-id=\"issuancePriceblockAmabot_feature_div\" data-csa-c-type=\"\
+    widget\" data-feature-name=\"issuancePriceblockAmabot\" id=\"issuancePriceblockAmabot_feature_div\"\
+    >\n<div class=\"offersConsistencyEnabled\">\n<div id=\"ppd_qualifiedBuybox\" style=\"\
+    \">\n<div>\n<div class=\"maple-banner\">\n\n<a class=\"a-link-normal aok-block\
+    \ aok-align-center-horizontally\" href=\"/gp/product/B008A0GNA8?pr=conplcc&amp;inc=023594a7-fd3a-4290-a332-5819e1ac259e&amp;ts=dgaypbpzp16eqppytmeq3xlg6kf52x1&amp;dasin=B09V38ST65&amp;plattr=math&amp;place=priceblock&amp;imp=e78a16cf-674a-459d-89b4-b005fd8d89e8\"\
+    >\n<div class=\"a-section maple-banner__container maple-banner--background maple-banner--border\"\
+    >\n<div class=\"a-section maple-banner__row\">\n<div class=\"a-section a-padding-base\
+    \ maple-banner__col\">\n<div class=\"a-section maple-banner__text\">\n<span style=\"\
+    font-size: 13px\">Get <span data-maple-math=\"promo-amount\">$10</span> off instantly:\
+    \ Pay <span style=\"color: #B12704\"><span data-maple-math=\"cost-after-savings\"\
+    >$6.99</span></span> <span style=\"text-decoration: line-through\"><span data-maple-math=\"\
+    cost\">$16.99</span></span> upon approval for the Amazon Store Card. No annual\
+    \ fee.</span>\n</div>\n</div>\n</div>\n</div>\n</a>\n</div>\n</div>\n</div>\n\
+    <div id=\"ppd_pickupOfferDisplay_Desktop\" style=\"display:none;\">\n</div>\n\
+    </div>\n </div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.32:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "addTwisterMargin", [["div",
+    2, 0, "a-section", [["form", 3, 0, "a-spacing-small", [["span", 4, 0, "", []],
+    ["div", 4, 0, "a-section a-spacing-small", [["div", 5, 0, "a-row", [["label",
+    6, 0, "a-form-label", []], ["span", 6, 0, "selection", []]]], ["ul", 5, 0, "a-unordered-list
+    a-nostyle a-button-list a-declarative a-button-toggle-group a-horizontal a-spacing-top-micro
+    swatches swatchesSquare", [["li", 6, 0, "swatchSelect", [["span", 7, 0, "a-list-item",
+    [["div", 8, 0, "tooltip", [["span", 9, 0, "a-declarative", [["span", 10, 0, "a-button
+    a-button-selected a-button-thumbnail a-button-toggle", [["span", 11, 0, "a-button-inner",
+    [["button", 12, 0, "a-button-text", [["div", 13, 0, "twisterSwatchWrapper_0 twisterSwatchWrapper
+    thinWidthOverride", [["div", 14, 0, "twisterTextDiv text", [["p", 15, 0, "a-text-left
+    a-size-base", []]]], ["div", 14, 1, "twisterSlotDiv ", [["span", 15, 0, "unified-price
+    a-color-price", [["p", 16, 0, "a-spacing-none a-text-left a-size-mini twisterSwatchPrice",
+    []]]]]]]]]]]]]]]]]]]]]], ["li", 6, 1, "swatchAvailable", [["span", 7, 0, "a-list-item",
+    [["div", 8, 0, "tooltip", [["span", 9, 0, "a-declarative", [["span", 10, 0, "a-button
+    a-button-thumbnail a-button-toggle", [["span", 11, 0, "a-button-inner", [["button",
+    12, 0, "a-button-text", [["div", 13, 0, "twisterSwatchWrapper_0 twisterSwatchWrapper
+    thinWidthOverride", [["div", 14, 0, "twisterTextDiv text", [["p", 15, 0, "a-text-left
+    a-size-base", []]]], ["div", 14, 1, "twisterSlotDiv ", [["span", 15, 0, "unified-price
+    a-color-secondary", [["p", 16, 0, "a-spacing-none a-text-left a-size-mini twisterSwatchPrice",
+    []]]]]]]]]]]]]]]]]]]]]]]]]], null, null, null, null]]]]]], ["div", 1, 12, "dp-cif
+    aok-hidden", []], null, null, null]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"twister_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"twister\" data-csa-c-id=\"\
+    5z2e4m-3x8jsw-c1zzj2-e1g3e7\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    twister_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"twister\"\
+    \ id=\"twister_feature_div\">\n<div class=\"addTwisterMargin\" data-csa-c-content-id=\"\
+    twisterContainer\" data-csa-c-id=\"mbq5lf-sqc012-k4otts-xkhs9b\" data-csa-c-slot-id=\"\
+    twisterContainer\" data-csa-c-type=\"slot\" id=\"twisterContainer\" style=\"max-width:none\"\
+    >\n<div class=\"a-section\"> <form action=\"/gp/product\" class=\"a-spacing-small\"\
+    \ id=\"twister\" method=\"get\"> <span id=\"twisterNonJsData\"></span> <div class=\"\
+    a-section a-spacing-small\" data-csa-c-content-id=\"variation_style_name\" data-csa-c-id=\"\
+    wlmoi3-47v30c-69syxn-5onl0d\" data-csa-c-slot-id=\"variation_style_name\" data-csa-c-type=\"\
+    widget\" id=\"variation_style_name\"> <div class=\"a-row\"> <label class=\"a-form-label\"\
+    > Style:\n        </label> <span class=\"selection\">12 7-Inch Realistic Dinosaurs\
+    \ Figures</span>\n</div> <ul class=\"a-unordered-list a-nostyle a-button-list\
+    \ a-declarative a-button-toggle-group a-horizontal a-spacing-top-micro swatches\
+    \ swatchesSquare\" data-a-button-group='{\"name\":\"twister_style_name\"}' data-action=\"\
+    a-button-group\" data-csa-c-func-deps=\"aui-da-a-button-group\" data-csa-c-id=\"\
+    tvclhw-hpbukf-2yck76-et4nb6\" data-csa-c-type=\"widget\" data-csa-interaction-events=\"\
+    click\" role=\"radiogroup\"> <li class=\"swatchSelect\" data-csa-c-content-id=\"\
+    twister-legacy-swatch-swatchAvailable\" data-csa-c-id=\"p51s1g-ven5xf-izfaqo-kjb1tv\"\
+    \ data-csa-c-item-id=\"B09V38ST65\" data-csa-c-item-type=\"asin\" data-csa-c-slot-id=\"\
+    twister-legacy-swatch-swatchAvailable\" data-csa-c-type=\"item\" data-defaultasin=\"\
+    B09V38ST65\" data-dp-url=\"\" id=\"style_name_0\" title=\"Click to select 12 7-Inch\
+    \ Realistic Dinosaurs Figures\"><span class=\"a-list-item\"> <div class=\"tooltip\"\
+    >\n<span class=\"a-declarative\" data-action=\"swatchthumb-action\" data-csa-c-func-deps=\"\
+    aui-da-swatchthumb-action\" data-csa-c-id=\"hntsbi-oa4lkz-apcggy-5ojbv0\" data-csa-c-type=\"\
+    widget\" data-swatchthumb-action='{\"dimIndex\":0,\"dimValueIndex\":0}'> <span\
+    \ class=\"a-button a-button-selected a-button-thumbnail a-button-toggle\" id=\"\
+    a-autoid-12\"><span class=\"a-button-inner\"><button class=\"a-button-text\" id=\"\
+    a-autoid-12-announce\" type=\"button\"> <div class=\"twisterSwatchWrapper_0 twisterSwatchWrapper\
+    \ thinWidthOverride\">\n<div class=\"twisterTextDiv text\">\n<p class=\"a-text-left\
+    \ a-size-base\">12 7-Inch Realistic Dinosaurs Figures</p> </div>\n<div class=\"\
+    twisterSlotDiv\" style=\"\">\n<span class=\"unified-price a-color-price\" id=\"\
+    style_name_0_price\"> <p class=\"a-spacing-none a-text-left a-size-mini twisterSwatchPrice\"\
+    > $16.99 </p> </span> </div>\n</div>\n</button></span></span> </span> </div>\n\
+    </span></li> <li class=\"swatchAvailable\" data-csa-c-content-id=\"twister-legacy-swatch-swatchAvailable\"\
+    \ data-csa-c-id=\"x2812s-xgeq4q-yni1i2-se1k8z\" data-csa-c-item-id=\"B09NCBCW5W\"\
+    \ data-csa-c-item-type=\"asin\" data-csa-c-slot-id=\"twister-legacy-swatch-swatchAvailable\"\
+    \ data-csa-c-type=\"item\" data-defaultasin=\"B09NCBCW5W\" data-dp-url=\"/dp/B09NCBCW5W/ref=twister_B0BNCB6BN2?_encoding=UTF8&amp;psc=1\"\
+    \ id=\"style_name_1\" title=\"Click to select 8 Pull Back Toy Cars\"><span class=\"\
+    a-list-item\"> <div class=\"tooltip\">\n<span class=\"a-declarative\" data-action=\"\
+    swatchthumb-action\" data-csa-c-func-deps=\"aui-da-swatchthumb-action\" data-csa-c-id=\"\
+    7el79b-faoxax-ptyrz2-ex8hfl\" data-csa-c-type=\"widget\" data-swatchthumb-action='{\"\
+    dimIndex\":0,\"dimValueIndex\":1}'> <span class=\"a-button a-button-thumbnail\
+    \ a-button-toggle\" id=\"a-autoid-13\"><span class=\"a-button-inner\"><button\
+    \ class=\"a-button-text\" id=\"a-autoid-13-announce\" type=\"button\"> <div class=\"\
+    twisterSwatchWrapper_0 twisterSwatchWrapper thinWidthOverride\">\n<div class=\"\
+    twisterTextDiv text\">\n<p class=\"a-text-left a-size-base\">8 Pull Back Toy Cars</p>\
+    \ </div>\n<div class=\"twisterSlotDiv\" style=\"\">\n<span class=\"unified-price\
+    \ a-color-secondary\" id=\"style_name_1_price\"> <p class=\"a-spacing-none a-text-left\
+    \ a-size-mini twisterSwatchPrice\"> $9.99 </p> </span> </div>\n</div>\n</button></span></span>\
+    \ </span> </div>\n</span></li> </ul> </div> \n\n\n </form> </div> </div>\n<div\
+    \ class=\"dp-cif aok-hidden\" data-dp-critical-js-modules='[  \"twister-dimension-views-swatch\"\
+    ,\"a-truncate\",\"twister-dimension-view-promise-factory\"]' data-feature-details='{\"\
+    name\":\"twister\",\"hasComponents\":true,\"components\":[  {\"name\": \"swatch\"\
+    ,\"events\":[\"hover\"]}]}'></div>\n\n \n</div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.44:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "a-section a-spacing-medium
+    a-spacing-top-small", [["ul", 2, 0, "a-unordered-list a-vertical a-spacing-mini",
+    [["li", 3, 0, "a-spacing-mini", [["span", 4, 0, "a-list-item", []]]], ["li", 3,
+    1, "a-spacing-mini", [["span", 4, 0, "a-list-item", []]]], ["li", 3, 2, "a-spacing-mini",
+    [["span", 4, 0, "a-list-item", []]]], ["li", 3, 3, "a-spacing-mini", [["span",
+    4, 0, "a-list-item", []]]], ["li", 3, 4, "a-spacing-mini", [["span", 4, 0, "a-list-item",
+    []]]]]]]]]]'
+  Div_outerHTML: '<div class="celwidget" data-cel-widget="featurebullets_feature_div"
+    data-csa-c-asin="B09V38ST65" data-csa-c-content-id="featurebullets" data-csa-c-id="nedm1-2rm20i-jtuq94-muueo7"
+    data-csa-c-is-in-initial-active-row="false" data-csa-c-slot-id="featurebullets_feature_div"
+    data-csa-c-type="widget" data-feature-name="featurebullets" id="featurebullets_feature_div">
+
+    <div class="a-section a-spacing-medium a-spacing-top-small" id="feature-bullets">
+    <ul class="a-unordered-list a-vertical a-spacing-mini"> <li class="a-spacing-mini"><span
+    class="a-list-item"> INCLUDES: 12 realistic, colorful dinosaur figures that are
+    durable and made from high-quality material, Metal Storage box  </span></li> <li
+    class="a-spacing-mini"><span class="a-list-item"> 12 DINOSAUR FIGURES: features
+    Diplodocus, Gallimimus, Allosaurus, Triceratops Prorsus, Tyrannosaurus, Stygimoloch,
+    Brontosaurus, Ankylosaurus, Stegosaurus, Parasaurolophus, Spinosaurus, Triceratops  </span></li>
+    <li class="a-spacing-mini"><span class="a-list-item"> METAL STORAGE BOX: Our metal
+    storage box is durable metal with beautifully designed dinosaur images which makes
+    playing more exciting &amp; fun  </span></li> <li class="a-spacing-mini"><span
+    class="a-list-item"> NON-TOXIC &amp; BPA FREE: The dinosaurs are made of non-toxic
+    and high-quality PVC material, which will make them more durable and safe. Allowing
+    your kids to play safely for a long time.  </span></li> <li class="a-spacing-mini"><span
+    class="a-list-item"> REAT GIFT: The dinosaur figures are packaged beautifully
+    which makes it a perfect gift for kids, Great educational toy to help kids learn
+    about different dinosaurs.  </span></li> </ul> <!-- Loading EDP related metadata
+    -->
+
+    </div> </div>'
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename
+data_i.B09V38ST65_c.55:
+  Div_feature: '["div", 0, 0, "celwidget", [["div", 1, 0, "celwidget c-f", [null,
+    null, null, ["div", 2, 0, "", [["div", 3, 0, "_tell-amazon-desktop_style_tell_amazon_div__1YDZk",
+    [["a", 4, 0, "_tell-amazon-desktop_style_tell_amazon_link__1KW5z", [["i", 5, 0,
+    "a-icon a-icon-share-sms a-icon-mini", []]]]]], ["span", 3, 0, "a-popover-preload",
+    [["div", 4, 0, "_tell-amazon-desktop_style_tell_amazon_modal_root__1q10s ", [["div",
+    5, 0, "_tell-amazon-desktop_style_tell_amazon_modal_end__30n3x", [["div", 6, 0,
+    "_tell-amazon-desktop_style_tell_amazon_modal_spinner__3bz5K", [["span", 7, 0,
+    "a-spinner a-spinner-medium", []]]]]]]]]]]], null, null, null, null]]]]'
+  Div_outerHTML: "<div class=\"celwidget\" data-cel-widget=\"tellAmazon_feature_div\"\
+    \ data-csa-c-asin=\"B09V38ST65\" data-csa-c-content-id=\"tellAmazon\" data-csa-c-id=\"\
+    ohv926-t58216-mev1vg-g73bw8\" data-csa-c-is-in-initial-active-row=\"false\" data-csa-c-slot-id=\"\
+    tellAmazon_feature_div\" data-csa-c-type=\"widget\" data-feature-name=\"tellAmazon\"\
+    \ id=\"tellAmazon_feature_div\">\n<div cel_widget_id=\"tell-amazon-desktop_DetailPage_2\"\
+    \ class=\"celwidget c-f\" data-cel-widget=\"tell-amazon-desktop_DetailPage_2\"\
+    \ data-csa-c-content-id=\"DsUnknown\" data-csa-c-id=\"pef1b5-hahm81-89h6d-aic3bd\"\
+    \ data-csa-c-painter=\"tell-amazon-desktop-cards\" data-csa-c-slot-id=\"DsUnknown-3\"\
+    \ data-csa-c-type=\"widget\" data-csa-op-log-render=\"\">\n\n\n<!--CardsClient--><div\
+    \ data-acp-tracking=\"{}\" data-card-metrics-id=\"tell-amazon-desktop_DetailPage_2\"\
+    \ data-mix-claimed=\"true\" id=\"CardInstanceWSaRJZFMfOiGx57-pZHeSw\"><div class=\"\
+    _tell-amazon-desktop_style_tell_amazon_div__1YDZk\" data-asin=\"B09V38ST65\" data-logged-in=\"\
+    false\" data-marketplace=\"ATVPDKIKX0DER\"><a class=\"_tell-amazon-desktop_style_tell_amazon_link__1KW5z\"\
+    \ data-mix-operations=\"openTellAmazonModal\"><i aria-label=\"Report an issue\
+    \ with this product or seller\" class=\"a-icon a-icon-share-sms a-icon-mini\"\
+    \ role=\"img\"></i> \_ Report an issue with this product or seller</a></div><span\
+    \ class=\"a-popover-preload\" id=\"a-popover-tellAmazon-modal-1\"><div class=\"\
+    _tell-amazon-desktop_style_tell_amazon_modal_root__1q10s\" data-a-modal-id=\"\
+    tellAmazon-modal-1\"><div class=\"_tell-amazon-desktop_style_tell_amazon_modal_end__30n3x\"\
+    ><div class=\"_tell-amazon-desktop_style_tell_amazon_modal_spinner__3bz5K\"><span\
+    \ class=\"a-spinner a-spinner-medium\"></span></div></div></div></span></div>\n\
+    \n\n\n</div> </div>"
+  data_1:
+  - outerHTML
+  - ./
+  - xpath/attribute
+  - text/href/name
+  - valuename

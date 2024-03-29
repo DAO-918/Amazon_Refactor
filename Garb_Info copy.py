@@ -4,6 +4,7 @@ import string
 import time
 import re
 import json
+from tkinter import N
 import yaml
 from datetime import datetime
 
@@ -90,6 +91,95 @@ class AmazonInfo():
         self.info_all_count = 0
         self.info_fail_count = 0
         self.doc = Document()
+        
+        self.info_init()
+
+# 调试时，每次get_Search都运行一次
+    def info_init(self):
+        self.link = None
+        self.asin = None
+        self.country = None
+        self.asin_url = None  # 点击后跳转的url链接？
+        self.image = None
+        self.title = None
+        self.amz_choice = None
+        self.amz_choice_type = None
+        self.tag = None
+        self.best_seller = None
+        self.variant = None
+        self.variant_type = None
+        self.variant_count = None
+        self.deal_type = None
+        self.is_deal = None  # boolean value
+        self.fba = None
+        self.is_fba = None  # boolean value
+        self.is_amz = None  # boolean value
+        self.is_smb = None  # boolean value
+        self.left_count = None  # TINYINT
+        self.lower_price = None
+        self.lower_list = None
+        self.lowest_precent = None
+        self.sale_price = None
+        self.rrp_price = None
+        self.rrp_type = None
+        self.prime_price = None
+        self.subscribe_price = None
+        self.fba_price = None
+        self.profit_rate = None
+        self.discount = None
+        self.coupon = None
+        self.saving = None
+        self.promotion = None
+        self.promotion_code = None
+        self.rating = None
+        self.review = None
+        self.bought = None
+        self.a_rank_name = None
+        self.a_rank = None
+        self.b_rank_name = None
+        self.b_rank = None
+        self.c_rank_name = None
+        self.c_rank = None
+        self.d_rank_name = None
+        self.d_rank = None
+
+        self.shopname = None
+        self.brand = None
+        self.follow = None
+        self.merchant_token = None
+        self.use_age = None
+        self.use_ages_do = None
+        self.use_ages_up = None
+        self.bullet_points_1 = None
+        self.bullet_points_2 = None
+        self.bullet_points_3 = None
+        self.bullet_points_4 = None
+        self.bullet_points_5 = None
+        self.bullet_points_6 = None
+        self.bullet_points = None
+        self.base_info = None
+        self.weight = None
+        self.weight_unit = None
+        self.length_l = None
+        self.length_w = None
+        self.length_h = None
+        self.length_unit = None
+        self.start_sale_time = None
+        
+        # 西柚数据
+        self.xiyou_seven_days_views =None
+        self.xiyou_na_ratio = None
+        self.xiyou_ad_ratio = None
+
+        # 实时变化
+        self.data_index = None
+        self.data_uuid = None
+        self.data_component_type = None
+        self.data_component_id = None
+        self.data_cel_widget = None
+        self.data_type = None
+
+        self.time = None
 
     # !doc日志文档写入
     def append_line(self, line, flag=True):
@@ -116,6 +206,8 @@ class AmazonInfo():
     def get_div_features(self, parent, level=0,flag=False):
         # 获取父元素的标签名
         tag_name = parent.tag_name
+        if tag_name.lower() in ['script', 'style',' svg','path']:
+            return None
         # 获取父元素的class属性
         attributes = parent.get_attribute("class")
         # 获取父元素的父元素
@@ -152,24 +244,28 @@ class AmazonInfo():
         # 获取存放图片目录路径
         config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
         
-        self.append_line(f'&&当前ASIN下的div元素有：{len(div_Info_child)}个')
+        self.append_line(f'### 当前ASIN: {self.asin}下的div元素有：{len(div_Info_child)}个')
         with open(config_file) as f:
             config = yaml.safe_load(f)
             
         # 遍历div_Info_child数组
         for index, child in enumerate(div_Info_child, 1):
             # 当文本为空或空字串时继续下一个循环
-            if child.text in None or child.text == '': continue
+            child_text = child.text
             # 将数字转字符串
             index_str = f'0{index}' if index < 10 else str(index)
+            child_xpath = self.get_xpath(child)
+            self.append_line(f'##### 第<font color="#ff0000"> {index_str} </font>个div')
+            self.append_line(f'- xpath：\n{child_xpath}')
+            self.append_line(f'- div值：\n_{child_text}_') 
+            if child_text is None or child_text == '': 
+                self.append_line(f'<font color="#00b050">@@跳过: {index}</font>')
+                continue
             child_class = child.get_attribute("class")
             print(child_class)
             feature_symbol = None
             if child_class == '':
                 feature_symbol = 'div'
-            child_xpath = self.get_xpath(child)
-            self.append_line(f'--当前匹配的是第 {index_str} 个div')
-            self.append_line(f'--当前匹配的xpath：{child_xpath}')
             # 先获取div的特征值
             features_list = self.get_div_features(child, 0)
             # 将特征值转为json
@@ -183,7 +279,7 @@ class AmazonInfo():
                 # 匹配特征值
                 if config[section]['Div_feature'] == feature_str:
                     self.count_section(section)
-                    self.append_line(f'--已匹配对应的特征值section：{section}')
+                    self.append_line(f'- 已匹配特征值section：{section}')
                     exists = True
                     key_flag = 1
                     while key_flag > 0:
@@ -195,10 +291,11 @@ class AmazonInfo():
                             continue
                         # 匹配成功后，获取键值
                         key_value = config[section][key_name]
-                        data_name = key_value[0]
-                        data_method = key_value[1]
-                        data_xpath = key_value[2]
+                        data_html = key_value[0]
+                        data_xpath = key_value[1]
+                        data_method = key_value[2]
                         data_type = key_value[3]
+                        data_name = key_value[4] 
                         target_div = child.find_element(By.XPATH, data_xpath)
                         # 获取值的方式
                         # 如果data_type=hiddentext，通过js代码修改元素的class，再获取值
@@ -218,15 +315,27 @@ class AmazonInfo():
                     break  # exists = True
             new_section = None
             if not exists:
+                self.append_line('```html')
                 self.get_element_structure(child)
+                self.append_line('\r')
+                self.append_line('```')
                 # 重新获取一次div特征值，并打印在文档中
+                self.append_line('```python')
                 self.get_div_features(child, 0, True)
+                self.append_line('```')
+                self.append_line('\r')
                 self.info_fail_count += 1
+                child_outer_html = child.get_attribute('outerHTML')
+                soup = BeautifulSoup(child_outer_html, "html.parser")
+                scripts_styles = soup.find_all(['script', 'style',' svg','path'])
+                # 遍历script和style标签，并将它们从HTML中移除
+                for tag in scripts_styles:
+                    tag.decompose()
                 # 'Section{}'.format(len(config)+1) len(config)+1 就是数量+1,即新增一个section后的总数，'Section{}'.format(3) = 'Section3'
                 #new_section = f'{feature_symbol} data_i.{info.data_index} c.{index}'
-                new_section = f'data_i.{self.ASIN}_c.{index_str}'                # 当 data_index 为 None时，该div时HR下的asin
-                config[new_section] = {'Div_feature': feature_str}
-                self.append_line(f'!!新增元素特征值：{new_section}\t目标配置类型：{config_name}')
+                new_section = f'data_i.{self.asin}_c.{index_str}'                # 当 data_index 为 None时，该div时HR下的asin
+                config[new_section] = {'Div_feature': feature_str, 'Div_outerHTML': str(soup), 'data_1': ['outerHTML','./','xpath/attribute','text/href/name','valuename']}
+                self.append_line(f'>[!tip] 新增特征值：{new_section}\t配置类型：{config_name}')
                 with open(config_file, 'w') as f:
                     yaml.dump(config, f)
                     
@@ -245,7 +354,59 @@ class AmazonInfo():
                 try:
                     img_crop.save(f'{config_img}\\{new_section}.png')
                 except Exception:
-                    self.append_line(f'{new_section}\t @@child_width:{child_width}=child_height:{child_height}\t 目标为空div')
+                    self.append_line(f'>[!warning] {new_section}\t @@child_width:{child_width}=child_height:{child_height}\t 目标为空div')
+
+    def get_full_xpath(self, soup, target_element):
+        xpath = ''
+        for parent in target_element.parents:
+            # get index of tag among its siblings
+            index = 1 + sum(1 for previous_sibling in parent.find_previous_siblings(parent.name))
+            xpath = '/' + parent.name + '[' + str(index) + ']' + xpath
+        # add the tag itself
+        xpath = '/' + target_element.name + '[1]' + xpath
+        return xpath
+
+    def update_yaml_file(self, config_name, target_outerhtml):
+        config_file = f'yaml/features_result_{config_name}.yml'
+        with open(config_file) as f:
+            config = yaml.safe_load(f)
+        for key, value in config.items():
+            if 'Div_outerHTML' in value:
+                outerHTML = value['Div_outerHTML']
+                soup = BeautifulSoup(outerHTML, 'html.parser')
+                target_element = soup.find(outerHTML=target_outerhtml)
+                if target_element is not None:
+                    full_xpath = self.get_full_xpath(soup, target_element)
+                    value['data_1'][1] = full_xpath
+        # Save the updated data to yml file
+        with open(config_file, 'w') as f:
+            yaml.dump(config, f)
+            
+        for section in config:
+            # 匹配特征值
+            outerHTML = config[section]['Div_outerHTML']
+            exists = True
+            key_flag = 1
+            while key_flag > 0:
+                # section中有几个需要获取的data，后缀就到几
+                key_name = f'data_{key_flag}'
+                # 匹配失败，即section的需要获取值已经到尾部，跳出循环
+                if key_name not in config[section]:
+                    key_flag = -1
+                    continue
+                # 匹配成功后，获取键值
+                key_value = config[section][key_name]
+                data_html = key_value[0]
+                data_xpath = key_value[1]
+                data_method = key_value[2]
+                data_type = key_value[3]
+                data_name = key_value[4]
+                if data_xpath == './':
+                    fullxpath = self.get_full_xpath(outerHTML, data_html)
+                    fullxpath = fullxpath.replace('[document]/div','.')
+                    config[section][key_value][1] = fullxpath
+        with open(config_file, 'w') as f:
+            yaml.dump(config, f)
 
     # !计算section出现的次数
     def count_section(self, section_name):
@@ -262,11 +423,16 @@ class AmazonInfo():
     def get_element_structure(self, element, level=0):
         outer_html = element.get_attribute('outerHTML')
         soup = BeautifulSoup(outer_html, "html.parser")
+        # 找到所有的script和style标签
+        scripts_styles = soup.find_all(['script', 'style',' svg','path'])
+        # 遍历script和style标签，并将它们从HTML中移除
+        for tag in scripts_styles:
+            tag.decompose()
         # 使用prettify()函数将HTML代码美化
         pretty_html = soup.prettify()
         # 打印美化后的HTML代码，每行打印一次
         for line in pretty_html.split('\n'):
-            self.append_line(line)
+            self.append_line(line.replace('\n', '').replace('\r', ''))
 
     # !获取div的xpath
     def get_xpath(self, element):
@@ -485,10 +651,11 @@ class AmazonInfo():
     # !
     def garb_info(self, url):  
         #TODO:self的值
+        self.link, self.asin, self.country = self.format_url(url)
         info_主要信息 = self.driver.find_element(By.XPATH, '//*[@id="centerCol"]')
         info_主要信息_child = info_主要信息.find_elements(By.XPATH, './div')
         self.match_feature_data(info_主要信息_child, 'asin')
-        
+        print('==')
         #?限购 如何判断
         
         #Product information
@@ -1165,10 +1332,13 @@ if __name__ == '__main__':
     AmazonI = AmazonInfo(driver,wait,actions)
     #sc.BindPage('https://www.amazon.com/dp/B07H9GY33H',"Contain")
     #AmazonI.get_title()
-    AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
+    #AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
     #print(AmazonI.title) 
     #print(AmazonI.get_price())
     
     #AmazonI.excel_merge_with()
     #AmazonI.excel_write_link('D:\Code\# LISTING\产品数据\玩具-积木\乐高花束\ASIN_Info-乐高花束2.xlsx')
     
+    sc.BindPage('https://www.amazon.com/dp/B09V38ST65',"Contain")
+    #AmazonI.get_title()
+    AmazonI.garb_info('https://www.amazon.com/dp/B09V38ST65')
