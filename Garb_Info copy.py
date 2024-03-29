@@ -90,7 +90,7 @@ class AmazonInfo():
         self.info_all_count = 0
         self.info_fail_count = 0
         self.doc = Document()
-        
+
     # !doc日志文档写入
     def append_line(self, line, flag=True):
         # 当 savelog=True 且 flag=True 时，整个表达式为 True。
@@ -104,7 +104,7 @@ class AmazonInfo():
             # 保存文档
             self.doc.save(self.docfilepath)
         print(line)
-        
+
     def append_dict(self, dict):        
         # 迭代字典并添加内容
         for key, value in dict.items():
@@ -144,21 +144,22 @@ class AmazonInfo():
             # 将子元素的特征添加到当前div元素的特征列表中
             feature[4].append(child_feature)
         return feature
-    
+
     # !比对div的特征值，找到配置文件中对应的section，在section中根据数据位置获取数据
     # 如果特征值在配置文件中没有找到，则保存特征值
     def match_feature_data(self, div_Info_child, config_name):
-        # sourcery skip: low-code-quality
         config_file = f'yaml/features_result_{config_name}.yml'
         # 获取存放图片目录路径
         config_img = os.path.join(self.output_root, 'yaml', f'img_{config_name}')
-
+        
         self.append_line(f'&&当前ASIN下的div元素有：{len(div_Info_child)}个')
         with open(config_file) as f:
             config = yaml.safe_load(f)
-
+            
         # 遍历div_Info_child数组
         for index, child in enumerate(div_Info_child, 1):
+            # 当文本为空或空字串时继续下一个循环
+            if child.text in None or child.text == '': continue
             # 将数字转字符串
             index_str = f'0{index}' if index < 10 else str(index)
             child_class = child.get_attribute("class")
@@ -228,7 +229,7 @@ class AmazonInfo():
                 self.append_line(f'!!新增元素特征值：{new_section}\t目标配置类型：{config_name}')
                 with open(config_file, 'w') as f:
                     yaml.dump(config, f)
-
+                    
                 y = child.location['y']
                 self.driver.execute_script(f"window.scrollTo(0, {y});")
                 # 获取元素的x,y坐标
@@ -246,7 +247,7 @@ class AmazonInfo():
                 except Exception:
                     self.append_line(f'{new_section}\t @@child_width:{child_width}=child_height:{child_height}\t 目标为空div')
 
-    # 计算section出现的次数
+    # !计算section出现的次数
     def count_section(self, section_name):
         '''
         if section_name in self.section_dict:
@@ -292,10 +293,9 @@ class AmazonInfo():
         return getElementXPath(arguments[0]);
         """
         return self.driver.execute_script(script, element)
-    
+
     # !找到列名对应的列序号，返回字母
     def find_colname_letter(self, sheet, rowindex, colname, match_mode='精准匹配'):
-        # sourcery skip: inline-immediately-returned-variable, merge-duplicate-blocks, switch
         # next：这个函数会返回一个迭代器的下一个元素。
         # next 用于获取满足条件（该行的值等于colname）的第一个元素的列字母。如果没有元素满足条件，它将返回一个默认值，这里是None
         #cell_letter = None
@@ -340,33 +340,8 @@ class AmazonInfo():
             domain_suffix = domain_parts[-1]
         domain_suffix_country_dict = {'com': 'us', 'co.uk': 'uk'}
         country = domain_suffix_country_dict.get(domain_suffix, domain_suffix)
-        new_url = f'https://www.amazon.com/dp/{asin}'
+        new_url = f'https://{domain}/dp/{asin}'
         return new_url, asin, country
-
-    # !
-    def garb_info(self, url):  # sourcery skip: extract-method
-        info_主要信息 = self.driver.find_element(By.XPATH, '//*[@id="centerCol"]')
-        info_主要信息_child = info_主要信息.find_elements(By.XPATH, './div')
-        self.match_feature_data(info_主要信息_child, 'asin')
-        try:
-            info_经常购买 = self.driver.find_element(By.XPATH, '//*[@id="CardInstanceAIsiVJYo9vE1IudOdPrv2Q"]/div/div[1]')
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel1"]/ol')
-            # Products related to this item 在 What's in the box 和 Videos中间
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel2"]/ol')
-            # From the brand 品牌故事的展示信息
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel3"]/ol')
-            # Videos 相关产品的视频
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel4"]/ol')
-            # Similar brands on Amazon
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel5"]/ol')
-            # Reviews with images
-            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel6"]/ol')
-            # Products related to this item 在 Product information 上面
-            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel7"]/ol')
-            # Related Climate Pledge Friendly items
-            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel8"]/ol')
-        except Exception:
-            print (Exception)
 
     # !目标报价表：找到表的某一列中符合该值的行号
     def find_colindex_value_rowindex(self, sheet, rowvalue, colindex, match_mode='精准匹配'):        
@@ -394,7 +369,6 @@ class AmazonInfo():
 
     # !遍历目标文件夹下对应后缀的文件
     def list_files_by_type(self, directory , file_type='.xlsx'):
-        # sourcery skip: for-append-to-extend
         excel_files = []
         # 对指定目录及其所有子目录进行遍历
         for root, dirs, files in os.walk(directory):
@@ -403,12 +377,14 @@ class AmazonInfo():
                     excel_files.append(os.path.join(root, file))
         return excel_files
 
-    def excel_merge_with(self):  # sourcery skip: extract-duplicate-method
+    # !整合表格数据
+    def excel_merge_with(self):  
         file_list = self.list_files_by_type(self.product_root, '.xlsx')
         for file_path in file_list:
             ase_name = os.path.basename(file_path)
             dir_name = os.path.basename(os.path.dirname(file_path))
             pdir_name = os.path.basename(os.path.dirname(os.path.dirname(file_path)))
+            # 如果只有一级目录，值向上传递一次
             if pdir_name == '产品数据':
                 pdir_name = dir_name
                 dir_name = None
@@ -430,6 +406,8 @@ class AmazonInfo():
                 self.x记录_Sheet1[f'{self.x记录_colstr_子类}{x记录_Sheet1_maxrow+1}'] = dir_name
                 self.x记录_Sheet1[f'{self.x记录_colstr_ASIN计数}{x记录_Sheet1_maxrow+1}'] = ws_maxrow - 1
                 self.x记录_Sheet1[f'{self.x记录_colstr_更新时间}{x记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
+            # 更新ASIN计数
+            # ?当asin需要立即更新时，asin计数是不变的。所以这里只记录新增asin后的更新时间
             else:
                 所在行号 = self.find_colindex_value_rowindex(self.x记录_Sheet1, ase_name, column_index_from_string(self.x记录_colstr_表格名称))
                 ASIN计数 = self.x记录_Sheet1.cell(row=所在行号, column=column_index_from_string(self.x记录_colstr_ASIN计数)).value
@@ -503,6 +481,73 @@ class AmazonInfo():
 
     def excel_fill_in(self):
         pass
+
+    # !
+    def garb_info(self, url):  
+        #TODO:self的值
+        info_主要信息 = self.driver.find_element(By.XPATH, '//*[@id="centerCol"]')
+        info_主要信息_child = info_主要信息.find_elements(By.XPATH, './div')
+        self.match_feature_data(info_主要信息_child, 'asin')
+        
+        #?限购 如何判断
+        
+        #Product information
+        #//*[@id="productDetails_detailBullets_sections1"]
+        #键值的空格转换成下划线_
+        
+        #TODO:关联ASIN
+        #class="a-row"
+        #先获取h2且class=a-carousel-heading a-inline-block
+        #//*[contains(@value, 'a-carousel-heading a-inline-block')]
+        #sp_desktop_sponsored_label
+        #?如果当该div存在时，使用赋值 例如 method=value value=true
+        # <span class="a-carousel-page-current">1</span>
+        # <span class="a-carousel-page-max">4</span>
+        
+        # 向上遍历到
+        # id="similarities_feature_div" class="celwidget" data-feature-name="similarities" data-csa-c-type="widget" data-csa-c-content-id="similarities" data-csa-c-slot-id="similarities_feature_div"
+        # id="similarities_feature_div" class="celwidget" data-feature-name="similarities" data-csa-c-type="widget" data-csa-c-content-id="similarities" data-csa-c-slot-id="similarities_feature_div"
+        # 停止遍历到 且不执行找ol的步骤
+        # id="rhf" class="copilot-secure-display" style="clear: both;" role="complementary" aria-label="Your recently viewed items and featured recommendations">
+        # <div class="rhf-frame" style="display: block;">
+        
+        # <div class="a-carousel-col a-carousel-left"
+        # <a class="a-button a-button-image a-carousel-button a-carousel-goto-prevpage" tabindex="0" href="#" id="a-autoid-47"
+        
+        # <div class="a-carousel-col a-carousel-center">
+        # <div class="a-carousel-viewport" id="anonCarousel1"
+        # <ol class="a-carousel" role="list" style="width: 1307px;">
+        # 到最后一页时，再次点击会返回第一页
+        
+        # <div class="a-carousel-col a-carousel-right" style="height: 308px; visibility: visible;">
+        # <a class="a-button a-button-image a-carousel-button a-carousel-goto-nextpage" tabindex="0" href="#" id="a-autoid-48" aria-disabled="false" 
+        try:
+            info_经常购买 = self.driver.find_element(By.XPATH, '//*[@id="CardInstanceAIsiVJYo9vE1IudOdPrv2Q"]/div/div[1]')
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel1"]/ol')
+            # Products related to this item 在 What's in the box 和 Videos中间/4 star 上面
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel2"]/ol')
+            # From the brand 品牌故事的展示信息
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel3"]/ol')
+            # Videos 相关产品的视频
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel4"]/ol')
+            # Similar brands on Amazon
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel5"]/ol')
+            # Reviews with images
+            info_四星产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel6"]/ol')
+            # Products related to this item 在 Product information 上面
+            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel7"]/ol')
+            # Related Climate Pledge Friendly items
+            info_相关产品 = self.driver.find_element(By.XPATH, '//*[@id="anonCarousel8"]/ol')
+            # Related products with free delivery on eligible orders
+        except Exception:
+            print (Exception)
+        
+        #TODO:卖家精灵
+        # 卖家精灵：抢登录/选择登录账号-Exception
+        # 卖家精灵：采集排名和排名截图
+        # 卖家精灵：AI评论分析
+        # 卖家精灵：Q&A下载
+
 
     #update方法可以将返回的字典合并到result字典中
     def get_title(self):
@@ -894,7 +939,6 @@ class AmazonInfo():
         return {'主图450':image_main450}
 
     def get_main1500(self):
-        # sourcery skip: class-extract-method, extract-duplicate-method, extract-method
         image_left1 = get_imgspan(self.driver)[1]
         image_main1500 = []
         # 如果参数isBigImg为真，获取1000+的大尺寸主图
@@ -974,7 +1018,6 @@ class AmazonInfo():
         return {'视频数量':video_count}
 
     def get_sellerCapture(self,ASIN:str):
-        # sourcery skip: extract-method, hoist-statement-from-if
         try:
             self.wait.until(EC.presence_of_all_elements_located((By.XPATH, '//*[@id="quick-view-page"]')))
             seller_parent = self.driver.find_element(By.XPATH,'//*[@id="quick-view-page"]')
@@ -1038,7 +1081,6 @@ class AmazonInfo():
             print('No Rank Download Fialure element found')
 
     def get_description(self):
-        # sourcery skip: extract-method, reintroduce-else, remove-redundant-continue, use-join
         # 获取详情页的文本和图片链接
         # 20230720:先进行读取所有文本，再进行除重，最后合成文本
         description = []
@@ -1118,10 +1160,10 @@ if __name__ == '__main__':
     AmazonI = AmazonInfo(driver,wait,actions)
     #sc.BindPage('https://www.amazon.com/dp/B07H9GY33H',"Contain")
     #AmazonI.get_title()
-    #AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
+    AmazonI.garb_info('https://www.amazon.com/dp/B07H9GY33H')
     #print(AmazonI.title) 
     #print(AmazonI.get_price())
     
-    AmazonI.excel_merge_with()
-    AmazonI.excel_write_link('D:\Code\# LISTING\产品数据\玩具-积木\乐高花束\ASIN_Info-乐高花束2.xlsx')
+    #AmazonI.excel_merge_with()
+    #AmazonI.excel_write_link('D:\Code\# LISTING\产品数据\玩具-积木\乐高花束\ASIN_Info-乐高花束2.xlsx')
     
