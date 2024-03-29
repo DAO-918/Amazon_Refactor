@@ -547,6 +547,11 @@ class AmazonInfo():
         # 卖家精灵：采集排名和排名截图
         # 卖家精灵：AI评论分析
         # 卖家精灵：Q&A下载
+        
+        #TODO:评论总结
+        # //*[@id="product-summary"]/p[1]/span
+        # //*[@id="aspect-button-group-0"]  + 点击后弹出的内容
+        
 
 
     #update方法可以将返回的字典合并到result字典中
