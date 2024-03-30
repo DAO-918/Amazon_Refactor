@@ -97,8 +97,9 @@ class AmazonInfo():
 # 调试时，每次get_Search都运行一次
     def info_init(self):
         self.link = None
-        self.asin = None
         self.country = None
+        
+        self.asin = None
         self.asin_url = None  # 点击后跳转的url链接？
         self.image = None
         self.title = None
@@ -262,7 +263,10 @@ class AmazonInfo():
                 self.append_line(f'<font color="#00b050">@@跳过: {index}</font>')
                 continue
             child_class = child.get_attribute("class")
-            print(child_class)
+            child_id = child.get_attribute("id")
+            if child_id == 'seller-sprite-extension-quick-view-listing':
+                self.append_line(f'<font color="#00b050">@@跳过: 卖家精灵</font>')
+                continue
             feature_symbol = None
             if child_class == '':
                 feature_symbol = 'div'
@@ -317,13 +321,13 @@ class AmazonInfo():
             if not exists:
                 self.append_line('```html')
                 self.get_element_structure(child)
-                self.append_line('\r')
+                self.append_line('\r\n')
                 self.append_line('```')
                 # 重新获取一次div特征值，并打印在文档中
                 self.append_line('```python')
                 self.get_div_features(child, 0, True)
                 self.append_line('```')
-                self.append_line('\r')
+                self.append_line('\r\n')
                 self.info_fail_count += 1
                 child_outer_html = child.get_attribute('outerHTML')
                 soup = BeautifulSoup(child_outer_html, "html.parser")
@@ -356,32 +360,35 @@ class AmazonInfo():
                 except Exception:
                     self.append_line(f'>[!warning] {new_section}\t @@child_width:{child_width}=child_height:{child_height}\t 目标为空div')
 
+    # !找到目标元素的相对位置
     def get_full_xpath(self, soup, target_element):
-        xpath = ''
-        for parent in target_element.parents:
-            # get index of tag among its siblings
-            index = 1 + sum(1 for previous_sibling in parent.find_previous_siblings(parent.name))
-            xpath = '/' + parent.name + '[' + str(index) + ']' + xpath
-        # add the tag itself
-        xpath = '/' + target_element.name + '[1]' + xpath
-        return xpath
+        # 解析HTML
+        soup = BeautifulSoup(soup, 'html.parser')
+        # 使用BeautifulSoup解析target标签和它的属性
+        target_soup = BeautifulSoup(target_element, 'html.parser')
+        target_tag = target_soup.contents[0].name
+        target_attrs = target_soup.contents[0].attrs
+        # 找到目标标签
+        target_element = soup.find(target_tag, attrs=target_attrs)
+        # 初始化一个列表来存储路径
+        path = []
+        # 开始循环，找到父标签，直到找不到为止
+        while target_element is not None:
+            # 获取当前元素在其同级元素中的位置
+            sibling_count = len(list(target_element.find_previous_siblings(target_element.name)))
+            # 将当前标签的名称添加到路径中
+            path.append(f"{target_element.name}[{sibling_count+1}]")        # 找到当前标签的父标签
+            target_element = target_element.find_parent()
+        # 翻转路径列表，并用'/'来连接它们，形成完整的xpath
+        full_path = '/'.join(reversed(path))
+        # 返回完整的xpath
+        return full_path
 
+    # !更新yml的xpath
     def update_yaml_file(self, config_name, target_outerhtml):
         config_file = f'yaml/features_result_{config_name}.yml'
         with open(config_file) as f:
             config = yaml.safe_load(f)
-        for key, value in config.items():
-            if 'Div_outerHTML' in value:
-                outerHTML = value['Div_outerHTML']
-                soup = BeautifulSoup(outerHTML, 'html.parser')
-                target_element = soup.find(outerHTML=target_outerhtml)
-                if target_element is not None:
-                    full_xpath = self.get_full_xpath(soup, target_element)
-                    value['data_1'][1] = full_xpath
-        # Save the updated data to yml file
-        with open(config_file, 'w') as f:
-            yaml.dump(config, f)
-            
         for section in config:
             # 匹配特征值
             outerHTML = config[section]['Div_outerHTML']
@@ -401,10 +408,11 @@ class AmazonInfo():
                 data_method = key_value[2]
                 data_type = key_value[3]
                 data_name = key_value[4]
-                if data_xpath == './':
+                if data_html != 'outerHTML' and data_xpath == './':
                     fullxpath = self.get_full_xpath(outerHTML, data_html)
-                    fullxpath = fullxpath.replace('[document]/div','.')
-                    config[section][key_value][1] = fullxpath
+                    fullxpath = fullxpath.replace('[document][1]/div[1]','.')
+                    config[section][key_name][1] = fullxpath
+                key_flag += 1
         with open(config_file, 'w') as f:
             yaml.dump(config, f)
 
