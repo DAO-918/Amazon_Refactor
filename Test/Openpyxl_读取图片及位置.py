@@ -26,7 +26,7 @@ for index, image in enumerate(images):
     data = image.ref
     with open(os.path.join(output_folder, pic_name), 'wb') as img_file:
         img_pil = Image.open(image.ref).convert("RGB")
-        img_array = np.array(img_pil)
+        #img_array = np.array(img_pil)
         # 将 NumPy 数组保存为图像文件
         img_pil.save(os.path.join(output_folder, pic_name))
         # 记录图片位置信息（这里假设仍需要记录）

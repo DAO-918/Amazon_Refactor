@@ -4,6 +4,7 @@ from tempfile import tempdir
 import time
 import re
 import json
+from tkinter import N
 import yaml
 from datetime import datetime
 import numpy as np
@@ -235,24 +236,68 @@ class ExcelConver:
                 列名行号1 = self.e对照_Sheet1[f'{self.e记录_colstr_列名行号1}{i}'].value
                 列名行号2 = self.e对照_Sheet1[f'{self.e记录_colstr_列名行号1}{i}'].value
                 起始位置 = self.e对照_Sheet1[f'{self.e记录_colstr_起始位置}{i}'].value
+                记录时间 = self.e对照_Sheet1[f'{self.e记录_colstr_记录时间}{i}'].value
+                if 列名行号1 is None or 列名行号2 is None or 起始位置 is None or 记录时间 is not None:
+                    continue
                 报价表路径 = os.path.join(self.offer_root, 类别, 品牌, 报价表名称)
                 wb = load_workbook(filename=报价表路径, read_only=False)
+                报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.e整合_Sheet1)
+                图片列号 = None
+                货号列号 = None
+                名称列号 = None
                 # 遍历目标报价表的sheet
                 for sheetname in wb.sheetnames:
                     ws = wb[sheetname]
                     ws_maxrow, ws_maxcol = self.tool_count(ws)
+                    col_maxlen = 0
                     # sheet的每一列
                     for i, col in enumerate(ws.iter_cols(min_row=列名行号1, max_row=ws_maxrow ,max_col=ws_maxcol), start=1):
                         col_letter = get_column_letter(i)
                         ws_列名1 = col[列名行号1]
-                        ws_列名2 = col[列名行号2]
-                        is_same = False
+                        ws_列名2 = col[列名行号2]                        
+                        ws_列名_value = None
+                        ws_列名1_value = None
+                        ws_列名2_value = None
+                        in_one_row = 列名行号1 == 列名行号2
+                        # 如果只有一行
+                        find_flag = False
                         A_find_flag = False
                         B_find_flag = False
                         报价表整合列名 = None
-                        if ws_列名1 == ws_列名2:
-                            is_same = True
+                        if col_maxlen < len(col):
+                            col_maxlen = len(col)
+                        # 先判断是否同一行，是否是合并列表，获取单元格的值
+                        if in_one_row:
+                            ws_列名_value = ws_列名1.value
+                        else: 
+                            ws_列名1_merged = ws_列名1.coordinate in ws.merged_cells
+                            ws_列名1_merged_range =  None
+                            if ws_列名1_merged:
+                                for mr in ws.merged_cells.ranges:
+                                # 如果当前单元格坐标在合并单元格范围内，则为合并单元格
+                                    if ws_列名1.coordinate in mr:
+                                        ws_列名1_merged_range = mr
+                                        break
+                                ws_列名1_value = ws[ws_列名1_merged_range.start_cell.coordinate].value
+                            else:
+                                ws_列名1_value = ws_列名1.value
+                            ws_列名2_merged = ws_列名2.coordinate in ws.merged_cells
+                            ws_列名2_merged_range =  None
+                            if ws_列名2_merged:
+                                for mr in ws.merged_cells.ranges:
+                                # 如果当前单元格坐标在合并单元格范围内，则为合并单元格
+                                    if ws_列名2.coordinate in mr:
+                                        ws_列名2_merged_range = mr
+                                        break
+                                ws_列名2_value = ws[ws_列名2_merged_range.start_cell.coordinate].value
+                            else:
+                                ws_列名2_value = ws_列名2.value
+                            # 判断是否上下相同
+                            if ws_列名1_value == ws_列名2_value:
+                                ws_列名_value = ws_列名1_value
+                                
                         # 找到列对应报价表整合中的列名
+                        # 即找到上面循环中的列名在报价表整合中对应的列名
                         for 报价表对照_row in self.e对照_Sheet1.iter_rows(min_row=2, max_col=7):
                             报价表整合列名 = 报价表对照_row[column_index_from_string(self.e对照_colstr_报价表整合列名)].value
                             是否匹配 = 报价表对照_row[column_index_from_string(self.e对照_colstr_是否匹配)].value
@@ -262,64 +307,63 @@ class ExcelConver:
                             A模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_A模糊匹配)].value)
                             B精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_B精准匹配)].value)
                             B模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_B模糊匹配)].value)
-                            # 先判断是否是合并列表
                             
-                            # 如果列名有两行，列名1 列名2 是相等的=》合并单元格
-                            if ws_列名1 is not None and ws_列名2 is not None and is_same == True:
+                            # 如果是同一行 或者 合并单元格的两行值相同
+                            if ws_列名_value is not None:
+                                if find_flag == False:
+                                    for exact in A精准匹配:
+                                        if exact == ws_列名_value:
+                                            find_flag = True
+                                            break
+                                if find_flag == False:
+                                    for exact in A模糊匹配:
+                                        if exact in ws_列名_value:
+                                            find_flag = True
+                                            break
+                            # 如果不是同一行 且 合并单元格的两行值不同
+                            elif ws_列名1_value is not None and ws_列名2_value is not None and ws_列名_value is None:
                                 if A_find_flag == False:
                                     for exact in A精准匹配:
-                                        if exact == ws_列名1:
+                                        if exact == ws_列名1_value:
                                             find_flag = True
                                             break
                                 if A_find_flag == False:
                                     for exact in A模糊匹配:
-                                        if exact in ws_列名1:
-                                            find_flag = True
-                                            break
-                            elif ws_列名1 is not None and ws_列名2 is not None and is_same == False:
-                                if A_find_flag == False:
-                                    for exact in A精准匹配:
-                                        if exact == ws_列名1:
-                                            find_flag = True
-                                            break
-                                if A_find_flag == False:
-                                    for exact in A模糊匹配:
-                                        if exact in ws_列名1:
+                                        if exact in ws_列名1_value:
                                             find_flag = True
                                             break
                                 if B_find_flag == False:
                                     for exact in B精准匹配:
-                                        if exact == ws_列名1:
+                                        if exact == ws_列名2_value:
                                             find_flag = True
                                             break
                                 if B_find_flag == False:
                                     for exact in B模糊匹配:
-                                        if exact in ws_列名1:
+                                        if exact in ws_列名2_value:
                                             find_flag = True
                                             break
-                            elif ws_列名1 is not None and ws_列名2 is None:
-                                if A_find_flag == False:
-                                    for exact in A精准匹配:
-                                        if exact == ws_列名1:
-                                            find_flag = True
-                                            break
-                                if A_find_flag == False:
-                                    for exact in A模糊匹配:
-                                        if exact in ws_列名1:
-                                            find_flag = True
-                                            break
+                        if find_flag == False or A_find_flag == False or B_find_flag == False:
+                            
                         # 写入报价表整合
                         报价表整合_Sheet1_目标列 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname=报价表整合列名)
-                        报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.e整合_Sheet1)
-                        # col 是数组 0指第一行 起始位置是行号要减一
-                        position = 1
-                        for col_index in range(int(起始位置-1), len(col)):
+                        # col 是报价表循环的其中一列，是数组 0指第一行 起始位置是行号要减一
+                        # 报价表整合_Sheet1_maxrow 不能在现在这个循环内得出
+                        # 循环依次写入
+                        '''position = 1
+                        for col_index in range(int(起始位置-1), len(col)-1):
+                            # 单元格为空值时, cell.value=None, 那么再写入其他表格中, 在表格中显示的是什么
                             self.e整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, col=报价表整合_Sheet1_目标列, value=col[col_index].value)
-                            position = position +1
-                        
+                            position = position +1'''
+                        # 使用切片操作一次性获取列中从起始位置到结束的所有单元格，然后将这些单元格的值赋值给另一个工作表的相应位置。
                         self.e整合_Sheet1[f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow}':f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
                             = ws[f'{col_letter}{int(起始位置)}':f'{col_letter}{len(col)}']
-                            
+                    e整合_colstr_来源 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='来源')
+                    # openpyxl 中，不能直接为一个范围的单元格赋值为一个单一的值
+                    # self.e整合_Sheet1[f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow}':f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow + col_maxlen - int(起始位置)}'] = 报价表名称
+                    for row in self.e整合_Sheet1[f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow}':f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow + col_maxlen - int(起始位置)}']:
+                        for cell in row:
+                            cell.value = 报价表名称
+                self.e整合_wb.save(self.e整合_path)            
         self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
         # 读取报价表对照
 

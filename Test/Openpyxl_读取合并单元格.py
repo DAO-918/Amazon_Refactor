@@ -40,6 +40,7 @@ for row in ws.iter_rows(min_row=1, min_col=1, max_col=1):
         cell_content = ws[merged_range.start_cell.coordinate].value
         print(f'Cell "{cell.coordinate}" value={cell_content}, info: Merged cell size={merged_range.size}, position={cell.row, cell.column}, {merge_type}')
     else:
+        value = cell.value
         print(f'Cell "{cell.coordinate}" value={cell.value}, info: Position={cell.row, cell.column}, {merge_type}')
 
     # 输出单元格的大小、位置和内容
