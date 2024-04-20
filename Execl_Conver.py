@@ -133,7 +133,7 @@ class ExcelConver:
                 # 如果加载失败，将值转换为JSON字符串
                 except Exception:
                     # 将值从字符串转换为列表
-                    new_value = cell_value.replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").split(",")
+                    new_value = cell_value.replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").replace("，",",").split(",")
                     # 将列表转换为JSON字符串，并使用中文编码
                     cell.value = json.dumps(new_value, ensure_ascii=False)  # convert list to json string with Chinese characters
         # 保存工作簿
@@ -315,6 +315,7 @@ class ExcelConver:
                             是否匹配 = 报价表对照_row[column_index_from_string(self.e对照_colstr_是否匹配)].value
                             if 是否匹配 == '0':
                                 continue
+                            # ?如果单元格未空，json.loads返回
                             A精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_A精准匹配)].value)
                             A模糊匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_A模糊匹配)].value)
                             B精准匹配 = json.loads(报价表对照_row[column_index_from_string(self.e对照_colstr_B精准匹配)].value)
@@ -322,34 +323,34 @@ class ExcelConver:
                             
                             # 如果是同一行 或者 合并单元格的两行值相同
                             if ws_列名_value is not None:
-                                if find_flag == False:
+                                if find_flag == False and A精准匹配 is not None:
                                     for exact in A精准匹配:
                                         if exact == ws_列名_value:
                                             find_flag = True
                                             break
-                                if find_flag == False:
+                                if find_flag == False and A模糊匹配 is not None:
                                     for exact in A模糊匹配:
                                         if exact in ws_列名_value:
                                             find_flag = True
                                             break
                             # 如果不是同一行 且 合并单元格的两行值不同
                             elif ws_列名1_value is not None and ws_列名2_value is not None and ws_列名_value is None:
-                                if A_find_flag == False:
+                                if A_find_flag == False and A精准匹配 is not None:
                                     for exact in A精准匹配:
                                         if exact == ws_列名1_value:
                                             find_flag = True
                                             break
-                                if A_find_flag == False:
+                                if A_find_flag == False and A模糊匹配 is not None:
                                     for exact in A模糊匹配:
                                         if exact in ws_列名1_value:
                                             find_flag = True
                                             break
-                                if B_find_flag == False:
+                                if B_find_flag == False and B精准匹配 is not None:
                                     for exact in B精准匹配:
                                         if exact == ws_列名2_value:
                                             find_flag = True
                                             break
-                                if B_find_flag == False:
+                                if B_find_flag == False and B模糊匹配 is not None:
                                     for exact in B模糊匹配:
                                         if exact in ws_列名2_value:
                                             find_flag = True
@@ -422,7 +423,6 @@ class ExcelConver:
                             图片命名 = f'{图片命名}_{ws.cell(row=row, column=货号列号).value}'
                         # 保存图片到本地并按D列的图片名命名
                         img_path = os.path.join(output_folder, f'{图片命名}.png')
-                        #with open(os.path.join(output_folder, f'{图片命名}.png'), 'wb') as img_file:
                         img_pil = Image.open(image.ref).convert("RGB")
                         img_pil.save(img_path)
                         # 插入图片到表B的A列（行号对应表A同样位置）
@@ -440,15 +440,15 @@ class ExcelConver:
         # *将当前时间写入"报价表记录"的"记录时间"字段，然后保存整个"报价表记录"。     
         self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
         self.e记录_wb.save(self.e记录_path)
-        # 读取报价表对照 
 
-
-
+    # TODO: 格式化数据
+    def format_data(self):
+        pass
 
 # 测试代码
 if __name__ == '__main__':
-    source_file = r'D:\Code\报价表整合\报价表\明迪积木现货表2024.2.20.xlsx'
-    target_file = r'D:\Code\报价表整合\报价表整合.xlsx'
+    #source_file = r'D:\Code\报价表整合\报价表\明迪积木现货表2024.2.20.xlsx'
+    #target_file = r'D:\Code\报价表整合\报价表整合.xlsx'
     
     #ex = ExcelConver(source_file, target_file)
     #ex.stand_execel_contrast()
@@ -456,14 +456,16 @@ if __name__ == '__main__':
     #value = ex.read_excel_by_colname_findvalue(sheet_name='展示盒', col_rowindex=1, colname='货号', match_mode='精准匹配', value_rowindex=2)
     #print(value)
     
-    ex = ExcelConver()
+    '''ex = ExcelConver()
     file_list = ex.list_files_by_type('D:\Code\# 报价表整合\报价表', '.xlsx')
     print(file_list)
     for file_path in file_list:
         base_name = os.path.basename(file_path)
         dir_name = os.path.basename(os.path.dirname(file_path))
         print(f'File name, including extension: {base_name}')
-        print(f'Name of the parent directory: {dir_name}')
+        print(f'Name of the parent directory: {dir_name}')'''
     
+    ex = ExcelConver()
+    ex.stand_execel_contrast()
     ex.recode_excel()
     ex.contrast_data_fill()
