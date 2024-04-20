@@ -9,6 +9,8 @@ import yaml
 from datetime import datetime
 import numpy as np
 from PIL import Image
+from openpyxl.drawing.image import Image as Img
+
 from openpyxl import load_workbook
 from openpyxl.utils import column_index_from_string, get_column_letter
 
@@ -39,6 +41,11 @@ class ExcelConver:
         self.e整合_path = os.path.join(source_root, '# 报价表整合.xlsx')
         self.e整合_wb = load_workbook(filename=self.e整合_path, read_only=False)
         self.e整合_Sheet1 = self.e整合_wb['Sheet1']
+        self.e整合_colstr_图片 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='图片')
+        self.e整合_colstr_命名方式 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='命名方式')
+        self.e整合_colstr_来源 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='来源')
+        self.e整合_colnum_图片 = column_index_from_string(self.e整合_colstr_图片)
+        self.e整合_colnum_命名方式 = column_index_from_string(self.e整合_colstr_命名方式)
         
         self.e记录_path = os.path.join(source_root, '报价表记录.xlsx')
         self.e记录_wb = load_workbook(filename=self.e记录_path, read_only=False)
@@ -224,9 +231,10 @@ class ExcelConver:
         self.e记录_wb.save(self.e记录_path)
 
     def contrast_data_fill(self):
-        # 打开报价表记录
+        # *打开"报价表记录"并计算它的最大行和最大列
         报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.e记录_Sheet1)
         print(报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol)
+        # *遍历该表的每一行，如果某行的"记录时间"为None，则取出当前行的"报价表名称"，"品牌"，"类别"等信息，以及另一张表中的"列名行号1"，"列名行号2"，"起始位置"和"记录时间"相关信息。
         for i in range(2, 报价表记录_Sheet1_maxrow + 1):
             if self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{i}'].value is None:
                 报价表名称 = self.e记录_Sheet1[f'{self.e记录_colstr_报价表名称}{i}'].value
@@ -237,20 +245,24 @@ class ExcelConver:
                 列名行号2 = self.e对照_Sheet1[f'{self.e记录_colstr_列名行号1}{i}'].value
                 起始位置 = self.e对照_Sheet1[f'{self.e记录_colstr_起始位置}{i}'].value
                 记录时间 = self.e对照_Sheet1[f'{self.e记录_colstr_记录时间}{i}'].value
+                # *如果"列名行号1"，"列名行号2"，"起始位置"为None，或者"记录时间"不为None，则跳过当前行的后续操作。
                 if 列名行号1 is None or 列名行号2 is None or 起始位置 is None or 记录时间 is not None:
                     continue
+                # *如果不满足条件，则打开报价表，计算"报价表整合"的最大行和最大列，然后用这些信息以及从"报价表记录"中获取到的名称和品牌等信息，生成报价表的路径，并打开报价表。
                 报价表路径 = os.path.join(self.offer_root, 类别, 品牌, 报价表名称)
                 wb = load_workbook(filename=报价表路径, read_only=False)
                 报价表整合_Sheet1_maxrow, 报价表整合_Sheet1_maxcol = self.tool_count(self.e整合_Sheet1)
                 图片列号 = None
-                货号列号 = None
+                系列列号 = None
                 名称列号 = None
-                # 遍历目标报价表的sheet
+                货号列号 = None
+                # *遍历报价表的每一个sheet，获取sheet的最大行和最大列，并且找到"图片"，"系列"，"名称"，"货号"等字段所在的列的列号。
                 for sheetname in wb.sheetnames:
                     ws = wb[sheetname]
                     ws_maxrow, ws_maxcol = self.tool_count(ws)
                     col_maxlen = 0
-                    # sheet的每一列
+                    # *遍历每个sheet的每一列，逐行检查和获取"报价表整合"列名，"A精准匹配"，"A模糊匹配"，"B精准匹配"，"B模糊匹配"等信息，
+                    # *然后根据这些信息找到对应"报价表整合"的列名，并将这些信息抄写入"报价表整合"表中。
                     for i, col in enumerate(ws.iter_cols(min_row=列名行号1, max_row=ws_maxrow ,max_col=ws_maxcol), start=1):
                         col_letter = get_column_letter(i)
                         ws_列名1 = col[列名行号1]
@@ -342,13 +354,21 @@ class ExcelConver:
                                         if exact in ws_列名2_value:
                                             find_flag = True
                                             break
-                        if find_flag == False or A_find_flag == False or B_find_flag == False:
-                            
-                        # 写入报价表整合
+                        if find_flag == True or A_find_flag == True or B_find_flag == True:
+                            if 报价表整合列名 == '图片':
+                                图片列号 = i
+                            if 报价表整合列名 == '系列':
+                                系列列号 = i
+                            if 报价表整合列名 == '名称':
+                                名称列号 = i
+                            if 报价表整合列名 == '货号': 
+                                货号列号 = i
+                        else:
+                            continue
+                        # *在完成每个sheet的处理后，将当前sheet的名称插入到"报价表整合"表的'来源'列。
                         报价表整合_Sheet1_目标列 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname=报价表整合列名)
                         # col 是报价表循环的其中一列，是数组 0指第一行 起始位置是行号要减一
                         # 报价表整合_Sheet1_maxrow 不能在现在这个循环内得出
-                        # 循环依次写入
                         '''position = 1
                         for col_index in range(int(起始位置-1), len(col)-1):
                             # 单元格为空值时, cell.value=None, 那么再写入其他表格中, 在表格中显示的是什么
@@ -357,15 +377,70 @@ class ExcelConver:
                         # 使用切片操作一次性获取列中从起始位置到结束的所有单元格，然后将这些单元格的值赋值给另一个工作表的相应位置。
                         self.e整合_Sheet1[f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow}':f'{报价表整合_Sheet1_目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
                             = ws[f'{col_letter}{int(起始位置)}':f'{col_letter}{len(col)}']
+                    # 保存表格
+                    self.e整合_wb.save(self.e整合_path)     
+                    # 循环一个报价表的sheet后，再写入报价表名称
                     e整合_colstr_来源 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='来源')
                     # openpyxl 中，不能直接为一个范围的单元格赋值为一个单一的值
                     # self.e整合_Sheet1[f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow}':f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow + col_maxlen - int(起始位置)}'] = 报价表名称
                     for row in self.e整合_Sheet1[f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow}':f'{e整合_colstr_来源}{报价表整合_Sheet1_maxrow + col_maxlen - int(起始位置)}']:
                         for cell in row:
                             cell.value = 报价表名称
-                self.e整合_wb.save(self.e整合_path)            
+                    # *保存图片并插入图片到"报价表整合"表的A列，同时写入图片的本地路径。
+                    # 插入图片和命名方式
+                    命名方式 = '品牌'
+                    if 系列列号 != None:
+                        命名方式 = f'{命名方式}_系列'
+                    if 名称列号 != None:
+                        命名方式 = f'{命名方式}_名称'
+                    if 货号列号 != None:
+                        命名方式 = f'{命名方式}_货号'
+                    images = ws._images
+                    # 遍历图像并打印位置信息
+                    output_folder = os.path.join(self.image_root, 类别, 品牌)
+                    if not os.path.exists(output_folder):
+                        os.makedirs(output_folder)
+                    for index, image in enumerate(images):
+                        # 获取图像的左上角行号，即图片所在行
+                        row = image.anchor.to.row + 1
+                        column = image.anchor.to.col + 1
+                        if row == 1:
+                            # 使用 with open() 是当需要打开一个文件并读写数据时的常见做法
+                            # 但在这种情形下，由于 PIL 库中的 save 方法会处理文件的打开和关闭，因此并不需要手动打开文件。
+                            #with open(os.path.join(output_folder, 'test.png'), 'wb') as img_file:
+                            img_pil = Image.open(image.ref).convert("RGB")
+                            img_pil.save(os.path.join(output_folder, 'text.png'))
+                            continue
+                        column_letter = get_column_letter(column)
+                        # 获取对应的图片名称
+                        图片命名 = 品牌
+                        if 系列列号 != None:
+                            图片命名 = f'{图片命名}_{ws.cell(row=row, column=系列列号).value}'
+                        if 名称列号 != None:
+                            图片命名 = f'{图片命名}_{ws.cell(row=row, column=名称列号).value}'
+                        if 货号列号 != None:
+                            图片命名 = f'{图片命名}_{ws.cell(row=row, column=货号列号).value}'
+                        # 保存图片到本地并按D列的图片名命名
+                        img_path = os.path.join(output_folder, f'{图片命名}.png')
+                        #with open(os.path.join(output_folder, f'{图片命名}.png'), 'wb') as img_file:
+                        img_pil = Image.open(image.ref).convert("RGB")
+                        img_pil.save(img_path)
+                        # 插入图片到表B的A列（行号对应表A同样位置）
+                        img = Img(img_path)
+                        img.width = 63 # col_ch * 8  col_ch = 8
+                        img.height = 61 # row_pt * (4 / 3) row_pt = 46
+                        # 修改行高
+                        self.e整合_Sheet1.row_dimensions[row].height = 46
+                        e整合写入位置 = 报价表整合_Sheet1_maxrow + row - int(起始位置)
+                        self.e整合_Sheet1.add_image(img, f"{self.e整合_colstr_图片}{e整合写入位置}")
+                        # 在B列写入图片的本地路径
+                        self.e整合_Sheet1.cell(row=row, column=self.e整合_colnum_命名方式, value=图片命名)
+                    self.e整合_wb.save(self.e整合_path)  
+                self.e整合_wb.save(self.e整合_path)       
+        # *将当前时间写入"报价表记录"的"记录时间"字段，然后保存整个"报价表记录"。     
         self.e记录_Sheet1[f'{self.e记录_colstr_记录时间}{报价表记录_Sheet1_maxrow+1}'] = datetime.now().strftime("%Y/%m/%d %H:%M")
-        # 读取报价表对照
+        self.e记录_wb.save(self.e记录_path)
+        # 读取报价表对照 
 
 
 
