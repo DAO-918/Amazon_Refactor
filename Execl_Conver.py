@@ -73,6 +73,7 @@ class ExcelConver:
         self.e目标报价表_wb = None
 
     # !计算表格的总行数和总列数
+    # 不如直接使用工作表的行数和列数
     def tool_count(self,sheet):
         row_count = 0
         while sheet.cell(row=row_count+1, column=1).value is not None:
