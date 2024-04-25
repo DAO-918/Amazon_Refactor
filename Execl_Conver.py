@@ -115,7 +115,7 @@ class ExcelConver:
         print(image_positions)
 
     # !报价表对照：格式化报价表对照的JSON数组
-    def stand_contrast(self):
+    def stand_excel(self):
         # 加载工作簿并将其设置为可写
         e对照_wb_write = load_workbook(filename=self.e对照_path, read_only=False)
         # 获取工作簿的第一个工作表
@@ -601,7 +601,7 @@ if __name__ == '__main__':
         print(f'Name of the parent directory: {dir_name}')'''
     
     ex = ExcelConver()
-    ex.stand_contrast()
+    ex.stand_excel()
     ex.recode_excel()
     ex.contrast_data()
     ex.format_data()
