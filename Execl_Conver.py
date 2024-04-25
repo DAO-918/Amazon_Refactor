@@ -115,7 +115,7 @@ class ExcelConver:
         print(image_positions)
 
     # !报价表对照：格式化报价表对照的JSON数组
-    def stand_execel_contrast(self):
+    def stand_excel_contrast(self):
         # 加载工作簿并将其设置为可写
         e对照_wb_write = load_workbook(filename=self.e对照_path, read_only=False)
         # 获取工作簿的第一个工作表
@@ -243,7 +243,7 @@ class ExcelConver:
         # 保存修改后的表格
         self.e记录_wb.save(self.e记录_path)
 
-    def contrast_data_fill(self):
+    def contrast_data(self):
         # *打开"报价表记录"并计算它的最大行和最大列
         #报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.e记录_Sheet1)
         报价表记录_Sheet1_maxrow = self.e记录_Sheet1.max_row
@@ -601,7 +601,7 @@ if __name__ == '__main__':
         print(f'Name of the parent directory: {dir_name}')'''
     
     ex = ExcelConver()
-    ex.stand_execel_contrast()
+    ex.stand_excel_contrast()
     ex.recode_excel()
-    ex.contrast_data_fill()
+    ex.contrast_data()
     ex.format_data()
