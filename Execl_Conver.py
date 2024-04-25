@@ -604,3 +604,4 @@ if __name__ == '__main__':
     ex.stand_execel_contrast()
     ex.recode_excel()
     ex.contrast_data_fill()
+    ex.format_data()
