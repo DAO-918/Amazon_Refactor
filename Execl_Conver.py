@@ -566,17 +566,17 @@ class ExcelConver:
                 row[colnum_产品_宽].value = num[1]
                 row[colnum_产品_高].value = num[2]
             if row[colnum_彩盒规格] is not None and row[colnum_彩盒_长] is None and row[colnum_彩盒_宽] is None and row[colnum_彩盒_高] is None:
-                num1, num2, num3, oper = self.re_operators(row[colnum_彩盒规格])
+                num, oper = self.re_operators(row[colnum_彩盒规格])
                 row[colnum_彩盒_长].value = num[0]
                 row[colnum_彩盒_宽].value = num[1]
                 row[colnum_彩盒_高].value = num[2]
             if row[colnum_外箱规格] is not None and row[colnum_外箱_长] is None and row[colnum_外箱_宽] is None and row[colnum_外箱_高] is None:
-                num1, num2, num3, oper = self.re_operators(row[colnum_外箱规格])
+                num, oper = self.re_operators(row[colnum_外箱规格])
                 row[colnum_外箱_长].value = num[0]
                 row[colnum_外箱_宽].value = num[1]
                 row[colnum_外箱_高].value = num[2]
             if row[colnum_毛重净重] is not None and row[colnum_整箱毛重] is None and row[colnum_整箱净重] is None:
-                num1, num2, num3, oper = self.re_operators(row[colnum_毛重净重])
+                num, oper = self.re_operators(row[colnum_毛重净重])
                 row[colnum_整箱毛重].value = num[0]
                 row[colnum_整箱净重].value = num[1]
 
