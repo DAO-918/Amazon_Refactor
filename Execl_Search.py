@@ -10,6 +10,28 @@ from openpyxl import load_workbook
 from openpyxl.utils import column_index_from_string, get_column_letter
 from docx import Document
 
+from selenium import webdriver
+import selenium
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver import ActionChains
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.support import expected_conditions
+
+from bs4 import BeautifulSoup
+
+from urllib.parse import urlparse
+
+from docx import Document
+
+from PIL import Image
+from PIL import Image
+
+from Tool.Tool_Web import *
+from Tool.Tool_Data import *
+from Tool.Tool_SQL import *
+
 class ExcelSearch:
     def __init__(self):
         # 获取当前目录的路径
@@ -42,8 +64,40 @@ class ExcelSearch:
         
         self.e目标报价表_path = None
         self.e目标报价表_wb = None
+        
+        sc = ChromeStart("Seller", 9222)
+        sc.OpenPage("https://www.google.com/")
+        # sc.BindPage("https://www.google.com", "Contain")
+        driver, wait, actions = sc.GetDriver()
+        self.driver, self.wait, self.actions = driver, wait, actions
+        # 生成当前时间的字符串，格式为 YYYYMMDD_HHMM
+        current_time = datetime.now().strftime("%Y%m%d_%H%M")
+        # 设置文档文件名为当前时间
+        self.docfilename = f"Garb_Search_Output_{current_time}.docx"
+        self.projectroot = os.path.dirname(os.path.abspath(__file__))
+        parent_directory = os.path.dirname(self.projectroot)
+        self.output_root = os.path.join(parent_directory, '# OUTPUT', os.path.basename(self.projectroot))
+        self.docfilepath = os.path.join(self.output_root, self.docfilename)
+        self.doc = Document()
 
-    def 
+    def start_driver(timeout=5):
+        for _ in range(timeout):
+            try:
+                driver = webdriver.Chrome(service=service, options=options)
+                driver.get("https://www.baidu.com")
+                driver.execute_script("window.open()")
+                return driver
+            except Exception:
+                # 确保只有一个Chrome程序正在运行
+                os.system('taskkill /f /im chrome.exe')
+                start_chrome_program()
+                sleep(2)
+        # 返回None如果在超时时间内都无法成功启动driver
+        raise Exception("Failed to start driver within timeout.")
+
+    def google_lens(self):
+        
+        pass
 
 # 测试代码
 if __name__ == '__main__':
