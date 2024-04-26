@@ -2,6 +2,7 @@ from cgi import print_arguments
 import os
 import re
 import json
+from time import sleep
 from datetime import datetime
 from PIL import Image
 from openpyxl.drawing.image import Image as Img
@@ -65,6 +66,20 @@ class ExcelSearch:
         self.e目标报价表_path = None
         self.e目标报价表_wb = None
         
+        self.options = webdriver.ChromeOptions()
+        self.options.binary_location = r'D:\Code\chrome-win\chrome.exe'
+        self.options.debugger_address = '127.0.0.1:9222'
+        self.options.browser_version = '114.0.5734.0'
+        self.service = Service(executable_path=r'D:\Code\chromedriver_win32\114\chromedriver.exe')
+        
+        # 定义程序路径和参数
+        self.program_path = "D:\\Code\\chrome-win\\chrome.exe"
+        self.program_args = [
+            "--remote-debugging-port=9222",
+            "--user-data-dir=E:\\Code\\selenium\\AutomationProfile 114 Seller 9222",
+        ]
+        self.shortcut_path = "D:\\Code\\chrome - New Selenium 2.lnk"
+        
         sc = ChromeStart("Seller", 9222)
         sc.OpenPage("https://www.google.com/")
         # sc.BindPage("https://www.google.com", "Contain")
@@ -80,23 +95,51 @@ class ExcelSearch:
         self.docfilepath = os.path.join(self.output_root, self.docfilename)
         self.doc = Document()
 
-    def start_driver(timeout=5):
-        for _ in range(timeout):
+    def start_chrome_program(self):
+        os.startfile(self.shortcut_path)
+        sleep(10)
+        return True
+
+    def open_driver(self, valurl):
+        # 打开valurl网页
+        for i in range(1,5):
+            new_driver = None
             try:
-                driver = webdriver.Chrome(service=service, options=options)
-                driver.get("https://www.baidu.com")
-                driver.execute_script("window.open()")
-                return driver
-            except Exception:
-                # 确保只有一个Chrome程序正在运行
+                print((f'driver.get({valurl})'))
+                self.driver.get(valurl)
+                break
+            except Exception as e: 
+                print(e)
+                print(f'Exception occurred while getting page {valurl}, retrying {i+1} time')
+                # 关闭可能打开的Chrome程序
                 os.system('taskkill /f /im chrome.exe')
-                start_chrome_program()
-                sleep(2)
-        # 返回None如果在超时时间内都无法成功启动driver
-        raise Exception("Failed to start driver within timeout.")
+                # 启动新的Chrome程序
+                self.start_chrome_program()
+                sleep(2) # 等待2秒以确保程序启动
+                new_driver = webdriver.Chrome(service=self.service, options=self.options)
+                new_driver.maximize_window()
+                new_driver.get("https://www.baidu.com")
+                new_driver.execute_script("window.open()")
+                wait = WebDriverWait(new_driver, 30)
+                wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, 'body'))) 
+                # 如果driver启动失败，则抛出异常
+                if new_driver is not None:
+                    self.driver = new_driver
+                else:
+                    print(f"Failed to start driver within timeout: {i}.")
+        # 1. 初始化WebDriverWait,设置最长等待时间为5秒:
+        self.wait = WebDriverWait(self.driver, 30)
+        # 2. 使用until方法设置等待条件:
+        self.wait.until(EC.presence_of_all_elements_located((By.TAG_NAME, 'body')))
 
     def google_lens(self):
-        
+        self.open_driver("https://www.google.com/")
+        pass
+
+    def aibaba_lens(self):
+        pass
+
+    def loop_img_search(self):
         pass
 
 # 测试代码
