@@ -10,6 +10,7 @@ from datetime import datetime
 import numpy as np
 from PIL import Image
 from openpyxl.drawing.image import Image as Img
+from openpyxl.styles import Alignment
 
 from openpyxl import load_workbook
 from openpyxl.utils import column_index_from_string, get_column_letter
@@ -75,6 +76,12 @@ class ExcelConver:
         self.e目标报价表_path = None
         self.e目标报价表_wb = None
 
+    def format_string(self, s):
+        if s is not None and isinstance(s, str):
+            return s.replace("（","(").replace("）",")").replace("，",",").replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").upper()
+        else:
+            return s
+
     # !计算表格的总行数和总列数
     # 不如直接使用工作表的行数和列数
     def tool_count(self,sheet):
@@ -116,6 +123,7 @@ class ExcelConver:
 
     # !报价表对照：格式化报价表对照的JSON数组
     def stand_excel(self):
+        print('开始处理：报价表对照')
         # 加载工作簿并将其设置为可写
         e对照_wb_write = load_workbook(filename=self.e对照_path, read_only=False)
         # 获取工作簿的第一个工作表
@@ -138,7 +146,7 @@ class ExcelConver:
                 # 如果加载失败，将值转换为JSON字符串
                 except Exception:
                     # 将值从字符串转换为列表
-                    new_value = cell_value.replace("（","(").replace("）",")").replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").replace("，",",").upper().split(",")
+                    new_value = self.format_string(cell_value).split(",")
                     # 将列表转换为JSON字符串，并使用中文编码
                     cell.value = json.dumps(new_value, ensure_ascii=False)  # convert list to json string with Chinese characters
         # 保存工作簿
@@ -214,6 +222,7 @@ class ExcelConver:
 
     # !报价表记录：记录报价表文件夹下所有.xlsx文件的位置信息
     def recode_excel(self):
+        print('开始处理：报价表记录')
         # 获取文件列表，通过类型过滤
         file_list = self.list_files_by_type(self.offer_root, '.xlsx')
         
@@ -244,6 +253,7 @@ class ExcelConver:
         self.e记录_wb.save(self.e记录_path)
 
     def contrast_data(self):
+        print('开始处理：报价表整合')
         # *打开"报价表记录"并计算它的最大行和最大列
         #报价表记录_Sheet1_maxrow, 报价表记录_Sheet1_maxcol = self.tool_count(self.e记录_Sheet1)
         报价表记录_Sheet1_maxrow = self.e记录_Sheet1.max_row
@@ -335,10 +345,10 @@ class ExcelConver:
                             ws_列名_value = ws_列名1_value
                         # 格式化内容
                         if ws_列名_value is not None:
-                            ws_列名_value = ws_列名_value.replace("（","(").replace("）",")").replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").replace("，",",").upper()
+                            ws_列名_value = self.format_string(ws_列名_value)
                         elif ws_列名1_value is not None and ws_列名2_value is not None and ws_列名_value is None:
-                            ws_列名1_value = ws_列名1_value.replace("（","(").replace("）",")").replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").replace("，",",").upper()
-                            ws_列名2_value = ws_列名2_value.replace("（","(").replace("）",")").replace("[","").replace("]","").replace("'","").replace("\"","").replace(" ","").replace("\n","").replace("\r","").replace("\t","").replace(" ","").replace("，",",").upper()
+                            ws_列名1_value = self.format_string(ws_列名1_value)
+                            ws_列名2_value = self.format_string(ws_列名2_value)
                     # 找到列对应报价表整合中的列名
                     # 即找到上面循环中的列名在报价表整合中对应的列名
                     for index, 报价表对照_row in enumerate(self.e对照_Sheet1.iter_rows(min_row=2, max_col=7)):
@@ -414,7 +424,8 @@ class ExcelConver:
                     for row_index in range(int(起始位置-1), len(col)):
                         # 单元格为空值时, cell.value=None, 那么再写入其他表格中, 在表格中显示的是什么
                         print(f'写入数据: {报价表整合列名} 列\t {报价表整合_Sheet1_maxrow + position} 行')
-                        self.e整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, column=目标列_colnum, value=col[row_index].value)
+                        写入数据 = self.format_string(col[row_index].value)
+                        self.e整合_Sheet1.cell(row=报价表整合_Sheet1_maxrow + position, column=目标列_colnum, value=写入数据)
                         position = position +1
                     # openpyxl 中，不能直接为一个范围的单元格赋值为一个单一的值
                     '''self.e整合_Sheet1[f'{目标列}{报价表整合_Sheet1_maxrow}':f'{目标列}{报价表整合_Sheet1_maxrow+len(col)-int(起始位置)}']\
@@ -461,11 +472,12 @@ class ExcelConver:
                     # 获取对应的图片名称
                     图片命名 = 品牌
                     if 系列列号 != None:
-                        图片命名 = f'{图片命名}_{ws.cell(row=img_row, column=系列列号).value}'
+                        图片命名 = f'{图片命名}_{self.format_string(ws.cell(row=img_row, column=系列列号).value)}'
                     if 名称列号 != None:
-                        图片命名 = f'{图片命名}_{ws.cell(row=img_row, column=名称列号).value}'
+                        图片命名 = f'{图片命名}_{self.format_string(ws.cell(row=img_row, column=名称列号).value)}'
                     if 货号列号 != None:
-                        图片命名 = f'{图片命名}_{ws.cell(row=img_row, column=货号列号).value}'
+                        图片命名 = f'{图片命名}_{self.format_string(ws.cell(row=img_row, column=货号列号).value)}'
+                    图片命名 = f'{图片命名}_thumb'
                     # 图片命名去除换行符
                     # 图片命名 = 图片命名.replace('\n', '').replace('\t', '')
                     图片命名 = re.sub(r'[\n\t]', '', 图片命名)
@@ -516,7 +528,9 @@ class ExcelConver:
     
     def re_operators(self, s):
         # 使用正则表达式找出所有的数字和非数字字符
-        numbers = re.findall('(\d+(\.\d+)?)', s)  # 这将找出所有的数字（包括带小数的）
+        numbers = re.findall(r'\d+\.?\d*', s)  # 这将找出所有的数字（包括带小数的）
+        numbers = [float(number) for number in numbers]
+        numbers.sort(reverse=True)
         operators = re.findall('[^\d.]+', s)  # 这将找出所有的非数字字符
         # 通过将列表转换为集合，再转换回列表，可去除列表中的重复项
         operators_unique = list(set(operators))
@@ -524,6 +538,7 @@ class ExcelConver:
     
     # TODO: 格式化数据
     def format_data(self):
+        print('开始处理：报价表整合-格式化数据')
         colstr_产品规格 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品规格')
         colstr_产品_长 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品-长')
         colstr_产品_宽 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品-宽')
@@ -558,27 +573,58 @@ class ExcelConver:
         colnum_整箱毛重 = column_index_from_string(colstr_整箱毛重) - 1
         colnum_整箱净重 = column_index_from_string(colstr_整箱净重) - 1
         
+        colstr_名称 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='名称')
+        colstr_颗粒数 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='颗粒数')
+        colnum_名称 = column_index_from_string(colstr_名称) - 1
+        colnum_颗粒数 = column_index_from_string(colstr_颗粒数) - 1
+        
+        colstr_整箱体积 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='整箱体积')
+        colnum_整箱体积 = column_index_from_string(colstr_整箱体积) - 1
+        
         报价表整合_Sheet1_maxrow = self.e整合_Sheet1.max_row
         for i, row in enumerate(self.e整合_Sheet1.iter_rows(min_row=2), start=1):
-            if row[colnum_产品规格] is not None and row[colnum_产品_长] is None and row[colnum_产品_宽] is None and row[colnum_产品_高] is None:
-                num, oper = self.re_operators(row[colnum_产品规格])
-                row[colnum_产品_长].value = num[0]
-                row[colnum_产品_宽].value = num[1]
-                row[colnum_产品_高].value = num[2]
-            if row[colnum_彩盒规格] is not None and row[colnum_彩盒_长] is None and row[colnum_彩盒_宽] is None and row[colnum_彩盒_高] is None:
-                num, oper = self.re_operators(row[colnum_彩盒规格])
-                row[colnum_彩盒_长].value = num[0]
-                row[colnum_彩盒_宽].value = num[1]
-                row[colnum_彩盒_高].value = num[2]
-            if row[colnum_外箱规格] is not None and row[colnum_外箱_长] is None and row[colnum_外箱_宽] is None and row[colnum_外箱_高] is None:
-                num, oper = self.re_operators(row[colnum_外箱规格])
-                row[colnum_外箱_长].value = num[0]
-                row[colnum_外箱_宽].value = num[1]
-                row[colnum_外箱_高].value = num[2]
-            if row[colnum_毛重净重] is not None and row[colnum_整箱毛重] is None and row[colnum_整箱净重] is None:
-                num, oper = self.re_operators(row[colnum_毛重净重])
-                row[colnum_整箱毛重].value = num[0]
-                row[colnum_整箱净重].value = num[1]
+            if row[colnum_产品规格].value is not None and row[colnum_产品_长].value is None and row[colnum_产品_宽].value is None and row[colnum_产品_高].value is None:
+                num, oper = self.re_operators(row[colnum_产品规格].value)
+                num_len = len(num)
+                if num_len > 0:
+                    row[colnum_产品_长].value = num[0] if num_len >= 1 else None
+                    row[colnum_产品_宽].value = num[1] if num_len >= 2 else None
+                    row[colnum_产品_高].value = num[2] if num_len >= 3 else None
+            if row[colnum_彩盒规格].value is not None and row[colnum_彩盒_长].value is None and row[colnum_彩盒_宽].value is None and row[colnum_彩盒_高].value is None:
+                num, oper = self.re_operators(row[colnum_彩盒规格].value)
+                num_len = len(num)
+                if num_len > 0:
+                    row[colnum_彩盒_长].value = num[0] if num_len >= 1 else None
+                    row[colnum_彩盒_宽].value = num[1] if num_len >= 2 else None
+                    row[colnum_彩盒_高].value = num[2] if num_len >= 3 else None
+            if row[colnum_外箱规格].value is not None and row[colnum_外箱_长].value is None and row[colnum_外箱_宽].value is None and row[colnum_外箱_高].value is None:
+                num, oper = self.re_operators(row[colnum_外箱规格].value)
+                num_len = len(num)
+                if num_len > 0:
+                    row[colnum_外箱_长].value = num[0] if num_len >= 1 else None
+                    row[colnum_外箱_宽].value = num[1] if num_len >= 2 else None
+                    row[colnum_外箱_高].value = num[2] if num_len >= 3 else None
+            if row[colnum_毛重净重].value is not None and row[colnum_整箱毛重].value is None and row[colnum_整箱净重].value is None:
+                num, oper = self.re_operators(row[colnum_毛重净重].value)
+                num_len = len(num)
+                if num_len > 0:
+                    row[colnum_整箱毛重].value = num[0] if num_len >= 1 else None
+                    row[colnum_整箱净重].value = num[1] if num_len >= 2 else None
+                    
+            if row[colnum_名称].value is not None and row[colnum_颗粒数].value is None:
+                pcs = re.search(r'(\d+)PCS', row[colnum_名称].value)
+                pcs_num = pcs.group(1) if pcs else None
+                row[colnum_颗粒数].value = pcs_num
+            
+            row[colnum_颗粒数].alignment = Alignment(horizontal='right', vertical='center')
+            row[colnum_毛重净重].alignment = Alignment(horizontal='right', vertical='center')
+            row[colnum_整箱毛重].alignment = Alignment(horizontal='right', vertical='center')
+            row[colnum_整箱净重].alignment = Alignment(horizontal='right', vertical='center')
+            row[colnum_整箱体积].alignment = Alignment(horizontal='right', vertical='center')
+            
+            row[colnum_整箱体积].number_format = '0.000'
+            
+        self.e整合_wb.save(self.e整合_path)
 
 # 测试代码
 if __name__ == '__main__':
