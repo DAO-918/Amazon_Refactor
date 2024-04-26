@@ -1,20 +1,13 @@
 from cgi import print_arguments
 import os
-from tempfile import tempdir
-import time
 import re
 import json
-from tkinter import N
-import yaml
 from datetime import datetime
-import numpy as np
 from PIL import Image
 from openpyxl.drawing.image import Image as Img
 from openpyxl.styles import Alignment
-
 from openpyxl import load_workbook
 from openpyxl.utils import column_index_from_string, get_column_letter
-
 from docx import Document
 
 class ExcelConver:
@@ -45,11 +38,13 @@ class ExcelConver:
         self.e整合_colstr_图片 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='图片')
         self.e整合_colstr_命名方式 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='命名方式')
         self.e整合_colstr_图片路径 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='图片路径')
+        self.e整合_colstr_图片名称 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='图片名称')
         self.e整合_colstr_来源 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='来源')
         self.e整合_colstr_品牌 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='品牌')
         self.e整合_colnum_图片 = column_index_from_string(self.e整合_colstr_图片)
         self.e整合_colnum_命名方式 = column_index_from_string(self.e整合_colstr_命名方式)
         self.e整合_colnum_图片路径 = column_index_from_string(self.e整合_colstr_图片路径)
+        self.e整合_colnum_图片名称 = column_index_from_string(self.e整合_colstr_图片名称)
         self.e整合_colnum_品牌 = column_index_from_string(self.e整合_colstr_品牌)
         
         self.e记录_path = os.path.join(source_root, '报价表记录.xlsx')
@@ -469,6 +464,7 @@ class ExcelConver:
                         img_pil = Image.open(image.ref).convert("RGB")
                         img_pil.save(os.path.join(output_folder, 'text.png'))
                         continue
+                    # TODO: 插入图片前先判断品牌、系列、名称、货号能匹配到几行，如果只有一行，则插入图片。如果不做该功能需要自己在表格中删除重复数据
                     # 获取对应的图片名称
                     图片命名 = 品牌
                     if 系列列号 != None:
@@ -477,13 +473,13 @@ class ExcelConver:
                         图片命名 = f'{图片命名}_{self.format_string(ws.cell(row=img_row, column=名称列号).value)}'
                     if 货号列号 != None:
                         图片命名 = f'{图片命名}_{self.format_string(ws.cell(row=img_row, column=货号列号).value)}'
-                    图片命名 = f'{图片命名}_thumb'
                     # 图片命名去除换行符
                     # 图片命名 = 图片命名.replace('\n', '').replace('\t', '')
                     图片命名 = re.sub(r'[\n\t]', '', 图片命名)
+                    图片命名_thumb = f'{图片命名}_thumb'
                     # 保存图片到本地并按D列的图片名命名
                     img_path = os.path.join(output_folder, f'{图片命名}.png')
-                    img_path_compress = os.path.join(output_folder_compress, f'{图片命名}.png')
+                    img_path_compress = os.path.join(output_folder_compress, f'{图片命名_thumb}.png')
                     img_pil = Image.open(image.ref).convert("RGB")
                     if os.path.isfile(img_path) == False:
                         img_pil.save(img_path)
@@ -512,6 +508,7 @@ class ExcelConver:
                     self.e整合_Sheet1.add_image(img, f"{self.e整合_colstr_图片}{e整合写入行号}")
                     self.e整合_Sheet1.cell(row=e整合写入行号, column=self.e整合_colnum_命名方式, value=命名方式)
                     self.e整合_Sheet1.cell(row=e整合写入行号, column=self.e整合_colnum_图片路径, value=img_path)
+                    self.e整合_Sheet1.cell(row=e整合写入行号, column=self.e整合_colnum_图片名称, value=图片命名)
                     self.e整合_Sheet1.cell(row=e整合写入行号, column=self.e整合_colnum_品牌, value=品牌)
                 # 循环Sheet结束
                 self.e整合_wb.save(self.e整合_path)
@@ -539,6 +536,9 @@ class ExcelConver:
     # TODO: 格式化数据
     def format_data(self):
         print('开始处理：报价表整合-格式化数据')
+        报价表整合_Sheet1_maxrow = self.e整合_Sheet1.max_row
+        报价表整合_Sheet1_maxcol = self.e整合_Sheet1.max_column
+        
         colstr_产品规格 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品规格')
         colstr_产品_长 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品-长')
         colstr_产品_宽 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='产品-宽')
@@ -581,7 +581,22 @@ class ExcelConver:
         colstr_整箱体积 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='整箱体积')
         colnum_整箱体积 = column_index_from_string(colstr_整箱体积) - 1
         
-        报价表整合_Sheet1_maxrow = self.e整合_Sheet1.max_row
+        colstr_品牌 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='品牌')
+        colnum_品牌 = column_index_from_string(colstr_品牌) - 1
+        colstr_编号A = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='编号A')
+        colnum_编号A = column_index_from_string(colstr_编号A) - 1
+        A_index_range = self.e整合_Sheet1[f'{A_index_range}{2}:{A_index_range}{报价表整合_Sheet1_maxcol}']
+        max_id_dic = {}
+        # 计算编号A各个前缀的最大编号
+        for cell in row:
+            prefix, id = cell.value.split('_')
+            id = int(id)
+            if prefix not in max_id_dic:
+                max_id_dic[prefix] = id
+            else:
+                if id > max_id_dic[prefix]:
+                    max_id_dic[prefix] = id
+        
         for i, row in enumerate(self.e整合_Sheet1.iter_rows(min_row=2), start=1):
             if row[colnum_产品规格].value is not None and row[colnum_产品_长].value is None and row[colnum_产品_宽].value is None and row[colnum_产品_高].value is None:
                 num, oper = self.re_operators(row[colnum_产品规格].value)
@@ -615,6 +630,14 @@ class ExcelConver:
                 pcs = re.search(r'(\d+)PCS', row[colnum_名称].value)
                 pcs_num = pcs.group(1) if pcs else None
                 row[colnum_颗粒数].value = pcs_num
+            
+            # 编号A自动编号
+            if row[colnum_编号A].value is None:
+                品牌 = row[colnum_品牌].value
+                if 品牌 not in max_id_dic:
+                    max_id_dic[品牌] = 1
+                row[colnum_编号A].value = f'{品牌}_{max_id_dic[品牌]}'
+                max_id_dic[品牌] += 1
             
             row[colnum_颗粒数].alignment = Alignment(horizontal='right', vertical='center')
             row[colnum_毛重净重].alignment = Alignment(horizontal='right', vertical='center')
