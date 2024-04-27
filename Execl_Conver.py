@@ -581,21 +581,21 @@ class ExcelConver:
         colstr_整箱体积 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='整箱体积')
         colnum_整箱体积 = column_index_from_string(colstr_整箱体积) - 1
         
-        colstr_品牌 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='品牌')
+        '''colstr_品牌 = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='品牌')
         colnum_品牌 = column_index_from_string(colstr_品牌) - 1
         colstr_编号A = self.find_colname_letter(sheet=self.e整合_Sheet1, rowindex=1, colname='编号A')
         colnum_编号A = column_index_from_string(colstr_编号A) - 1
-        A_index_range = self.e整合_Sheet1[f'{A_index_range}{2}:{A_index_range}{报价表整合_Sheet1_maxcol}']
+        A_index_range = self.e整合_Sheet1[f'{colstr_编号A}{2}:{colstr_编号A}{报价表整合_Sheet1_maxcol}']
         max_id_dic = {}
         # 计算编号A各个前缀的最大编号
-        for cell in row:
+        for cell in A_index_range:
             prefix, id = cell.value.split('_')
             id = int(id)
             if prefix not in max_id_dic:
                 max_id_dic[prefix] = id
             else:
                 if id > max_id_dic[prefix]:
-                    max_id_dic[prefix] = id
+                    max_id_dic[prefix] = id'''
         
         for i, row in enumerate(self.e整合_Sheet1.iter_rows(min_row=2), start=1):
             if row[colnum_产品规格].value is not None and row[colnum_产品_长].value is None and row[colnum_产品_宽].value is None and row[colnum_产品_高].value is None:
@@ -631,13 +631,13 @@ class ExcelConver:
                 pcs_num = pcs.group(1) if pcs else None
                 row[colnum_颗粒数].value = pcs_num
             
-            # 编号A自动编号
+            '''# 编号A自动编号
             if row[colnum_编号A].value is None:
                 品牌 = row[colnum_品牌].value
                 if 品牌 not in max_id_dic:
                     max_id_dic[品牌] = 1
                 row[colnum_编号A].value = f'{品牌}_{max_id_dic[品牌]}'
-                max_id_dic[品牌] += 1
+                max_id_dic[品牌] += 1'''
             
             row[colnum_颗粒数].alignment = Alignment(horizontal='right', vertical='center')
             row[colnum_毛重净重].alignment = Alignment(horizontal='right', vertical='center')
